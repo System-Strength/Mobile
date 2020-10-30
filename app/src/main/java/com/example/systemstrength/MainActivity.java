@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         },2000);
 
+        //  Button CriarConta Press
         btncriarconta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
