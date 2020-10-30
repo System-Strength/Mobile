@@ -8,37 +8,6 @@
     android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
-    <!--ProgressBar-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintprogressbar"
-        android:layout_width="match_parent"
-        android:background="#000"
-        android:visibility="gone"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ProgressBar
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:indeterminateDrawable="@drawable/cpb_1"
-                android:indeterminateDuration="@android:integer/config_longAnimTime"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <!--Icone System e Menu de Login-->
     <RelativeLayout
         android:id="@+id/relativeimgsystem"

@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     Handler apareceropcoes = new Handler ();
     Handler tempodeloading = new Handler ();
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
-    ConstraintLayout constraintprogressbar;
     Button btncriarconta;
 
     @Override
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         relativeprincipallogin = (RelativeLayout)findViewById(R.id.relativeprincipallogin);
         relativeinferiorlogin = (RelativeLayout)findViewById(R.id.relativeinferiorlogin);
         relativeimgsystem = (RelativeLayout)findViewById(R.id.relativeimgsystem);
-        constraintprogressbar = (ConstraintLayout) findViewById(R.id.constraintprogressbar);
         btncriarconta = (Button) findViewById(R.id.btncriarconta);
 
         //This is delay for timeout
@@ -42,28 +40,21 @@ public class MainActivity extends AppCompatActivity {
         btncriarconta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                habilitarprogress();
+                irparaloading();
                 tempodeloading.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Intent irparacriarconta = new Intent(MainActivity.this,CriarContaActivity.class);
-                        finish();
                         startActivity(irparacriarconta);
                     }
-                },1500);
+                },800);
             }
         });
 
     }
 
-    private void escondertodatela(){
-        relativeprincipallogin.setVisibility(View.GONE);
-        relativeinferiorlogin.setVisibility(View.GONE);
-        relativeimgsystem.setVisibility(View.GONE);
-    }
-
-    private void habilitarprogress(){
-        escondertodatela();
-        constraintprogressbar.setVisibility(View.VISIBLE);
+    private void irparaloading(){
+        Intent irparaloading = new Intent(MainActivity.this,LoadingActivity.class);
+        startActivity(irparaloading);
     }
 }
