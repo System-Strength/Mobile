@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 public class LoadingActivity extends AppCompatActivity {
 
     @Override
@@ -25,3 +31,9 @@ public class LoadingActivity extends AppCompatActivity {
         Toast.makeText(this, "Aguarde até o loading estiver completo", Toast.LENGTH_SHORT).show();
     }
 }
+
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/

@@ -4,6 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 public class CriarContaActivity extends AppCompatActivity {
 
     @Override
@@ -12,3 +18,9 @@ public class CriarContaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_criarconta);
     }
 }
+
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/

@@ -32,7 +32,7 @@
         <!--Cantos para realizar o Login-->
         <RelativeLayout
             android:id="@+id/relativeprincipallogin"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_below="@+id/imgView"
             android:layout_width="wrap_content"
             android:layout_marginBottom="80dp"

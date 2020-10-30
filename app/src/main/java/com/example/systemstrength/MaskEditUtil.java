@@ -3,6 +3,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 abstract class MaskEditUtil {
 
     public static final String FORMAT_CPF = "###.###.###-##";
@@ -64,3 +70,9 @@ abstract class MaskEditUtil {
         return s.replaceAll("[.]", "").replaceAll("[-]", "").replaceAll("[/]", "").replaceAll("[(]", "").replaceAll("[ ]","").replaceAll("[:]", "").replaceAll("[)]", "");
     }
 }
+
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/

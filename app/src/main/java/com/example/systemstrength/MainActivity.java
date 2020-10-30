@@ -18,6 +18,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 public class MainActivity extends AppCompatActivity {
     //  Handler More used
     Handler apareceropcoes = new Handler ();
@@ -159,3 +165,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(irparaloading);
     }
 }
+
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
