@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">System Strength</string>
+    <!--Tela de Splash-->
+    <string name="descnamesystem">System Strength</string>
 </resources>
