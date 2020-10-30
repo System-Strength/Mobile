@@ -16,15 +16,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //  Handler More used
     Handler apareceropcoes = new Handler ();
     Handler tempodeloading = new Handler ();
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
-    Button btncriarconta, btnesqueciasenha;
+    Button btncriarconta, btnesqueciasenha, btnlogaragora;
     ImageView imgolhoopenpassword, imgolhoclosepassword;
-    EditText edittextsenha;
+    EditText edittextsenha, edittextusuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
         relativeinferiorlogin = (RelativeLayout)findViewById(R.id.relativeinferiorlogin);
         relativeimgsystem = (RelativeLayout)findViewById(R.id.relativeimgsystem);
         btncriarconta = (Button) findViewById(R.id.btncriarconta);
+        btnlogaragora = (Button) findViewById(R.id.btnlogaragora);
         btnesqueciasenha = (Button) findViewById(R.id.btnesqueciasenha);
         imgolhoopenpassword = (ImageView) findViewById(R.id.imgolhoopenpassword);
         imgolhoclosepassword = (ImageView) findViewById(R.id.imgolhoclosepassword);
         edittextsenha = (EditText) findViewById(R.id.edittextsenha);
+        edittextusuario = (EditText) findViewById(R.id.edittextusuario);
 
         //  when starting an activity the ImageView will be GONE
         imgolhoclosepassword.setVisibility(View.GONE);
@@ -128,6 +131,24 @@ public class MainActivity extends AppCompatActivity {
                     imgolhoclosepassword.setVisibility(View.VISIBLE);
                 }
 
+            }
+        });
+
+        //  Clicking on the Logar Agora now will execute a series of defined commands
+        btnlogaragora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (edittextusuario.getText() == null || edittextusuario.getText().length() < 5){
+                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Usuario\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
+                    edittextusuario.requestFocus();
+                }
+                else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 5){
+                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
+                    edittextsenha.requestFocus();
+                }
+                else {
+                    //  Command will be defined when finalizing the 3 login screens
+                }
             }
         });
 
