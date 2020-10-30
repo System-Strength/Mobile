@@ -1,25 +1,69 @@
 package com.example.systemstrength;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private static int TIME_SPLASH = 1500;
+    //  Handler More used
+    Handler apareceropcoes = new Handler ();
+    Handler tempodeloading = new Handler ();
+    RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
+    ConstraintLayout constraintprogressbar;
+    Button btncriarconta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Handler().postDelayed(new Runnable() {
+        // Ids
+        relativeprincipallogin = (RelativeLayout)findViewById(R.id.relativeprincipallogin);
+        relativeinferiorlogin = (RelativeLayout)findViewById(R.id.relativeinferiorlogin);
+        relativeimgsystem = (RelativeLayout)findViewById(R.id.relativeimgsystem);
+        constraintprogressbar = (ConstraintLayout) findViewById(R.id.constraintprogressbar);
+        btncriarconta = (Button) findViewById(R.id.btncriarconta);
+
+        //This is delay for timeout
+        apareceropcoes.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent irparateladelogin = new Intent(MainActivity.this,LoginActivity.class);
-                finish();
-                startActivity(irparateladelogin);
+                //My two Relative Layouts
+                relativeprincipallogin.setVisibility(View.VISIBLE);
+                relativeinferiorlogin.setVisibility(View.VISIBLE);
             }
-        },TIME_SPLASH);
+        },2000);
+
+        btncriarconta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                habilitarprogress();
+                tempodeloading.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent irparacriarconta = new Intent(MainActivity.this,CriarContaActivity.class);
+                        finish();
+                        startActivity(irparacriarconta);
+                    }
+                },1500);
+            }
+        });
+
+    }
+
+    private void escondertodatela(){
+        relativeprincipallogin.setVisibility(View.GONE);
+        relativeinferiorlogin.setVisibility(View.GONE);
+        relativeimgsystem.setVisibility(View.GONE);
+    }
+
+    private void habilitarprogress(){
+        escondertodatela();
+        constraintprogressbar.setVisibility(View.VISIBLE);
     }
 }

@@ -1,21 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="190dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="32dp"
-        android:src="@drawable/logosystemstrengthsemfundo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/descnamesystem"/>
+    <!--ProgressBar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintprogressbar"
+        android:layout_width="match_parent"
+        android:background="#000"
+        android:visibility="gone"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminateDrawable="@drawable/cpb_1"
+                android:indeterminateDuration="@android:integer/config_longAnimTime"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Icone System e Menu de Login-->
+    <RelativeLayout
+        android:id="@+id/relativeimgsystem"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="10dp"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <!--Imagem System-->
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="550dp"
+            android:adjustViewBounds="true"
+            android:layout_height="150dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/descnamesystem"
+            android:background="@drawable/logosystemstrengthsemfundo" />
+
+
+        <!--Cantos para realizar o Login-->
+        <RelativeLayout
+            android:id="@+id/relativeprincipallogin"
+            android:visibility="gone"
+            android:layout_below="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/login"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"/>
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_below="@+id/tvlogin"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/usuario"
+                        android:textAllCaps="true"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="sans-serif-light"/>
+
+                    <EditText
+                        android:id="@+id/edittextusuario"
+                        android:background="@drawable/outline"
+                        android:layout_width="match_parent"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="40dp"
+                        android:textColor="#FFFFFF"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="#85FFFFFF"
+                        android:hint="@string/hintusuario"
+                        android:paddingRight="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/senha"
+                        android:textAllCaps="true"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="sans-serif-light"/>
+
+                    <EditText
+                        android:id="@+id/edittextsenha"
+                        android:background="@drawable/outline"
+                        android:layout_width="match_parent"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="40dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#85FFFFFF"
+                        android:hint="@string/hintsenha"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnlogaragora"
+                android:background="@drawable/outlinebutton"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/logaragora"
+                android:textSize="15sp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:layout_below="@id/linear1"/>
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--Campos Btns Esquecia a senha e não tenho conta-->
+    <RelativeLayout
+        android:id="@+id/relativeinferiorlogin"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btncriarconta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:textColor="#ffffff"
+            android:text="@string/criarconta"
+            android:fontFamily="sans-serif-medium"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#00000000"
+            android:textColor="#ffffff"
+            android:text="@string/esqueciasenha"
+            android:fontFamily="sans-serif-medium"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

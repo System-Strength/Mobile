@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">System Strength</string>
-    <!--Tela de Splash-->
+    <!--Tela de Login-->
     <string name="descnamesystem">System Strength</string>
+    <string name="login">Login</string>
+    <string name="usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="logaragora">LOGAR AGORA</string>
+    <string name="criarconta">Criar Conta</string>
+    <string name="esqueciasenha">Esqueci a Senha</string>
+    <string name="hintusuario">Insira aqui seu nome de usuario</string>
+    <string name="hintsenha">Insira aqui sua senha</string>
 </resources>
