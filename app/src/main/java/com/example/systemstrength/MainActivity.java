@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 tempodeloading.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenha.class);
+                        Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenhaActivity.class);
                         startActivity(irparaesqueciasenha);
                     }
                 },700);
