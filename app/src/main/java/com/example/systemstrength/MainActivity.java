@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Handler apareceropcoes = new Handler ();
     Handler tempodeloading = new Handler ();
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
-    Button btncriarconta;
+    Button btncriarconta, btnesqueciasenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         relativeinferiorlogin = (RelativeLayout)findViewById(R.id.relativeinferiorlogin);
         relativeimgsystem = (RelativeLayout)findViewById(R.id.relativeimgsystem);
         btncriarconta = (Button) findViewById(R.id.btncriarconta);
+        btnesqueciasenha = (Button) findViewById(R.id.btnesqueciasenha);
 
         //This is delay for timeout
         apareceropcoes.postDelayed(new Runnable() {
@@ -49,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(irparacriarconta);
                     }
                 },800);
+            }
+        });
+
+        //  Butoon Esqueci a Senha Press
+        btnesqueciasenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irparaloading();
+                tempodeloading.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenha.class);
+                        startActivity(irparaesqueciasenha);
+                    }
+                },700);
             }
         });
 
