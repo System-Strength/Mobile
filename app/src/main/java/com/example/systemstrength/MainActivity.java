@@ -1,9 +1,16 @@
 package com.example.systemstrength;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -48,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         imgolhoclosepassword = (ImageView) findViewById(R.id.imgolhoclosepassword);
         edittextsenha = (EditText) findViewById(R.id.edittextsenha);
         edittextusuario = (EditText) findViewById(R.id.edittextusuario);
+
+        verificarnet();
 
         //  when starting an activity the ImageView will be GONE
         imgolhoclosepassword.setVisibility(View.GONE);
@@ -158,6 +167,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void verificarnet(){
+        ConnectivityManager cn = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cn.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()){
+            btncriarconta.setEnabled(true);
+            btnesqueciasenha.setEnabled(true);
+            btnlogaragora.setEnabled(true);
+        }
+        else{
+            btncriarconta.setEnabled(false);
+            btnesqueciasenha.setEnabled(false);
+            btnlogaragora.setEnabled(false);
+            btnlogaragora.setTextColor(Color.RED);
+            btnesqueciasenha.setTextColor(Color.RED);
+            btncriarconta.setTextColor(Color.RED);
+            AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
+            aviso.setTitle("Opss.. :(");
+            aviso.setIcon(R.mipmap.ic_launcher_system);
+            aviso.setMessage("Você está sem conexão a internet\nNão será possivel acesar sua conta ou mesmo criar um!");
+            aviso.setPositiveButton("OK", null);
+            aviso.show();
+        }
     }
 
     private void irparaloading(){
