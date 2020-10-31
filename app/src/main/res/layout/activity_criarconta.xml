@@ -8,7 +8,7 @@
     android:background="@drawable/gradientcreateaccount"
     tools:context=".CriarContaActivity">
 
-    <!--Head-->
+    <!--Header-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
@@ -145,7 +145,7 @@
                         android:drawableTint="@color/white"
                         app:layout_constraintTop_toBottomOf="@+id/txttelefonecadastro"/>
 
-                    <!--TextView Phone-->
+                    <!--TextView Senha-->
                     <TextView
                         android:id="@+id/txtsenhacadastro"
                         android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
 
-                    <!--EditText Phone Need Insert drawableStart-->
+                    <!--EditText Senha Need Insert drawableStart-->
                     <EditText
                         android:id="@+id/edittextsenhacadastro"
                         android:layout_width="match_parent"

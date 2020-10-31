@@ -18,9 +18,9 @@
     <string name="hinteditemail"> Insira seu email</string>
     <string name="hinteditphone"> Insira um numero celular</string>
     <string name="hinteditsenha"> Insira uma senha</string>
-    <string name="usuariocadastro">Usuário *</string>
-    <string name="email">Email *</string>
-    <string name="telefone">Telefone *</string>
-    <string name="senhacadastro">Senha *</string>
+    <string name="usuariocadastro">Usuário*</string>
+    <string name="email">Email*</string>
+    <string name="telefone">Telefone*</string>
+    <string name="senhacadastro">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
 </resources>
