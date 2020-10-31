@@ -1,6 +1,7 @@
 package com.example.systemstrength;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,6 +25,7 @@ public class CriarContaActivity extends AppCompatActivity {
     Button btnvoltaraologin;
     EditText edittextusuariocadastro, edittextemailcadastro, edittexttelefonecadastro, edittextsenhacadastro;
     TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro;
+    CardView cardviewbtnprevisualizarcracha, cardviewbtncadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,14 @@ public class CriarContaActivity extends AppCompatActivity {
         txtemailcadastro = findViewById(R.id.txtemailcadastro);
         txttelefonecadastro = findViewById(R.id.txttelefonecadastro);
         txtsenhacadastro = findViewById(R.id.txtsenhacadastro);
+        cardviewbtnprevisualizarcracha = findViewById(R.id.cardviewbtnprevisualizarcracha);
+        cardviewbtncadastrar = findViewById(R.id.cardviewbtncadastrar);
+
+        //  Defining the mask to edittexttelefonecadastro
+        edittexttelefonecadastro.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecadastro, MaskEditUtil.FORMAT_FONE));
+
+        //  Defining cardviewprevisualizar how GONE
+        cardviewbtnprevisualizarcracha.setVisibility(View.GONE);
 
         //  By clicking on the login button to execute a sequence of configured commands
         btnvoltaraologin.setOnClickListener(new View.OnClickListener() {
@@ -79,9 +89,11 @@ public class CriarContaActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (edittextusuariocadastro.getText().length() != 0){
                     txtusuario.setText("Usuário");
+                    habilitarprevisualizacao();
                 }
                 if (edittextusuariocadastro.getText().length() == 0){
                     txtusuario.setText(R.string.usuariocadastro);
+                    habilitarprevisualizacao();
                 }
             }
         });
@@ -102,9 +114,11 @@ public class CriarContaActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (edittextemailcadastro.getText().length() != 0){
                     txtemailcadastro.setText("Email");
+                    habilitarprevisualizacao();
                 }
                 if (edittextusuariocadastro.getText().length() == 0){
                     txtemailcadastro.setText(R.string.email);
+                    habilitarprevisualizacao();
                 }
             }
         });
@@ -125,9 +139,11 @@ public class CriarContaActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (edittexttelefonecadastro.getText().length() != 0){
                     txttelefonecadastro.setText("Telefone");
+                    habilitarprevisualizacao();
                 }
                 if (edittexttelefonecadastro.getText().length() == 0){
                     txttelefonecadastro.setText(R.string.telefone);
+                    habilitarprevisualizacao();
                 }
             }
         });
@@ -148,12 +164,24 @@ public class CriarContaActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (edittextsenhacadastro.getText().length() != 0){
                     txtsenhacadastro.setText("Senha");
+                    habilitarprevisualizacao();
                 }
                 if (edittextsenhacadastro.getText().length() == 0){
                     txtsenhacadastro.setText(R.string.senhacadastro);
+                    habilitarprevisualizacao();
                 }
             }
         });
+    }
+
+    //  Method responsible for checking the number of digits in the edits and executing the defined command
+    private void habilitarprevisualizacao(){
+        if(edittextusuariocadastro.getText().length() >= 5 && edittextemailcadastro.getText().length() >= 8 && edittexttelefonecadastro.getText().length() == 15 && edittextsenhacadastro.getText().length() >= 8){
+            cardviewbtnprevisualizarcracha.setVisibility(View.VISIBLE);
+        }
+        else {
+            cardviewbtnprevisualizarcracha.setVisibility(View.GONE);
+        }
     }
 }
 
