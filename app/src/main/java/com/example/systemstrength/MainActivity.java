@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent irparacriarconta = new Intent(MainActivity.this,CriarContaActivity.class);
                         startActivity(irparacriarconta);
                     }
-                },800);
+                },400);
             }
         });
 
