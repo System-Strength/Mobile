@@ -23,4 +23,11 @@
     <string name="telefone">Telefone*</string>
     <string name="senhacadastro">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
+
+    <!--Screen Forget my Password-->
+    <string name="naosepreoocupe">Não se preocupe podemos alterar ela para você</string>
+    <string name="eita">Eitaa..</string>
+    <string name="eserio">É serio que você esquecou sua senha?</string>
+    <string name="avisoprotocolo">De acordo com o protocolo de segurança, sua senha apenas podera ser aletrada por um funcionario da System Strength</string>
+    <string name="entraremcontato">Você pode ir até nosssa central ou pode entrar em contato com nosso suporte</string>
 </resources>
