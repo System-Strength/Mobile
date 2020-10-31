@@ -1,13 +1,26 @@
 <resources>
     <string name="app_name">System Strength</string>
-    <!--Tela de Login-->
+    <!--Screen Login-->
     <string name="descnamesystem">System Strength</string>
     <string name="login">Login</string>
-    <string name="usuario">Usuario</string>
+    <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
     <string name="logaragora">LOGAR AGORA</string>
     <string name="criarconta">Criar Conta</string>
     <string name="esqueciasenha">Esqueci a Senha</string>
     <string name="hintusuario">Insira aqui seu nome de usuario</string>
     <string name="hintsenha">Insira aqui sua senha</string>
+
+    <!--Screen Create Account-->
+    <string name="ola">Olá,</string>
+    <string name="criesuaconta">Crie sua conta para entrar</string>
+    <string name="hinteditusuario"> Insira o nome de usuario</string>
+    <string name="hinteditemail"> Insira seu email</string>
+    <string name="hinteditphone"> Insira um numero celular</string>
+    <string name="hinteditsenha"> Insira uma senha</string>
+    <string name="usuariocadastro">Usuário *</string>
+    <string name="email">Email *</string>
+    <string name="telefone">Telefone *</string>
+    <string name="senhacadastro">Senha *</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

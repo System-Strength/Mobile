@@ -1,9 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientcreateaccount"
     tools:context=".CriarContaActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Head-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Button back to login-->
+            <Button
+                android:id="@+id/btnvoltaraologin"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="32dp"
+                android:drawableTint="@color/white"
+                android:background="@drawable/outlinebuttoncreateaccount"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:backgroundTint="#fff"
+                android:backgroundTintMode="add"
+                android:text="@string/login"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <!--Body-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="55dp"
+        android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtola"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/ola"
+                        android:textColor="#fff"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtcriesuaconta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/criesuaconta"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtola" />
+
+                    <!--TextView Usuario-->
+                    <TextView
+                        android:id="@+id/txtusuario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/usuariocadastro"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtcriesuaconta"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <!--EditText Usuario Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextusuariocadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:hint="@string/hinteditusuario"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txtusuario"/>
+
+                    <!--TextView Email-->
+                    <TextView
+                        android:id="@+id/txtemailcadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextusuariocadastro" />
+
+                    <!--EditText Email Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextemailcadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/hinteditemail"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txtemailcadastro"/>
+
+                    <!--TextView Phone-->
+                    <TextView
+                        android:id="@+id/txttelefonecadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/telefone"
+                        android:textColor="#99FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextemailcadastro" />
+
+                    <!--EditText Phone Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittexttelefonecadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:inputType="phone"
+                        android:hint="@string/hinteditphone"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txttelefonecadastro"/>
+
+                    <!--TextView Phone-->
+                    <TextView
+                        android:id="@+id/txtsenhacadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/senhacadastro"
+                        android:textColor="#99FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
+
+                    <!--EditText Phone Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextsenhacadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:inputType="textPassword"
+                        android:hint="@string/hinteditsenha"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"/>
+
+                    <!--Contender Btn Cadastrar-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextsenhacadastro"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btncadastrar"
+                                android:layout_width="122dp"
+                                android:layout_height="42dp"
+                                app:cardCornerRadius="20dp"
+                                app:cardBackgroundColor="#fff"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="120dp"
+                                        android:layout_height="40dp"
+                                        app:cardBackgroundColor="#D13B00"
+                                        app:cardCornerRadius="20dp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/cadastrar"
+                                                android:textColor="#fff"
+                                                android:textSize="20sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
