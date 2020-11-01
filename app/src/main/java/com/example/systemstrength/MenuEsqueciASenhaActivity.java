@@ -36,6 +36,7 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
         progressminiloadingprotocolo.setVisibility(View.VISIBLE);
         txtcontatoprotoculo.setVisibility(View.GONE);
         txtprotocolo.setVisibility(View.GONE);
+        cardviewbtncontatorecuperarsenha.setVisibility(View.GONE);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -43,6 +44,7 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
                 progressminiloadingprotocolo.setVisibility(View.GONE);
                 txtcontatoprotoculo.setVisibility(View.VISIBLE);
                 txtprotocolo.setVisibility(View.VISIBLE);
+                cardviewbtncontatorecuperarsenha.setVisibility(View.VISIBLE);
             }
         },2000);
 
