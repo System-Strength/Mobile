@@ -24,6 +24,8 @@
     <string name="senhacadastro">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
 
+    <string name="avisosenha">*A senha precisa ter pelo menos minimo 8 caracteres</string>
+
     <!--Screen Forget my Password-->
     <string name="naosepreoocupe">Não se preocupe podemos alterar ela para você</string>
     <string name="eita">Eitaa..</string>

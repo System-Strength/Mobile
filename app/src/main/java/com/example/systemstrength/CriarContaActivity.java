@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +26,9 @@ public class CriarContaActivity extends AppCompatActivity {
     
     Button btnvoltaraologin;
     EditText edittextusuariocadastro, edittextemailcadastro, edittexttelefonecadastro, edittextsenhacadastro;
-    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro;
+    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha;
     CardView cardviewbtncadastrar;
+    ImageView imgsenharigth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class CriarContaActivity extends AppCompatActivity {
         txttelefonecadastro = findViewById(R.id.txttelefonecadastro);
         txtsenhacadastro = findViewById(R.id.txtsenhacadastro);
         cardviewbtncadastrar = findViewById(R.id.cardviewbtncadastrar);
+        imgsenharigth = findViewById(R.id.imgsenharigth);
+        txtavisosenha = findViewById(R.id.txtavisosenha);
+
+        imgsenharigth.setVisibility(View.GONE);
+        txtavisosenha.setVisibility(View.GONE);
 
         //  Defining the mask to edittexttelefonecadastro
         edittexttelefonecadastro.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecadastro, MaskEditUtil.FORMAT_FONE));
@@ -158,6 +165,14 @@ public class CriarContaActivity extends AppCompatActivity {
                 }
                 if (edittextsenhacadastro.getText().length() == 0){
                     txtsenhacadastro.setText(R.string.senhacadastro);
+                    txtavisosenha.setVisibility(View.GONE);
+                }
+                if (edittextsenhacadastro.getText().length() >= 8){
+                    imgsenharigth.setVisibility(View.VISIBLE);
+                    txtavisosenha.setVisibility(View.GONE);
+                }else{
+                    imgsenharigth.setVisibility(View.GONE);
+                    txtavisosenha.setVisibility(View.VISIBLE);
                 }
             }
         });

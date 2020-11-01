@@ -156,6 +156,30 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
 
+                    <!--Img Right senha-->
+                    <ImageView
+                        android:id="@+id/imgsenharigth"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/iconechecked"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro" />
+
+                    <!--Alert character's password-->
+                    <TextView
+                        android:id="@+id/txtavisosenha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/avisosenha"
+                        android:textSize="10.2sp"
+                        android:textColor="#ff0000"
+                        app:layout_constraintBottom_toTopOf="@+id/edittextsenhacadastro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txtsenhacadastro"
+                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
+
                     <!--EditText Senha Need Insert drawableStart-->
                     <EditText
                         android:id="@+id/edittextsenhacadastro"
