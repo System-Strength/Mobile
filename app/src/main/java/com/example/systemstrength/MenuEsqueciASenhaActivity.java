@@ -32,7 +32,7 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
         cardviewbtncontatorecuperarsenha = findViewById(R.id.cardviewbtncontatorecuperarsenha);
 
 
-        //  Whem screen open will set that 3 itens Visible and Gone
+        //  When screen open will set that 3 items Visible and Gone
         progressminiloadingprotocolo.setVisibility(View.VISIBLE);
         txtcontatoprotoculo.setVisibility(View.GONE);
         txtprotocolo.setVisibility(View.GONE);
