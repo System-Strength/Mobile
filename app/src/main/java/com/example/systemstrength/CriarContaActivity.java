@@ -26,7 +26,7 @@ public class CriarContaActivity extends AppCompatActivity {
     
     Button btnvoltaraologin;
     EditText edittextusuariocadastro, edittextemailcadastro, edittexttelefonecadastro, edittextsenhacadastro;
-    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha;
+    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha, txtavisousuario;
     CardView cardviewbtncadastrar;
     ImageView imgsenharigth;
 
@@ -46,9 +46,11 @@ public class CriarContaActivity extends AppCompatActivity {
         cardviewbtncadastrar = findViewById(R.id.cardviewbtncadastrar);
         imgsenharigth = findViewById(R.id.imgsenharigth);
         txtavisosenha = findViewById(R.id.txtavisosenha);
+        txtavisousuario = findViewById(R.id.txtavisousuario);
 
         imgsenharigth.setVisibility(View.GONE);
         txtavisosenha.setVisibility(View.GONE);
+        txtavisousuario.setVisibility(View.GONE);
 
         //  Defining the mask to edittexttelefonecadastro
         edittexttelefonecadastro.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecadastro, MaskEditUtil.FORMAT_FONE));
@@ -95,7 +97,13 @@ public class CriarContaActivity extends AppCompatActivity {
                     txtusuario.setText("Usuário");
                 }
                 if (edittextusuariocadastro.getText().length() == 0){
+                    txtavisousuario.setVisibility(View.GONE);
                     txtusuario.setText(R.string.usuariocadastro);
+                }
+                if (edittextusuariocadastro.getText().length() >= 8){
+                    txtavisousuario.setVisibility(View.GONE);
+                }else{
+                    txtavisousuario.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -173,6 +181,27 @@ public class CriarContaActivity extends AppCompatActivity {
                 }else{
                     imgsenharigth.setVisibility(View.GONE);
                     txtavisosenha.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        cardviewbtncadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
+                    Toast.makeText(CriarContaActivity.this, "O campo usuario não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                }
+                else if(edittextemailcadastro.getText().length() == 0 || edittextemailcadastro.getText().length() < 5){
+                    Toast.makeText(CriarContaActivity.this, "O campo email não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                }
+                else if(edittexttelefonecadastro.getText().length() == 0 || edittexttelefonecadastro.getText().length() < 15){
+                    Toast.makeText(CriarContaActivity.this, "O campo telefone não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                }
+                else if(edittextsenhacadastro.getText().length() == 0 || edittextsenhacadastro.getText().length() < 8){
+                    Toast.makeText(CriarContaActivity.this, "O campo senha não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                }
+                else{
+
                 }
             }
         });
