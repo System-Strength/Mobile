@@ -46,7 +46,7 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
                 txtprotocolo.setVisibility(View.VISIBLE);
                 cardviewbtncontatorecuperarsenha.setVisibility(View.VISIBLE);
             }
-        },2000);
+        },900);
 
         cardviewbtncontatorecuperarsenha.setOnClickListener(new View.OnClickListener() {
             @Override
