@@ -157,8 +157,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Usuario\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
                     edittextusuario.requestFocus();
                 }
-                else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 5){
-                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
+                else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 8){
+                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 8", Toast.LENGTH_SHORT).show();
                     edittextsenha.requestFocus();
                 }
                 else {
