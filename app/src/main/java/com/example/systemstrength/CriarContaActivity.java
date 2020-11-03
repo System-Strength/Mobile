@@ -7,12 +7,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +28,10 @@ public class CriarContaActivity extends AppCompatActivity {
     
     Button btnvoltaraologin;
     EditText edittextusuariocadastro, edittextemailcadastro, edittexttelefonecadastro, edittextsenhacadastro;
-    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha, txtavisousuario;
+    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha, txtavisousuario, txtbtncadastrar;
     CardView cardviewbtncadastrar;
     ImageView imgsenharigth;
+    ProgressBar progressloadingcriandoconta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +50,13 @@ public class CriarContaActivity extends AppCompatActivity {
         imgsenharigth = findViewById(R.id.imgsenharigth);
         txtavisosenha = findViewById(R.id.txtavisosenha);
         txtavisousuario = findViewById(R.id.txtavisousuario);
+        progressloadingcriandoconta = findViewById(R.id.progressloadingcriandoconta);
+        txtbtncadastrar = findViewById(R.id.txtbtncadastrar);
 
         imgsenharigth.setVisibility(View.GONE);
         txtavisosenha.setVisibility(View.GONE);
         txtavisousuario.setVisibility(View.GONE);
+        progressloadingcriandoconta.setVisibility(View.GONE);
 
         //  Defining the mask to edittexttelefonecadastro
         edittexttelefonecadastro.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecadastro, MaskEditUtil.FORMAT_FONE));
@@ -188,6 +194,14 @@ public class CriarContaActivity extends AppCompatActivity {
         cardviewbtncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DtoLogins dtoLogins = new DtoLogins();
+                dtoLogins.setNomeusu(edittextusuariocadastro.getText().toString());
+                dtoLogins.setEmailusu(edittextemailcadastro.getText().toString());
+                dtoLogins.setEmailusu(edittexttelefonecadastro.getText().toString());
+                dtoLogins.setSenhausu(edittextsenhacadastro.getText().toString());
+
+                DaoLogins daoLogins = new DaoLogins(CriarContaActivity.this);
+
                 if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
                     Toast.makeText(CriarContaActivity.this, "O campo usuario não está preenchido corretamente", Toast.LENGTH_SHORT).show();
                     edittextusuariocadastro.requestFocus();
@@ -205,10 +219,41 @@ public class CriarContaActivity extends AppCompatActivity {
                     edittextsenhacadastro.requestFocus();
                 }
                 else{
-
+                    loadingcadastrando();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                long linhasInseridas = daoLogins.cadastrar(dtoLogins);
+                                if(linhasInseridas > 0){
+                                    Toast.makeText(CriarContaActivity.this, "Conta criada com sucesso!\nSeja bem-vindo! ", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                                else{
+                                    Intent irparateladeerro = new Intent(CriarContaActivity.this, AvisoErroActivity.class);
+                                    finish();
+                                    startActivity(irparateladeerro);
+                                }
+                            }
+                            catch (Exception ex){
+                                Toast.makeText(CriarContaActivity.this, "Erro ao inserir:" + ex.toString(), Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                        }
+                    },1000);
                 }
             }
         });
+    }
+    private void loadingcadastrando(){
+        progressloadingcriandoconta.setVisibility(View.VISIBLE);
+        txtbtncadastrar.setVisibility(View.GONE);
+        edittextusuariocadastro.setEnabled(false);
+        edittextemailcadastro.setEnabled(false);
+        edittexttelefonecadastro.setEnabled(false);
+        edittextsenhacadastro.setEnabled(false);
+        cardviewbtncadastrar.setEnabled(false);
+
     }
 }
 
