@@ -32,4 +32,10 @@
     <string name="eserio">É serio que você esquecou sua senha?</string>
     <string name="avisoprotocolo">De acordo com o protocolo de segurança, sua senha apenas podera ser aletrada por um funcionario da System Strength</string>
     <string name="entraremcontato">Você pode ir até nosssa central ou pode entrar em contato com nosso suporte</string>
+
+    <!--Tela Aviso Erro-->
+    <string name="ops">Opss.. :(</string>
+    <string name="naofoipossivelfazerseucadastro">Não foi possivel realizar o seu cadastro</string>
+
+
 </resources>

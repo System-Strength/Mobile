@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SystemStrength">
+        <activity android:name=".AvisoErroActivity"></activity>
         <activity android:name=".MenuEsqueciASenhaActivity" />
         <activity android:name=".LoadingActivity" />
         <activity android:name=".CriarContaActivity" />
