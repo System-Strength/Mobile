@@ -190,15 +190,19 @@ public class CriarContaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
                     Toast.makeText(CriarContaActivity.this, "O campo usuario não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                    edittextusuariocadastro.requestFocus();
                 }
                 else if(edittextemailcadastro.getText().length() == 0 || edittextemailcadastro.getText().length() < 5){
                     Toast.makeText(CriarContaActivity.this, "O campo email não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                    edittextemailcadastro.requestFocus();
                 }
                 else if(edittexttelefonecadastro.getText().length() == 0 || edittexttelefonecadastro.getText().length() < 15){
                     Toast.makeText(CriarContaActivity.this, "O campo telefone não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                    edittexttelefonecadastro.requestFocus();
                 }
                 else if(edittextsenhacadastro.getText().length() == 0 || edittextsenhacadastro.getText().length() < 8){
                     Toast.makeText(CriarContaActivity.this, "O campo senha não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+                    edittextsenhacadastro.requestFocus();
                 }
                 else{
 
