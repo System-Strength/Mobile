@@ -1,6 +1,6 @@
 ## System Strength
 
-&nbsp Official app of System Strength<br/>
+Official app of System Strength<br/>
 
 - System Strength was created for a learning project during my system development course.
 - System Strength was founded in 2020 in São Paulo (SP), Brazil.
