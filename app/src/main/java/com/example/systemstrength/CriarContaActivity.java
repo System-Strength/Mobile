@@ -202,10 +202,7 @@ public class CriarContaActivity extends AppCompatActivity {
 
                 DaoLogins daoLogins = new DaoLogins(CriarContaActivity.this);
 
-                Intent irparateladeerro = new Intent(CriarContaActivity.this, AvisoErroActivity.class);
-                startActivity(irparateladeerro);
-
-                /*if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
+                if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
                     Toast.makeText(CriarContaActivity.this, "O campo usuario não está preenchido corretamente", Toast.LENGTH_SHORT).show();
                     edittextusuariocadastro.requestFocus();
                 }
@@ -244,7 +241,7 @@ public class CriarContaActivity extends AppCompatActivity {
                             }
                         }
                     },1000);
-                }*/
+                }
             }
         });
     }
