@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -35,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
     //  Handler More used
     Handler apareceropcoes = new Handler ();
     Handler tempodeloading = new Handler ();
+    Handler tempoloadinglogin = new Handler ();
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
     Button btncriarconta, btnesqueciasenha, btnlogaragora;
     ImageView imgolhoopenpassword, imgolhoclosepassword;
     EditText edittextsenha, edittextusuario;
+    ProgressBar progressloadinglogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +58,13 @@ public class MainActivity extends AppCompatActivity {
         imgolhoclosepassword = (ImageView) findViewById(R.id.imgolhoclosepassword);
         edittextsenha = (EditText) findViewById(R.id.edittextsenha);
         edittextusuario = (EditText) findViewById(R.id.edittextusuario);
+        progressloadinglogin = (ProgressBar) findViewById(R.id.progressloadinglogin);
 
         verificarnet();
 
-        //  when starting an activity the ImageView will be GONE
+        //  when starting an activity the ImageView and ProgressBar will be GONE
         imgolhoclosepassword.setVisibility(View.GONE);
+        progressloadinglogin.setVisibility(View.GONE);
 
         //This is delay for timeout
         apareceropcoes.postDelayed(new Runnable() {
@@ -153,7 +158,29 @@ public class MainActivity extends AppCompatActivity {
         btnlogaragora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edittextusuario.getText() == null || edittextusuario.getText().length() < 5){
+                edittextusuario.setEnabled(false);
+                edittextsenha.setEnabled(false);
+                relativeprincipallogin.setVisibility(View.GONE);
+                relativeinferiorlogin.setVisibility(View.GONE);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressloadinglogin.setVisibility(View.VISIBLE);
+                    }
+                },150);
+                tempoloadinglogin.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent irparaprincipal = new Intent(MainActivity.this,PrincipalActivity.class);
+                        finish();
+                        startActivity(irparaprincipal);
+                    }
+                },500);
+
+
+                //  Command disabled for build new activity, when Principalactivity is finish that's command will be build
+
+                /*if (edittextusuario.getText() == null || edittextusuario.getText().length() < 5){
                     Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Usuario\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
                     edittextusuario.requestFocus();
                 }
@@ -163,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     //  Command will be defined when finalizing the 3 login screens
-                }
+                }*/
             }
         });
 
