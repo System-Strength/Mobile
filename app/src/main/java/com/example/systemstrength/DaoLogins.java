@@ -7,6 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 public class DaoLogins extends SQLiteOpenHelper {
     private final String TABELA = "TB_LOGIN";
 
@@ -15,6 +21,7 @@ public class DaoLogins extends SQLiteOpenHelper {
     }
 
 
+    //  Create Data Base for Login'sActivity
     @Override
     public void onCreate(SQLiteDatabase db) {
         String comando = "CREATE TABLE " + TABELA + "(" +
@@ -32,6 +39,7 @@ public class DaoLogins extends SQLiteOpenHelper {
 
     }
 
+    //  Method create new account in database
     public long cadastrar(DtoLogins usuario){
         ContentValues values = new ContentValues();
         values.put("NOMEUSU", usuario.getNomeusu());
@@ -42,8 +50,15 @@ public class DaoLogins extends SQLiteOpenHelper {
         return getWritableDatabase().insert(TABELA, null, values);
     }
 
+    //  Method login in database
     public  long logar(DtoLogins usuarios){
         return 0;
 
     }
 }
+
+/*
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ */

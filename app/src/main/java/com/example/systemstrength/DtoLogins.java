@@ -1,5 +1,11 @@
 package com.example.systemstrength;
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 public class DtoLogins {
     private int id;
     private String nomeusu, emailusu, telefoneusu, senhausu;
@@ -14,6 +20,7 @@ public class DtoLogins {
 
     public  DtoLogins(){}
 
+    //  Declaration to Getter and Setter
     public int getId() {
         return id;
     }
@@ -54,3 +61,9 @@ public class DtoLogins {
         this.senhausu = senhausu;
     }
 }
+
+/*
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ */
