@@ -8,15 +8,24 @@
     android:background="@drawable/gradientavisoerro"
     tools:context=".AvisoErroActivity">
 
+    <!--
+          Copyright (c) 2020 System Strength
+          Official repository https://github.com/System-Strength/Mobile
+          Responsible developer: https://github.com/Kauavitorio
+     -->
+
+    <!--Header-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
+        <!--Base for all inside header-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!--Button Back-->
             <LinearLayout
                 android:id="@+id/linearbtnvoltaravisoerro"
                 android:layout_width="80dp"
@@ -44,6 +53,7 @@
 
             </LinearLayout>
 
+            <!--Image System-->
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
@@ -57,10 +67,12 @@
 
     </LinearLayout>
 
+    <!--ScrollView for Small Screen-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Base for content-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -69,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--Text "Opss.."-->
                 <TextView
                     android:id="@+id/txttituloopsaviso"
                     android:layout_width="wrap_content"
@@ -81,6 +94,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!--Text "Não foi possivel realizar o seu cadastro"-->
                 <TextView
                     android:id="@+id/txtnaofoipossivelaviso"
                     android:layout_width="match_parent"
@@ -94,8 +108,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txttituloopsaviso" />
 
+                <!--Text "Não foi possivel conectar ao banco de dados..."-->
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtavisonaofoipossiveldb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -107,6 +122,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtnaofoipossivelaviso" />
 
+                <!--Line partition-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
                     android:layout_width="match_parent"
@@ -115,8 +131,9 @@
                     app:cardBackgroundColor="#fff"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtavisonaofoipossiveldb" />
 
+                <!--Text "Contate nossa equipe..."-->
                 <TextView
                     android:id="@+id/txtavisocontetenossaequipe"
                     android:layout_width="wrap_content"
@@ -129,7 +146,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-
+                <!--CardView Button Contact-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardviewbtncontatoavisoerro"
                     android:layout_width="250dp"
@@ -171,3 +188,9 @@
     </ScrollView>
 
 </LinearLayout>
+
+    <!--
+          Copyright (c) 2020 System Strength
+          Official repository https://github.com/System-Strength/Mobile
+          Responsible developer: https://github.com/Kauavitorio
+     -->
