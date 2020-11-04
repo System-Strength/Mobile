@@ -32,7 +32,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Voltar"
+                        android:text="@string/voltar"
                         android:textSize="19sp"
                         android:textColor="#B0FF0000"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +63,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Não foi possivel estabelecer conexão ao banco de dados de nossa empresa, e consequentimente não a possibilidade de geral sua nova conta"
+                    android:text="@string/naofoipossivelconectaraobanco"
                     android:textAlignment="center"
                     android:textColor="#fff"
                     android:textSize="20sp"
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Contate nossa equipe para mais informações"
+                    android:text="@string/contatenossaequipe"
                     android:textColor="#C3FFFFFF"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +151,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contato"
+                            android:text="@string/contato"
                             android:textColor="#fff"
                             android:textSize="25sp"
                             app:layout_constraintBottom_toBottomOf="parent"
