@@ -47,11 +47,13 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    tools:ignore="ScrollViewSize">
 
                     <TextView
                         android:id="@+id/txtola"
@@ -87,7 +89,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/txtusuario"
                         app:layout_constraintTop_toBottomOf="@+id/txtcriesuaconta"
-                        app:layout_constraintVertical_bias="0.90999997" />
+                        app:layout_constraintVertical_bias="0.90999997"
+                        tools:ignore="SmallSp" />
 
                     <!--TextView Usuario-->
                     <TextView
@@ -112,7 +115,8 @@
                         android:textColorHint="#fff"
                         android:hint="@string/hinteditusuario"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txtusuario"/>
+                        app:layout_constraintTop_toBottomOf="@+id/txtusuario"
+                        tools:ignore="Autofill,TextFields" />
 
                     <!--TextView Email-->
                     <TextView
@@ -135,7 +139,8 @@
                         android:inputType="textEmailAddress"
                         android:hint="@string/hinteditemail"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txtemailcadastro"/>
+                        app:layout_constraintTop_toBottomOf="@+id/txtemailcadastro"
+                        tools:ignore="Autofill" />
 
                     <!--TextView Phone-->
                     <TextView
@@ -158,7 +163,8 @@
                         android:maxLength="15"
                         android:hint="@string/hinteditphone"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txttelefonecadastro"/>
+                        app:layout_constraintTop_toBottomOf="@+id/txttelefonecadastro"
+                        tools:ignore="Autofill" />
 
                     <!--TextView Senha-->
                     <TextView
@@ -179,7 +185,8 @@
                         android:layout_marginEnd="24dp"
                         android:src="@drawable/iconechecked"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"
+                        android:contentDescription="@string/descnamesystem" />
 
                     <!--Alert character's password-->
                     <TextView
@@ -192,7 +199,8 @@
                         app:layout_constraintBottom_toTopOf="@+id/edittextsenhacadastro"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/txtsenhacadastro"
-                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
+                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro"
+                        tools:ignore="SmallSp" />
 
                     <!--EditText Senha Need Insert drawableStart-->
                     <EditText
@@ -204,7 +212,8 @@
                         android:inputType="textPassword"
                         android:hint="@string/hinteditsenha"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"/>
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"
+                        tools:ignore="Autofill" />
 
                     <!--Contender Btn Cadastrar-->
                     <LinearLayout
@@ -248,7 +257,8 @@
 
                                         <androidx.constraintlayout.widget.ConstraintLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent">
+                                            android:layout_height="match_parent"
+                                            tools:ignore="TooDeepLayout">
 
                                             <ProgressBar
                                                 android:id="@+id/progressloadingcriandoconta"

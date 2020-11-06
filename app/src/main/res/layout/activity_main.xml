@@ -81,7 +81,8 @@
                         android:paddingLeft="15dp"
                         android:textColorHint="#85FFFFFF"
                         android:hint="@string/hintusuario"
-                        android:paddingRight="15dp" />
+                        android:paddingRight="15dp"
+                        tools:ignore="Autofill,TextFields" />
 
                 </LinearLayout>
 
@@ -118,7 +119,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        tools:ignore="Autofill" />
 
                     <ImageView
                         android:id="@+id/imgolhoopenpassword"
@@ -129,7 +131,8 @@
                         android:src="@drawable/iconeeyeopenpassword"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        android:contentDescription="@string/descnamesystem" />
 
                     <ImageView
                         android:id="@+id/imgolhoclosepassword"
@@ -140,6 +143,7 @@
                         android:src="@drawable/iconeeyecolsepassword"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/descnamesystem"
                         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -192,11 +196,12 @@
             android:id="@+id/btnesqueciasenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:background="#00000000"
             android:textColor="#ffffff"
             android:text="@string/esqueciasenha"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="sans-serif-medium"
+            tools:ignore="RelativeOverlap" />
 
 
     </RelativeLayout>
