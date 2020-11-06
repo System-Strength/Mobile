@@ -18,8 +18,62 @@
     <!--Header-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
+
+        <!--Base Contender-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Section card menu Usuario-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:background="@drawable/menuusuario"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!--Base Image User-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewimgusu"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    app:cardBackgroundColor="#00000000"
+                    android:outlineProvider="none"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--Image User-->
+                    <ImageView
+                        android:id="@+id/imgavatarusu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/avatar"
+                        android:contentDescription="@string/descnamesystem" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!--Text Name User-->
+                <TextView
+                    android:id="@+id/txtnomeusu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seunome"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardviewimgusu"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
@@ -30,6 +84,12 @@
         android:orientation="vertical"
         android:layout_height="0dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
@@ -49,7 +109,7 @@
                 android:id="@+id/navbarprincipal"
                 android:layout_width="280dp"
                 android:layout_height="62dp"
-                android:background="@drawable/rounded"
+                android:background="@drawable/navbardesigner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">

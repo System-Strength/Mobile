@@ -44,5 +44,8 @@
     <string name="naofoipossivelconectaraobanco">Não foi possivel estabelecer conexão ao banco de dados de nossa empresa, e consequentimente não a possibilidade de geral sua nova conta</string>
     <string name="contatenossaequipe">Contate nossa equipe para mais informações</string>
 
+    <!--Tela Principal-->
+    <string name="seunome">Seu Nome</string>
+
 
 </resources>
