@@ -167,16 +167,16 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         progressloadinglogin.setVisibility(View.VISIBLE);
                     }
-                },150);
+                },155);
                 tempoloadinglogin.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Intent irparaprincipal = new Intent(MainActivity.this,PrincipalActivity.class);
-                        finish();
+                        irparaprincipal.putExtra("nomeusu", edittextusuario.getText().toString());
                         startActivity(irparaprincipal);
+                        finish();
                     }
-                },500);
-
+                },500);//  Change when database connect
 
                 //  Command disabled for build new activity, when Principalactivity is finish that's command will be build
 
