@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">System Strength</string>
     <string name="voltar">Voltar</string>
+    <!--Navigation Bar-->
+    <string name="home">Home</string>
+    <string name="contato">Contato</string>
+    <string name="servicos">Serviços</string>
     <!--Screen Login-->
     <string name="descnamesystem">System Strength</string>
     <string name="login">Login</string>
@@ -39,7 +43,6 @@
     <string name="naofoipossivelfazerseucadastro">Não foi possivel realizar o seu cadastro</string>
     <string name="naofoipossivelconectaraobanco">Não foi possivel estabelecer conexão ao banco de dados de nossa empresa, e consequentimente não a possibilidade de geral sua nova conta</string>
     <string name="contatenossaequipe">Contate nossa equipe para mais informações</string>
-    <string name="contato">Contato</string>
 
 
 </resources>
