@@ -9,6 +9,12 @@
     android:animateLayoutChanges="true"
     tools:context=".PrincipalActivity">
 
+    <!--
+          Copyright (c) 2020 System Strength
+          Official repository https://github.com/System-Strength/Mobile
+          Responsible developer: https://github.com/Kauavitorio
+     -->
+
     <!--Header-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,10 +39,12 @@
         android:orientation="vertical"
         android:layout_height="62dp">
 
+        <!--Base to start the navigation bar-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!--Constrant to designer-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/navbarprincipal"
                 android:layout_width="280dp"
@@ -55,10 +63,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <!--Base Contender-->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <!--Image Home-->
                         <ImageView
                             android:contentDescription="@string/descnamesystem"
                             android:id="@+id/imghome"
@@ -70,6 +80,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <!--Text Home-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -96,10 +107,12 @@
                     app:layout_constraintStart_toEndOf="@+id/linearbtnhomeprincipal"
                     app:layout_constraintTop_toTopOf="parent" >
 
+                    <!--Base Contender-->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <!--Image Contato-->
                         <ImageView
                             android:id="@+id/imgcontato"
                             android:layout_width="40dp"
@@ -111,6 +124,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             android:contentDescription="@string/descnamesystem"/>
 
+                        <!--Text Contato-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -137,10 +151,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <!--Base Contender-->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <!--Image Serviço-->
                         <ImageView
                             android:id="@+id/imgservico"
                             android:layout_width="40dp"
@@ -152,6 +168,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             android:contentDescription="@string/descnamesystem"/>
 
+                        <!--Text Serviços-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,3 +193,9 @@
     </LinearLayout>
 
 </LinearLayout>
+
+    <!--
+              Copyright (c) 2020 System Strength
+              Official repository https://github.com/System-Strength/Mobile
+              Responsible developer: https://github.com/Kauavitorio
+         -->
