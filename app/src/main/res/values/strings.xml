@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">System Strength</string>
     <string name="voltar">Voltar</string>
+    <string name="icomore">+</string>
     <!--Navigation Bar-->
     <string name="home">Home</string>
     <string name="contato">Contato</string>
@@ -46,6 +47,9 @@
 
     <!--Tela Principal-->
     <string name="seunome">Seu Nome</string>
+    <string name="software">Software</string>
+    <string name="infra">Infraestrutura</string>
+    <string name="analise">Analise</string>
 
 
 </resources>
