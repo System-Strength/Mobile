@@ -50,6 +50,29 @@
     <string name="software">Software</string>
     <string name="infra">Infraestrutura</string>
     <string name="analise">Analise</string>
+    <string name="txttituloumpoucosobre">Um pouco sobre nossa empresa</string>
+    <string name="txttitulocriadapor">Criada por:</string>
+    <string name="txtcriadores">Kauã Vitorio,\nMatheus Souza,\nPedro Henrique e\nDanilo Oliveira</string>
+    <string name="titulosprincipaisprojetos">Projetos</string>
+    <string name="nomepalacepetz">Palace Petz</string>
+
+    <!--Tela Nossa Equipe-->
+
+    <!--Nomes Integrantes-->
+    <string name="danilo">Danilo Oliveira</string>
+    <string name="kaua">Kauã Vitório</string>
+    <string name="matheus">Matheus Souza</string>
+    <string name="pedro">Pedro Morato</string>
+    <!--Cargos-->
+    <string name="cargodanilo">Front-end Developer</string>
+    <string name="cargokaua">Mobile Developer</string>
+    <string name="cargomatheus">Back-end Developer</string>
+    <string name="cargppedro">Infrastructure Analyst</string>
+    <!--Sobre Integrante-->
+    <string name="sobredanilo">Olá! Me chamo Danilo Oliveira, tenho 17 anos e moro na capital de São Paulo. Estou cursando Desenvolvimento de Sistemas há 9 meses na escola Etec Prof. Basilides de Godoy, focando na área de front-end.</string>
+    <string name="sobrekaua">Olá! Me chamo Kauã Vitório da Silva Lima, tenho 16 anos, sou de Lins interior de SP mas moro atualmente em São Paulo Capital, estou cursando Desenvolvimento de Sistemas a 9 meses.</string>
+    <string name="sobrematheus">Olá! Sou o Matheus Souza, tenho 17 anos, faço técnico em Desenvolvimento de sistemas na ETEC. Atuo na área de front-end e Back-end da nossa empresa, a  System Strength.</string>
+    <string name="sobrepedro">Olá meu nome é Pedro Henrique Morato Mesquita Ferreira, tenho 17 anos, moro em Santana de Parnaíba, curso Desenvolvimento de Sistemas na ETEC Professor Basilides de Godoy.</string>
 
 
 </resources>

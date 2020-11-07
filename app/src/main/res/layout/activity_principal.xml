@@ -30,6 +30,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="180dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/menuusuario"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -114,12 +115,125 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--Title little about us-->
+                        <TextView
+                            android:id="@+id/txttituloumpoucosobre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/txttituloumpoucosobre"
+                            android:textColor="#353535"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!--Title create by-->
+                        <TextView
+                            android:id="@+id/txttitulcriadapor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/txttitulocriadapor"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txttituloumpoucosobre"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <!--Text of creators-->
+                        <TextView
+                            android:id="@+id/txtcriadores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/txtcriadores"
+                            android:textColor="#504F4F"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txttitulcriadapor"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <!--Title Principal Projects-->
+                        <TextView
+                            android:id="@+id/txttituloprincipaisprojetos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="75dp"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/titulosprincipaisprojetos"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/txttitulcriadapor"
+                            app:layout_constraintTop_toBottomOf="@+id/txttituloumpoucosobre"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <!--Names Projects-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/nomepalacepetz"
+                            android:textColor="#504F4F"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/txtcriadores"
+                            app:layout_constraintTop_toBottomOf="@+id/txttituloprincipaisprojetos" />
+
+                        <!--CardView Btn more Services-->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnmorenossaequipe"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#FF5100"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <!--Base Contender-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <!--text + -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:text="@string/icomore"
+                                    android:textAlignment="center"
+                                    android:textColor="#fff"
+                                    android:textSize="35sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="TooDeepLayout" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!--Cardview Serviço Programação-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardviewservicoprogramacao"
-                    android:layout_width="350dp"
+                    android:layout_width="325dp"
                     android:layout_height="400dp"
                     android:layout_marginTop="24dp"
                     android:visibility="visible"
@@ -251,7 +365,7 @@
                 <!--Cardview Serviço Infra-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardviewservicoinfra"
-                    android:layout_width="350dp"
+                    android:layout_width="325dp"
                     android:layout_height="400dp"
                     android:visibility="visible"
                     app:cardBackgroundColor="#fff"
@@ -272,7 +386,7 @@
                             android:id="@+id/constrantimginfra"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
-                            android:background="@drawable/cardservcode"
+                            android:background="@drawable/cardservinfra"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -383,7 +497,7 @@
                 <!--Cardview Serviço Analise-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardviewservicoanalise"
-                    android:layout_width="350dp"
+                    android:layout_width="320dp"
                     android:layout_height="400dp"
                     android:visibility="visible"
                     app:cardBackgroundColor="#fff"
@@ -405,7 +519,7 @@
                             android:id="@+id/constrantimganalise"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
-                            android:background="@drawable/cardservcode"
+                            android:background="@drawable/cardservanalise"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">

@@ -1,6 +1,7 @@
 package com.example.systemstrength;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 public class PrincipalActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeprincipal, linearbtncontatoprincipal, linearbtnservicosprincipal;
     TextView txtnomeusu;
+    CardView cardviewbtnmorenossaequipe;
     ImageView imgavatarusu;
     String nomeusu="Seu nome";
     String semnomeusu="Anonimo";
@@ -28,6 +30,7 @@ public class PrincipalActivity extends AppCompatActivity {
         linearbtnservicosprincipal = findViewById(R.id.linearbtnservicosprincipal);
         txtnomeusu = findViewById(R.id.txtnomeusu);
         imgavatarusu = findViewById(R.id.imgavatarusu);
+        cardviewbtnmorenossaequipe = findViewById(R.id.cardviewbtnmorenossaequipe);
 
         //  Get Name of user
         Intent intent = getIntent();
@@ -46,6 +49,14 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(PrincipalActivity.this, "Você já está aqui!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cardviewbtnmorenossaequipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+                startActivity(irparanossaequipe);
             }
         });
     }
