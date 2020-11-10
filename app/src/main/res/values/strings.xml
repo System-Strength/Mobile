@@ -4,8 +4,9 @@
     <string name="icomore">+</string>
     <!--Navigation Bar-->
     <string name="home">Home</string>
-    <string name="contato">Contato</string>
+    <string name="agenda">Agenda</string>
     <string name="servicos">Serviços</string>
+    <string name="clientes">Clientes</string>
     <!--Screen Login-->
     <string name="descnamesystem">System Strength</string>
     <string name="login">Login</string>
