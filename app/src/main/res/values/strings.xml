@@ -21,17 +21,24 @@
     <!--Screen Create Account-->
     <string name="ola">Olá,</string>
     <string name="criesuaconta">Crie sua conta para entrar</string>
-    <string name="hinteditusuario"> Insira o nome de usuario</string>
+    <string name="hinteditnomefunc"> Insira seu nome</string>
+    <string name="hinteditcpf"> Insira seu cpf</string>
     <string name="hinteditemail"> Insira seu email</string>
-    <string name="hinteditphone"> Insira um numero celular</string>
     <string name="hinteditsenha"> Insira uma senha</string>
-    <string name="usuariocadastro">Usuário*</string>
+    <string name="hinteditend"> Insira seu endereço</string>
+    <string name="hintedittell"> Insira seu celular</string>
+    <string name="hinteditcargo"> Insira seu cargo</string>
+    <string name="nomefunccadastro">Nome*</string>
+    <string name="cpfcadastro">CPF*</string>
     <string name="email">Email*</string>
-    <string name="telefone">Telefone*</string>
-    <string name="senhacadastro">Senha*</string>
+    <string name="cargocadastro">Cargo*</string>
+    <string name="tellcadastro">Celular (Opcional)</string>
+    <string name="enderecocadastro">Endereço (Opcional)</string>
+    <string name="senhacadas">Senha*</string>
     <string name="cadastrar">Cadastrar</string>
-    <string name="avisousu">O usuario precisa ter pelo ao minimo 8 caracteres</string>
-    <string name="avisosenha">*A senha precisa ter pelo ao minimo 8 caracteres</string>
+    <string name="avisonomefunc">*Necessário ao menos 8 caracteres</string>
+    <string name="avisosenha">*Necessário ao menos 8 caracteres</string>
+    <string name="avisocpf">*Necessário 11 caracteres</string>
 
     <!--Screen Forget my Password-->
     <string name="naosepreoocupe">Não se preocupe podemos alterar ela para você</string>
@@ -48,14 +55,13 @@
 
     <!--Tela Principal-->
     <string name="seunome">Seu Nome</string>
-    <string name="software">Software</string>
-    <string name="infra">Infraestrutura</string>
-    <string name="analise">Analise</string>
-    <string name="txttituloumpoucosobre">Um pouco sobre nossa empresa</string>
-    <string name="txttitulocriadapor">Criada por:</string>
-    <string name="txtcriadores">Kauã Vitorio,\nMatheus Souza,\nPedro Henrique e\nDanilo Oliveira</string>
-    <string name="titulosprincipaisprojetos">Projetos</string>
-    <string name="nomepalacepetz">Palace Petz</string>
+    <string name="bemvindo">Bem Vindo de volta :)</string>
+    <string name="saoagora">São agora: </string>
+    <string name="horaatual">Hora atual</string>
+    <string name="cargoatual">Você é: </string>
+    <string name="cargo">Cargooo</string>
+    <string name="proximareuniao">Proxima reúnião: </string>
+    <string name="aquiestaaproximareuniao">Proxima reu as..</string>
 
     <!--Tela Nossa Equipe-->
 

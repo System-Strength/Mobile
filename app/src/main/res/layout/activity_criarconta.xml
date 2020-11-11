@@ -23,17 +23,17 @@
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="32dp"
-                android:drawableTint="@color/white"
                 android:background="@drawable/outlinebuttoncreateaccount"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
                 android:backgroundTint="#fff"
                 android:backgroundTintMode="add"
+                android:drawableTint="@color/white"
                 android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
@@ -48,6 +48,8 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:scrollbarThumbVertical="@drawable/custom_scroll_style"
                 tools:ignore="UselessParent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,6 +57,7 @@
                     android:layout_height="match_parent"
                     tools:ignore="ScrollViewSize">
 
+                    <!--Olá-->
                     <TextView
                         android:id="@+id/txtola"
                         android:layout_width="wrap_content"
@@ -67,6 +70,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--Crie sua conta-->
                     <TextView
                         android:id="@+id/txtcriesuaconta"
                         android:layout_width="wrap_content"
@@ -77,28 +81,30 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtola" />
 
-                    <!--Alert character's password-->
+                    <!--Alert character's Name-->
                     <TextView
-                        android:id="@+id/txtavisousuario"
+                        android:id="@+id/txtavisonomefunc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/avisousu"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/avisonomefunc"
                         android:textColor="#ff0000"
                         android:textSize="10sp"
-                        app:layout_constraintBottom_toTopOf="@+id/edittextusuariocadastro"
+                        app:layout_constraintBottom_toTopOf="@+id/edittextcadastronomefunc"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txtusuario"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtnomefunc"
                         app:layout_constraintTop_toBottomOf="@+id/txtcriesuaconta"
                         app:layout_constraintVertical_bias="0.90999997"
                         tools:ignore="SmallSp" />
 
-                    <!--TextView Usuario-->
+                    <!--TextView Nome-->
                     <TextView
-                        android:id="@+id/txtusuario"
+                        android:id="@+id/txtnomefunc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:text="@string/usuariocadastro"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/nomefunccadastro"
                         android:textColor="#99FFFFFF"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,28 +112,82 @@
                         app:layout_constraintTop_toBottomOf="@+id/txtcriesuaconta"
                         app:layout_constraintVertical_bias="0.0" />
 
-                    <!--EditText Usuario Need Insert drawableStart-->
+                    <!--EditText Nome Need Insert drawableStart-->
                     <EditText
-                        android:id="@+id/edittextusuariocadastro"
+                        android:id="@+id/edittextcadastronomefunc"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:backgroundTint="#fff"
                         android:textColorHint="#fff"
-                        android:hint="@string/hinteditusuario"
+                        android:inputType="text"
+                        android:maxLength="100"
+                        android:hint="@string/hinteditnomefunc"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txtusuario"
+                        app:layout_constraintTop_toBottomOf="@+id/txtnomefunc"
                         tools:ignore="Autofill,TextFields" />
+
+                    <!--Alert character's Cpf-->
+                    <TextView
+                        android:id="@+id/txtavisocpf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/avisocpf"
+                        android:textColor="#ff0000"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toTopOf="@+id/edittextcpfcadastro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/txttitulocoffunc"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextcadastronomefunc"
+                        app:layout_constraintVertical_bias="0.90999997"
+                        tools:ignore="SmallSp" />
+
+                    <!--Img Right Cpf-->
+                    <ImageView
+                        android:id="@+id/imgcpfrigth"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/iconechecked"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txttitulocoffunc"
+                        android:contentDescription="@string/descnamesystem" />
+
+                    <!--TextView CPF-->
+                    <TextView
+                        android:id="@+id/txttitulocoffunc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cpfcadastro"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextcadastronomefunc" />
+
+                    <!--EditText Cpf Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextcpfcadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:inputType="number"
+                        android:hint="@string/hinteditcpf"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txttitulocoffunc"
+                        tools:ignore="Autofill" />
 
                     <!--TextView Email-->
                     <TextView
-                        android:id="@+id/txtemailcadastro"
+                        android:id="@+id/txttituloemailcadastro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/email"
                         android:textColor="#99FFFFFF"
-                        android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/edittextusuariocadastro" />
+                        app:layout_constraintTop_toBottomOf="@+id/edittextcpfcadastro" />
 
                     <!--EditText Email Need Insert drawableStart-->
                     <EditText
@@ -137,22 +197,47 @@
                         android:backgroundTint="#fff"
                         android:textColorHint="#fff"
                         android:inputType="textEmailAddress"
+                        android:maxLength="50"
                         android:hint="@string/hinteditemail"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txtemailcadastro"
+                        app:layout_constraintTop_toBottomOf="@+id/txttituloemailcadastro"
                         tools:ignore="Autofill" />
 
-                    <!--TextView Phone-->
+                    <!--TextView Endereço-->
                     <TextView
-                        android:id="@+id/txttelefonecadastro"
+                        android:id="@+id/txttituloenderecocadastro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/telefone"
+                        android:text="@string/enderecocadastro"
                         android:textColor="#99FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/edittextemailcadastro" />
 
-                    <!--EditText Phone Need Insert drawableStart-->
+                    <!--EditText Endereço Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextenderecocadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:maxLength="50"
+                        android:inputType="text"
+                        android:hint="@string/hinteditend"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txttituloenderecocadastro"
+                        tools:ignore="Autofill" />
+
+                    <!--TextView Endereço-->
+                    <TextView
+                        android:id="@+id/txttitulotelefonecadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tellcadastro"
+                        android:textColor="#99FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextenderecocadastro" />
+
+                    <!--EditText Endereço Need Insert drawableStart-->
                     <EditText
                         android:id="@+id/edittexttelefonecadastro"
                         android:layout_width="match_parent"
@@ -161,9 +246,33 @@
                         android:textColorHint="#fff"
                         android:inputType="phone"
                         android:maxLength="15"
-                        android:hint="@string/hinteditphone"
+                        android:hint="@string/hintedittell"
                         android:drawableTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/txttelefonecadastro"
+                        app:layout_constraintTop_toBottomOf="@+id/txttitulotelefonecadastro"
+                        tools:ignore="Autofill" />
+
+                    <!--TextView Cargo-->
+                    <TextView
+                        android:id="@+id/txttitulocargocadastro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cargocadastro"
+                        android:textColor="#99FFFFFF"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
+
+                    <!--EditText Cargo Need Insert drawableStart-->
+                    <EditText
+                        android:id="@+id/edittextcargocadastro"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:backgroundTint="#fff"
+                        android:textColorHint="#fff"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:hint="@string/hinteditcargo"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/txttitulocargocadastro"
                         tools:ignore="Autofill" />
 
                     <!--TextView Senha-->
@@ -171,51 +280,82 @@
                         android:id="@+id/txtsenhacadastro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/senhacadastro"
+                        android:text="@string/senhacadas"
                         android:textColor="#99FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro" />
+                        app:layout_constraintTop_toBottomOf="@+id/edittextcargocadastro" />
 
                     <!--Img Right senha-->
                     <ImageView
                         android:id="@+id/imgsenharigth"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="24dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@string/descnamesystem"
                         android:src="@drawable/iconechecked"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"
-                        android:contentDescription="@string/descnamesystem" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro" />
 
                     <!--Alert character's password-->
                     <TextView
                         android:id="@+id/txtavisosenha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:text="@string/avisosenha"
-                        android:textSize="10.2sp"
                         android:textColor="#ff0000"
+                        android:textSize="10.2sp"
                         app:layout_constraintBottom_toTopOf="@+id/edittextsenhacadastro"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.1"
                         app:layout_constraintStart_toEndOf="@+id/txtsenhacadastro"
-                        app:layout_constraintTop_toBottomOf="@+id/edittexttelefonecadastro"
+                        app:layout_constraintTop_toBottomOf="@+id/edittextcargocadastro"
                         tools:ignore="SmallSp" />
 
                     <!--EditText Senha Need Insert drawableStart-->
+
+                    <!--Contender Btn Cadastrar-->
                     <EditText
                         android:id="@+id/edittextsenhacadastro"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:backgroundTint="#fff"
-                        android:textColorHint="#fff"
-                        android:inputType="textPassword"
-                        android:hint="@string/hinteditsenha"
                         android:drawableTint="@color/white"
+                        android:hint="@string/hinteditsenha"
+                        android:inputType="textPassword"
+                        android:maxLength="40"
+                        android:textColorHint="#fff"
                         app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"
-                        tools:ignore="Autofill" />
+                        tools:ignore="Autofill"
+                        tools:layout_editor_absoluteX="0dp" />
 
-                    <!--Contender Btn Cadastrar-->
+                    <ImageView
+                        android:id="@+id/imgolhoopenpasswordcadastro"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:visibility="gone"
+                        android:src="@drawable/iconeeyeopenpassword"
+                        android:layout_marginEnd="45dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/edittextsenhacadastro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/imgolhoclosepasswordcadastro"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/descnamesystem"
+                        android:src="@drawable/iconeeyecolsepassword"
+                        android:visibility="visible"
+                        android:layout_marginEnd="45dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/edittextsenhacadastro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtsenhacadastro" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
