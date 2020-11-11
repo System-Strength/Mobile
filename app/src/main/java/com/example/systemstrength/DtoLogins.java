@@ -8,17 +8,21 @@ package com.example.systemstrength;
 
 public class DtoLogins {
     private int id;
-    private String nomeusu, emailusu, telefoneusu, senhausu;
+    private String cpffunc, nomefunc, emailfunc, enderecofunc, telefonefunc, cargofunc, ultamareufunc, senhafunc;
 
-    public DtoLogins(int id, String nomeusu, String emailusu, String telefoneusu, String senhausu) {
+    public DtoLogins(int id, String cpffunc, String nomefunc, String emailfunc, String enderecofunc, String telefonefunc, String cargofunc, String ultamareufunc, String senhafunc) {
         this.id = id;
-        this.nomeusu = nomeusu;
-        this.emailusu = emailusu;
-        this.telefoneusu = telefoneusu;
-        this.senhausu = senhausu;
+        this.cpffunc = cpffunc;
+        this.nomefunc = nomefunc;
+        this.emailfunc = emailfunc;
+        this.enderecofunc = enderecofunc;
+        this.telefonefunc = telefonefunc;
+        this.cargofunc = cargofunc;
+        this.ultamareufunc = ultamareufunc;
+        this.senhafunc = senhafunc;
     }
 
-    public  DtoLogins(){}
+    public DtoLogins(){}
 
     //  Declaration to Getter and Setter
     public int getId() {
@@ -29,36 +33,68 @@ public class DtoLogins {
         this.id = id;
     }
 
-    public String getNomeusu() {
-        return nomeusu;
+    public String getCpffunc() {
+        return cpffunc;
     }
 
-    public void setNomeusu(String nomeusu) {
-        this.nomeusu = nomeusu;
+    public void setCpffunc(String cpffunc) {
+        this.cpffunc = cpffunc;
     }
 
-    public String getEmailusu() {
-        return emailusu;
+    public String getNomefunc() {
+        return nomefunc;
     }
 
-    public void setEmailusu(String emailusu) {
-        this.emailusu = emailusu;
+    public void setNomefunc(String nomefunc) {
+        this.nomefunc = nomefunc;
     }
 
-    public String getTelefoneusu() {
-        return telefoneusu;
+    public String getEmailfunc() {
+        return emailfunc;
     }
 
-    public void setTelefoneusu(String telefoneusu) {
-        this.telefoneusu = telefoneusu;
+    public void setEmailfunc(String emailfunc) {
+        this.emailfunc = emailfunc;
     }
 
-    public String getSenhausu() {
-        return senhausu;
+    public String getEnderecofunc() {
+        return enderecofunc;
     }
 
-    public void setSenhausu(String senhausu) {
-        this.senhausu = senhausu;
+    public void setEnderecofunc(String enderecofunc) {
+        this.enderecofunc = enderecofunc;
+    }
+
+    public String getTelefonefunc() {
+        return telefonefunc;
+    }
+
+    public void setTelefonefunc(String telefonefunc) {
+        this.telefonefunc = telefonefunc;
+    }
+
+    public String getCargofunc() {
+        return cargofunc;
+    }
+
+    public void setCargofunc(String cargofunc) {
+        this.cargofunc = cargofunc;
+    }
+
+    public String getUltamareufunc() {
+        return ultamareufunc;
+    }
+
+    public void setUltamareufunc(String ultamareufunc) {
+        this.ultamareufunc = ultamareufunc;
+    }
+
+    public String getSenhafunc() {
+        return senhafunc;
+    }
+
+    public void setSenhafunc(String senhafunc) {
+        this.senhafunc = senhafunc;
     }
 }
 

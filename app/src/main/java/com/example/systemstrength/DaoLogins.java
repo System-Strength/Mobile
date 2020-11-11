@@ -2,10 +2,13 @@ package com.example.systemstrength;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 /**
  *  Copyright (c) 2020 System Strength
@@ -14,22 +17,26 @@ import androidx.annotation.Nullable;
  **/
 
 public class DaoLogins extends SQLiteOpenHelper {
-    private final String TABELA = "TB_LOGIN";
+    private final String TABELA = "TB_FUNCIONARIOS";
 
     public DaoLogins(@Nullable Context context) {
-        super(context, "DB_LOGIN", null, 1);
+        super(context, "DB_LOGINS", null, 2);
     }
 
 
-    //  Create Data Base for Login'sActivity
+    //  Create Data Base for Login's Activity
     @Override
     public void onCreate(SQLiteDatabase db) {
         String comando = "CREATE TABLE " + TABELA + "(" +
                 "ID INTEGER PRIMARY KEY," +
-                "NOMEUSU VARCHAR(100) NOT NULL," +
-                "EMAILUSU VARCHAR(50)," +
-                "TELEFONEUSU VARCHAR(15)," +
-                "SENHAUSU VARCHAR(50))";
+                "CPFFUNC VARCHAR(14) NOT NULL," +
+                "NOMEFUNC VARCHAR(100) NOT NULL," +
+                "EMAILFUNC VARCHAR(50) NOT NULL," +
+                "ENDERECOFUNC VARCHAR(50)," +
+                "TELEFONEFUNC VARCHAR(15)," +
+                "CARGOFUNC VARCHAR(50) NOT NULL," +
+                "ULTIMAREUNIAOFUNC VARCHAR(50)," +
+                "SENHAFUNC VARCHAR(40) NOT NULL)";
 
         db.execSQL(comando);
     }
@@ -40,20 +47,24 @@ public class DaoLogins extends SQLiteOpenHelper {
     }
 
     //  Method create new account in database
-    public long cadastrar(DtoLogins usuario){
+    public long cadastrar(DtoLogins funcionario){
         ContentValues values = new ContentValues();
-        values.put("NOMEUSU", usuario.getNomeusu());
-        values.put("EMAILUSU", usuario.getEmailusu());
-        values.put("TELEFONEUSU", usuario.getTelefoneusu());
-        values.put("SENHAUSU", usuario.getSenhausu());
+        values.put("CPFFUNC", funcionario.getCpffunc());
+        values.put("NOMEFUNC", funcionario.getNomefunc());
+        values.put("EMAILFUNC", funcionario.getEmailfunc());
+        values.put("ENDERECOFUNC", funcionario.getEnderecofunc());
+        values.put("TELEFONEFUNC", funcionario.getTelefonefunc());
+        values.put("CARGOFUNC", funcionario.getCargofunc());
+        values.put("SENHAFUNC", funcionario.getSenhafunc());
 
         return getWritableDatabase().insert(TABELA, null, values);
     }
 
     //  Method login in database
-    public  long logar(DtoLogins usuarios){
-        return 0;
-
+    public void logar(DtoLogins usuarios){
+        String comando = "SELECT * FROM " + TABELA + " WHERE NOMEFUNC = ? and SENHAFUNC = ?  ";
+        String[] args = {"%" + usuarios + "%"};
+        Cursor cursor = getWritableDatabase().rawQuery(comando, args);
     }
 }
 

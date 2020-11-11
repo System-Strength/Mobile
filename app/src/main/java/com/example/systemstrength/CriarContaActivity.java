@@ -3,18 +3,18 @@ package com.example.systemstrength;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,68 +25,66 @@ import android.widget.Toast;
  **/
 
 public class CriarContaActivity extends AppCompatActivity {
-    
-    Button btnvoltaraologin;
-    EditText edittextusuariocadastro, edittextemailcadastro, edittexttelefonecadastro, edittextsenhacadastro;
-    TextView txtusuario, txtemailcadastro, txttelefonecadastro, txtsenhacadastro, txtavisosenha, txtavisousuario, txtbtncadastrar;
     CardView cardviewbtncadastrar;
-    ImageView imgsenharigth;
-    ProgressBar progressloadingcriandoconta;
+    Button btnvoltaraologin;
+    EditText edittextsenhacadastro, edittextcargocadastro, edittexttelefonecadastro, edittextenderecocadastro, edittextemailcadastro, edittextcpfcadastro, edittextcadastronomefunc;
+    TextView txtavisonomefunc, txtavisocpf, txtavisosenha;
+    ImageView imgsenharigth, imgcpfrigth, imgolhoclosepasswordcadastro, imgolhoopenpasswordcadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criarconta);
+        //  Ids
         btnvoltaraologin = findViewById(R.id.btnvoltaraologin);
-        edittextusuariocadastro = findViewById(R.id.edittextusuariocadastro);
-        edittextemailcadastro = findViewById(R.id.edittextemailcadastro);
-        edittexttelefonecadastro = findViewById(R.id.edittexttelefonecadastro);
-        edittextsenhacadastro = findViewById(R.id.edittextsenhacadastro);
-        txtusuario = findViewById(R.id.txtusuario);
-        txtemailcadastro = findViewById(R.id.txtemailcadastro);
-        txttelefonecadastro = findViewById(R.id.txttelefonecadastro);
-        txtsenhacadastro = findViewById(R.id.txtsenhacadastro);
         cardviewbtncadastrar = findViewById(R.id.cardviewbtncadastrar);
-        imgsenharigth = findViewById(R.id.imgsenharigth);
+        edittextsenhacadastro = findViewById(R.id.edittextsenhacadastro);
+        edittextcargocadastro = findViewById(R.id.edittextcargocadastro);
+        edittexttelefonecadastro = findViewById(R.id.edittexttelefonecadastro);
+        edittextenderecocadastro = findViewById(R.id.edittextenderecocadastro);
+        edittextemailcadastro = findViewById(R.id.edittextemailcadastro);
+        edittextcpfcadastro = findViewById(R.id.edittextcpfcadastro);
+        edittextcadastronomefunc = findViewById(R.id.edittextcadastronomefunc);
+        txtavisonomefunc = findViewById(R.id.txtavisonomefunc);
+        txtavisocpf = findViewById(R.id.txtavisocpf);
         txtavisosenha = findViewById(R.id.txtavisosenha);
-        txtavisousuario = findViewById(R.id.txtavisousuario);
-        progressloadingcriandoconta = findViewById(R.id.progressloadingcriandoconta);
-        txtbtncadastrar = findViewById(R.id.txtbtncadastrar);
+        imgsenharigth = findViewById(R.id.imgsenharigth);
+        imgcpfrigth = findViewById(R.id.imgcpfrigth);
+        imgolhoclosepasswordcadastro = findViewById(R.id.imgolhoclosepasswordcadastro);
+        imgolhoopenpasswordcadastro = findViewById(R.id.imgolhoopenpasswordcadastro);
+        InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        imgsenharigth.setVisibility(View.GONE);
-        txtavisosenha.setVisibility(View.GONE);
-        txtavisousuario.setVisibility(View.GONE);
-        progressloadingcriandoconta.setVisibility(View.GONE);
-
-        //  Defining the mask to edittexttelefonecadastro
+        // Defining mask to editText
+        edittextcpfcadastro.addTextChangedListener(MaskEditUtil.mask(edittextcpfcadastro, MaskEditUtil.FORMAT_CPF));
         edittexttelefonecadastro.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecadastro, MaskEditUtil.FORMAT_FONE));
 
-        //  By clicking on the login button to execute a sequence of configured commands
-        btnvoltaraologin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (edittextusuariocadastro.getText().length() > 0 || edittextemailcadastro.getText().length() > 0 || edittexttelefonecadastro.getText().length() > 0 || edittextsenhacadastro.getText().length() > 0) {
-                    AlertDialog.Builder aviso = new AlertDialog.Builder(CriarContaActivity.this);
-                    aviso.setTitle("Calma ai...");
-                    aviso.setIcon(R.mipmap.ic_launcher_system);
-                    aviso.setMessage("Aparentemente você começou um cadastro, se ir ao login ira perder todo o progresso até agora.\nDeseja realmente ir ao login?");
-                    aviso.setNegativeButton("Não",null);
-                    aviso.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-                    aviso.show();
-                }
-                else{
-                    finish();
-                }
-            }
+        // Defining some itens like GONE
+        txtavisonomefunc.setVisibility(View.GONE);
+        txtavisocpf.setVisibility(View.GONE);
+        txtavisosenha.setVisibility(View.GONE);
+        imgsenharigth.setVisibility(View.GONE);
+        imgcpfrigth.setVisibility(View.GONE);
+        imgolhoclosepasswordcadastro.setVisibility(View.GONE);
+        imgolhoopenpasswordcadastro.setVisibility(View.GONE);
+
+        //  When you click on the open eye it will execute the defined commands
+        imgolhoopenpasswordcadastro.setOnClickListener(v -> {
+            edittextsenhacadastro.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            imgolhoopenpasswordcadastro.setVisibility(View.GONE);
+            imgolhoclosepasswordcadastro.setVisibility(View.VISIBLE);
+            edittextsenhacadastro.setSelection(edittextsenhacadastro.getText().length());
         });
 
-        //  When inserted in the edittextusuario it will execute some commands in real time
-        edittextusuariocadastro.addTextChangedListener(new TextWatcher() {
+        //  When you click on the closed eye it will execute the defined commands
+        imgolhoclosepasswordcadastro.setOnClickListener(v -> {
+            edittextsenhacadastro.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            imgolhoopenpasswordcadastro.setVisibility(View.VISIBLE);
+            imgolhoclosepasswordcadastro.setVisibility(View.GONE);
+            edittextsenhacadastro.setSelection(edittextsenhacadastro.getText().length());
+        });
+
+        //  Checking characters in real time edittextcadastronomefunc
+        edittextcadastronomefunc.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -99,23 +97,17 @@ public class CriarContaActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edittextusuariocadastro.getText().length() != 0){
-                    txtusuario.setText("Usuário");
+                if (edittextcadastronomefunc.getText().length() < 8){
+                    txtavisonomefunc.setVisibility(View.VISIBLE);
                 }
-                if (edittextusuariocadastro.getText().length() == 0){
-                    txtavisousuario.setVisibility(View.GONE);
-                    txtusuario.setText(R.string.usuariocadastro);
-                }
-                if (edittextusuariocadastro.getText().length() >= 8){
-                    txtavisousuario.setVisibility(View.GONE);
-                }else{
-                    txtavisousuario.setVisibility(View.VISIBLE);
+                else {
+                    txtavisonomefunc.setVisibility(View.GONE);
                 }
             }
         });
 
-        //  When inserted in the edittextemail it will execute some commands in real time
-        edittextemailcadastro.addTextChangedListener(new TextWatcher() {
+        //  Checking characters in real time edittextcadastronomefunc
+        edittextcpfcadastro.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -128,39 +120,18 @@ public class CriarContaActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edittextemailcadastro.getText().length() != 0){
-                    txtemailcadastro.setText("Email");
+                if (edittextcpfcadastro.getText().length() < 14){
+                    txtavisocpf.setVisibility(View.VISIBLE);
+                    imgcpfrigth.setVisibility(View.GONE);
                 }
-                if (edittextusuariocadastro.getText().length() == 0){
-                    txtemailcadastro.setText(R.string.email);
-                }
-            }
-        });
-
-        //  When inserted in the edittexttelefone it will execute some commands in real time
-        edittexttelefonecadastro.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (edittexttelefonecadastro.getText().length() != 0){
-                    txttelefonecadastro.setText("Telefone");
-                }
-                if (edittexttelefonecadastro.getText().length() == 0){
-                    txttelefonecadastro.setText(R.string.telefone);
+                else {
+                    txtavisocpf.setVisibility(View.GONE);
+                    imgcpfrigth.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        //  When inserted in the edittextsenha it will execute some commands in real time
+        //  Checking characters in real time edittextsenhacadastro
         edittextsenhacadastro.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -174,91 +145,101 @@ public class CriarContaActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edittextsenhacadastro.getText().length() != 0){
-                    txtsenhacadastro.setText("Senha");
+                if (edittextsenhacadastro.getText().length() > 0){
+                    imgolhoclosepasswordcadastro.setVisibility(View.VISIBLE);
                 }
                 if (edittextsenhacadastro.getText().length() == 0){
-                    txtsenhacadastro.setText(R.string.senhacadastro);
-                    txtavisosenha.setVisibility(View.GONE);
+                    imgolhoclosepasswordcadastro.setVisibility(View.GONE);
                 }
-                if (edittextsenhacadastro.getText().length() >= 8){
-                    imgsenharigth.setVisibility(View.VISIBLE);
-                    txtavisosenha.setVisibility(View.GONE);
-                }else{
-                    imgsenharigth.setVisibility(View.GONE);
+                if (edittextsenhacadastro.getText().length() < 8){
                     txtavisosenha.setVisibility(View.VISIBLE);
+                    imgsenharigth.setVisibility(View.GONE);
+                }
+                else {
+                    txtavisosenha.setVisibility(View.GONE);
+                    imgsenharigth.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        cardviewbtncadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DtoLogins dtoLogins = new DtoLogins();
-                dtoLogins.setNomeusu(edittextusuariocadastro.getText().toString());
-                dtoLogins.setEmailusu(edittextemailcadastro.getText().toString());
-                dtoLogins.setEmailusu(edittexttelefonecadastro.getText().toString());
-                dtoLogins.setSenhausu(edittextsenhacadastro.getText().toString());
+        //  Defining commands when clicked in cardviewbtncadastrar
+        cardviewbtncadastrar.setOnClickListener(v -> {
 
-                DaoLogins daoLogins = new DaoLogins(CriarContaActivity.this);
-
-                if (edittextusuariocadastro.getText().length() == 0 || edittextusuariocadastro.getText().length() < 8){
-                    Toast.makeText(CriarContaActivity.this, "O campo usuario não está preenchido corretamente", Toast.LENGTH_SHORT).show();
-                    edittextusuariocadastro.requestFocus();
-                }
-                else if(edittextemailcadastro.getText().length() == 0 || edittextemailcadastro.getText().length() < 5){
-                    Toast.makeText(CriarContaActivity.this, "O campo email não está preenchido corretamente", Toast.LENGTH_SHORT).show();
+            //  Checking characters in edittextnomefunc and defining some commands
+            if (edittextcadastronomefunc.getText().length() == 0 || edittextcadastronomefunc.getText().length() < 8){
+                // Defining txtavisonomefunc like Visible
+                txtavisonomefunc.setVisibility(View.VISIBLE);
+                Toast.makeText(CriarContaActivity.this, "Campo NOME preenchido incorretamente!!\nEsta campo é obrigatório", Toast.LENGTH_SHORT).show();
+                edittextcadastronomefunc.requestFocus();
+                imm.showSoftInput(edittextcadastronomefunc, InputMethodManager.SHOW_IMPLICIT);
+            }
+            //  Checking characters in edittextcpfcadastro and defining some commands
+            else if (edittextcpfcadastro.getText().length() == 0 || edittextcpfcadastro.getText().length() < 14){
+                // Defining txtavisocpf like Visible
+                txtavisocpf.setVisibility(View.VISIBLE);
+                Toast.makeText(CriarContaActivity.this, "Campo CPF preenchido incorretamente!!\nEsta campo é obrigatório", Toast.LENGTH_SHORT).show();
+                edittextcpfcadastro.requestFocus();
+                imm.showSoftInput(edittextcpfcadastro, InputMethodManager.SHOW_IMPLICIT);
+            }
+            //  Checking characters in edittextemailcadastro and defining some commands
+            else if (edittextemailcadastro.getText().length() == 0|| edittextemailcadastro.getText().length() < 5){
+                    Toast.makeText(CriarContaActivity.this, "Campo EMAIL preenchido incorretamente!!\nEsta campo é obrigatório", Toast.LENGTH_SHORT).show();
+                    txtavisocpf.setVisibility(View.GONE);
                     edittextemailcadastro.requestFocus();
+                    imm.showSoftInput(edittextemailcadastro, InputMethodManager.SHOW_IMPLICIT);
+            }
+            //  Checking characters in edittextcargocadastro and defining some commands
+            else if (edittextcargocadastro.getText().length() == 0 || edittextcargocadastro.getText().length() < 8){
+                Toast.makeText(CriarContaActivity.this, "Campo CARGO preenchido incorretamente!!\nEsta campo é obrigatório", Toast.LENGTH_SHORT).show();
+                edittextcargocadastro.requestFocus();
+                imm.showSoftInput(edittextcargocadastro, InputMethodManager.SHOW_IMPLICIT);
+            }
+            //  Checking characters in edittextsenhacadastro and defining some commands
+            else if (edittextsenhacadastro.getText().length() == 0 || edittextsenhacadastro.getText().length() < 8){
+                txtavisosenha.setVisibility(View.VISIBLE);
+                Toast.makeText(CriarContaActivity.this, "Campo CARGO preenchido incorretamente!!\nEsta campo é obrigatório", Toast.LENGTH_SHORT).show();
+                edittextsenhacadastro.requestFocus();
+                imm.showSoftInput(edittextsenhacadastro, InputMethodManager.SHOW_IMPLICIT);
+            }
+            //  If all edittext is alright will execute some commands
+            else {
+
+                DtoLogins dtoLogins = new DtoLogins();
+                dtoLogins.setNomefunc(edittextcadastronomefunc.getText().toString());
+                dtoLogins.setCpffunc(edittextcpfcadastro.getText().toString());
+                dtoLogins.setEmailfunc(edittextemailcadastro.getText().toString());
+                dtoLogins.setEnderecofunc(edittextenderecocadastro.getText().toString());
+                dtoLogins.setTelefonefunc(edittexttelefonecadastro.getText().toString());
+                dtoLogins.setCargofunc(edittextcargocadastro.getText().toString());
+                dtoLogins.setSenhafunc(edittextsenhacadastro.getText().toString());
+                DaoLogins daoLogins = new DaoLogins(CriarContaActivity.this);
+                try {
+
+                    long linhasinseridas = daoLogins.cadastrar(dtoLogins);
+
+                    //  If linhasinseridas return > 0 will saying "Cadastrado com sucesso" and go to main activity
+                    if (linhasinseridas > 0){
+                        Toast.makeText(CriarContaActivity.this, "Cadastrado com sucesso!\nSeja Bem-Vindo", Toast.LENGTH_SHORT).show();
+                        Intent voltarparamain = new Intent(CriarContaActivity.this,MainActivity.class);
+                        startActivity(voltarparamain);
+                        finish();
+                    }
+                    //  If linhasinseridas return < 0 will show msg saying falha
+                    else {
+                        Toast.makeText(CriarContaActivity.this, "Não foi possivel realizar o cadastro...\nTente novamente mais tarde", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else if(edittexttelefonecadastro.getText().length() == 0 || edittexttelefonecadastro.getText().length() < 15){
-                    Toast.makeText(CriarContaActivity.this, "O campo telefone não está preenchido corretamente", Toast.LENGTH_SHORT).show();
-                    edittexttelefonecadastro.requestFocus();
-                }
-                else if(edittextsenhacadastro.getText().length() == 0 || edittextsenhacadastro.getText().length() < 8){
-                    Toast.makeText(CriarContaActivity.this, "O campo senha não está preenchido corretamente", Toast.LENGTH_SHORT).show();
-                    edittextsenhacadastro.requestFocus();
-                }
-                else{
-                    loadingcadastrando();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                long linhasInseridas = daoLogins.cadastrar(dtoLogins);
-                                if(linhasInseridas > 0){
-                                    Toast.makeText(CriarContaActivity.this, "Conta criada com sucesso!\nSeja bem-vindo! ", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                                else{
-                                    Intent irparateladeerro = new Intent(CriarContaActivity.this, AvisoErroActivity.class);
-                                    finish();
-                                    startActivity(irparateladeerro);
-                                }
-                            }
-                            catch (Exception ex){
-                                Toast.makeText(CriarContaActivity.this, "Erro ao inserir:" + ex.toString(), Toast.LENGTH_LONG).show();
-                                finish();
-                            }
-                        }
-                    },1000);
+                //  If there is an error in the execution of the code it will capture the error and present
+                catch (Exception ex){
+                    Toast.makeText(CriarContaActivity.this, "Erro ao cadastar:" + ex.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-    private void loadingcadastrando(){
-        progressloadingcriandoconta.setVisibility(View.VISIBLE);
-        txtbtncadastrar.setVisibility(View.GONE);
-        edittextusuariocadastro.setEnabled(false);
-        edittextemailcadastro.setEnabled(false);
-        edittexttelefonecadastro.setEnabled(false);
-        edittextsenhacadastro.setEnabled(false);
-        cardviewbtncadastrar.setEnabled(false);
-
     }
 }
 
-/**
+/*
  *  Copyright (c) 2020 System Strength
  *  Official repository https://github.com/System-Strength/Mobile
  *  Responsible developer: https://github.com/Kauavitorio
- **/
+ */
