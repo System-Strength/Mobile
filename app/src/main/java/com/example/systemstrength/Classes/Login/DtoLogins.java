@@ -1,4 +1,4 @@
-package com.example.systemstrength;
+package com.example.systemstrength.Classes.Login;
 
 /**
  *  Copyright (c) 2020 System Strength

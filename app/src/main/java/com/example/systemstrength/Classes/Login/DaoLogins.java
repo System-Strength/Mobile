@@ -1,4 +1,4 @@
-package com.example.systemstrength;
+package com.example.systemstrength.Classes.Login;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -61,10 +61,30 @@ public class DaoLogins extends SQLiteOpenHelper {
     }
 
     //  Method login in database
-    public void logar(DtoLogins usuarios){
-        String comando = "SELECT * FROM " + TABELA + " WHERE NOMEFUNC = ? and SENHAFUNC = ?  ";
-        String[] args = {"%" + usuarios + "%"};
-        Cursor cursor = getWritableDatabase().rawQuery(comando, args);
+    public boolean onLogin(String cpf,String senha){
+        String comando = "SELECT * FROM " + TABELA + " WHERE CPFFUNC =? and SENHAFUNC =?  ";
+        String[] parametros = {cpf,senha};
+        Cursor cursor = getWritableDatabase().rawQuery(comando, parametros);
+
+        return cursor.moveToNext();
+    }
+
+    //  Method Verification Name in database
+    public boolean verificarnome(String cpf){
+        String comando = "SELECT NOMEFUNC FROM " + TABELA + " WHERE CPFFUNC =?";
+        String[] parametros = {cpf};
+        Cursor cursor = getWritableDatabase().rawQuery(comando, parametros);
+
+        ArrayList<DtoLogins> arrayList = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            DtoLogins dtoLogins = new DtoLogins();
+            dtoLogins.setNomefunc(cursor.getString(0));
+
+            arrayList.add(dtoLogins);
+        }
+
+        return cursor.moveToNext();
     }
 }
 
