@@ -64,14 +64,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/usuario"
+                        android:text="@string/cpf"
                         android:textAllCaps="true"
                         android:textSize="15sp"
                         android:textColor="#FFFFFF"
                         android:fontFamily="sans-serif-light"/>
 
                     <EditText
-                        android:id="@+id/edittextusuario"
+                        android:id="@+id/edittextcpffunc"
                         android:background="@drawable/outline"
                         android:layout_width="match_parent"
                         android:textSize="15sp"
@@ -79,8 +79,9 @@
                         android:layout_height="40dp"
                         android:textColor="#FFFFFF"
                         android:paddingLeft="15dp"
+                        android:inputType="number"
                         android:textColorHint="#85FFFFFF"
-                        android:hint="@string/hintusuario"
+                        android:hint="@string/hinteditcpf"
                         android:paddingRight="15dp"
                         tools:ignore="Autofill,TextFields" />
 
