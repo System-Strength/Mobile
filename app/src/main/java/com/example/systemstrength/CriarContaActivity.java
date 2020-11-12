@@ -1,9 +1,11 @@
 package com.example.systemstrength;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -70,9 +72,18 @@ public class CriarContaActivity extends AppCompatActivity {
 
         //  When clicked  in this button will go to MainActivity and finish this Activty
         btnvoltaraologin.setOnClickListener(v ->{
-                Intent voltarmain = new Intent(CriarContaActivity.this,MainActivity.class);
-                startActivity(voltarmain);
-                finish();
+            if (edittextcadastronomefunc.getText().length() > 0 || edittextcpfcadastro.getText().length() > 0 || edittextemailcadastro.getText().length() > 0 || edittextenderecocadastro.getText().length() > 0 || edittexttelefonecadastro.getText().length() > 0 || edittextcargocadastro.getText().length() > 0 || edittextsenhacadastro.getText().length() > 0){
+                AlertDialog.Builder msgaviso = new AlertDialog.Builder(CriarContaActivity.this);
+                msgaviso.setIcon(R.drawable.logosystemstrengthsemfundo);
+                msgaviso.setTitle("Aviso");
+                msgaviso.setMessage("Você iniciou um cadastro!\nSe você sair dessa tela ira perder seu progresso\nDesejá realmente sair?");
+                msgaviso.setPositiveButton("Sim", (dialog, which) -> reduzirtempoeiramain());
+                msgaviso.setNegativeButton("Não",null);
+                msgaviso.show();
+            }
+            else{
+                reduzirtempoeiramain();
+            }
         });
 
         //  When you click on the open eye it will execute the defined commands
@@ -245,7 +256,18 @@ public class CriarContaActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        reduzirtempoeiramain();
+        if (edittextcadastronomefunc.getText().length() > 0 || edittextcpfcadastro.getText().length() > 0 || edittextemailcadastro.getText().length() > 0 || edittextenderecocadastro.getText().length() > 0 || edittexttelefonecadastro.getText().length() > 0 || edittextcargocadastro.getText().length() > 0 || edittextsenhacadastro.getText().length() > 0){
+            AlertDialog.Builder msgaviso = new AlertDialog.Builder(CriarContaActivity.this);
+            msgaviso.setIcon(R.drawable.logosystemstrengthsemfundo);
+            msgaviso.setTitle("Aviso");
+            msgaviso.setMessage("Você iniciou um cadastro!\nSe você sair dessa tela ira perder seu progresso\nDesejá realmente sair?");
+            msgaviso.setPositiveButton("Sim", (dialog, which) -> reduzirtempoeiramain());
+            msgaviso.setNegativeButton("Não",null);
+            msgaviso.show();
+        }
+        else{
+            reduzirtempoeiramain();
+        }
     }
 
     private void reduzirtempoeiramain(){
