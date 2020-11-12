@@ -67,6 +67,13 @@ public class CriarContaActivity extends AppCompatActivity {
         imgolhoclosepasswordcadastro.setVisibility(View.GONE);
         imgolhoopenpasswordcadastro.setVisibility(View.GONE);
 
+        //  When clicked  in this button will go to MainActivity and finish this Activty
+        btnvoltaraologin.setOnClickListener(v ->{
+                Intent voltarmain = new Intent(CriarContaActivity.this,MainActivity.class);
+                startActivity(voltarmain);
+                finish();
+        });
+
         //  When you click on the open eye it will execute the defined commands
         imgolhoopenpasswordcadastro.setOnClickListener(v -> {
             edittextsenhacadastro.setTransformationMethod(PasswordTransformationMethod.getInstance());
@@ -235,6 +242,13 @@ public class CriarContaActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent voltarmain = new Intent(CriarContaActivity.this,MainActivity.class);
+        startActivity(voltarmain);
+        finish();
     }
 }
 
