@@ -30,6 +30,7 @@ public class CriarContaActivity extends AppCompatActivity {
     EditText edittextsenhacadastro, edittextcargocadastro, edittexttelefonecadastro, edittextenderecocadastro, edittextemailcadastro, edittextcpfcadastro, edittextcadastronomefunc;
     TextView txtavisonomefunc, txtavisocpf, txtavisosenha;
     ImageView imgsenharigth, imgcpfrigth, imgolhoclosepasswordcadastro, imgolhoopenpasswordcadastro;
+    int novotempodeanimacao  = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,9 +228,7 @@ public class CriarContaActivity extends AppCompatActivity {
                     //  If linhasinseridas return > 0 will saying "Cadastrado com sucesso" and go to main activity
                     if (linhasinseridas > 0){
                         Toast.makeText(CriarContaActivity.this, "Cadastrado com sucesso!\nSeja Bem-Vindo", Toast.LENGTH_SHORT).show();
-                        Intent voltarparamain = new Intent(CriarContaActivity.this,MainActivity.class);
-                        startActivity(voltarparamain);
-                        finish();
+                        receberloginaposcadastro();
                     }
                     //  If linhasinseridas return < 0 will show msg saying falha
                     else {
@@ -246,7 +245,20 @@ public class CriarContaActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        reduzirtempoeiramain();
+    }
+
+    private void reduzirtempoeiramain(){
         Intent voltarmain = new Intent(CriarContaActivity.this,MainActivity.class);
+        voltarmain.putExtra("novotempo",novotempodeanimacao);
+        startActivity(voltarmain);
+        finish();
+    }
+
+    private void receberloginaposcadastro(){
+        Intent voltarmain = new Intent(CriarContaActivity.this,MainActivity.class);
+        voltarmain.putExtra("cpfcadastrado",edittextcpfcadastro.getText().toString());
+        voltarmain.putExtra("senhacadastrado",edittextsenhacadastro.getText().toString());
         startActivity(voltarmain);
         finish();
     }
