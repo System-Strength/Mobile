@@ -3,22 +3,19 @@ package com.example.systemstrength;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
     Button btncriarconta, btnesqueciasenha, btnlogaragora;
     ImageView imgolhoopenpassword, imgolhoclosepassword;
-    EditText edittextsenha, edittextusuario;
+    EditText edittextsenha, edittextcpffunc;
     ProgressBar progressloadinglogin;
+    int Tempodeanimacao = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +55,27 @@ public class MainActivity extends AppCompatActivity {
         imgolhoopenpassword = (ImageView) findViewById(R.id.imgolhoopenpassword);
         imgolhoclosepassword = (ImageView) findViewById(R.id.imgolhoclosepassword);
         edittextsenha = (EditText) findViewById(R.id.edittextsenha);
-        edittextusuario = (EditText) findViewById(R.id.edittextusuario);
+        edittextcpffunc = (EditText) findViewById(R.id.edittextcpffunc);
         progressloadinglogin = (ProgressBar) findViewById(R.id.progressloadinglogin);
+        InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        edittextcpffunc.addTextChangedListener(MaskEditUtil.mask(edittextcpffunc, MaskEditUtil.FORMAT_CPF));
+
+        //  Verification in Inent for to see if null
+        Intent intent =  getIntent();
+        if (intent == null){
+            Tempodeanimacao = 2000 ;
+        }
+        else {
+            Bundle bundle = intent.getExtras();
+            if (bundle == null){
+                Tempodeanimacao = 2000 ;
+            }else{
+                Tempodeanimacao = bundle.getInt("novotempo");
+                edittextsenha.setText(bundle.getString("senhacadastrado"));
+                edittextcpffunc.setText(bundle.getString("cpfcadastrado"));
+            }
+        }
 
         verificarnet();
 
@@ -67,65 +84,45 @@ public class MainActivity extends AppCompatActivity {
         progressloadinglogin.setVisibility(View.GONE);
 
         //This is delay for timeout
-        apareceropcoes.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //My two Relative Layouts
-                relativeprincipallogin.setVisibility(View.VISIBLE);
-                relativeinferiorlogin.setVisibility(View.VISIBLE);
-            }
-        },2000);
+        apareceropcoes.postDelayed(() -> {
+            //My two Relative Layouts
+            relativeprincipallogin.setVisibility(View.VISIBLE);
+            relativeinferiorlogin.setVisibility(View.VISIBLE);
+        },Tempodeanimacao);
 
         //  Button CriarConta Press
-        btncriarconta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irparaloading();
-                tempodeloading.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent irparacriarconta = new Intent(MainActivity.this,CriarContaActivity.class);
-                        startActivity(irparacriarconta);
-                    }
-                },400);
-            }
+        btncriarconta.setOnClickListener(v -> {
+            irparaloading();
+            tempodeloading.postDelayed(() -> {
+                Intent irparacriarconta = new Intent(MainActivity.this,CriarContaActivity.class);
+                startActivity(irparacriarconta);
+                finish();
+            },300);
         });
 
         //  Butoon Esqueci a Senha Press
-        btnesqueciasenha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irparaloading();
-                tempodeloading.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenhaActivity.class);
-                        startActivity(irparaesqueciasenha);
-                    }
-                },700);
-            }
+        btnesqueciasenha.setOnClickListener(v -> {
+            irparaloading();
+            tempodeloading.postDelayed(() -> {
+                Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenhaActivity.class);
+                startActivity(irparaesqueciasenha);
+            },700);
         });
 
         //  When you click on the open eye it will execute the defined commands
-        imgolhoopenpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edittextsenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                imgolhoopenpassword.setVisibility(View.GONE);
-                imgolhoclosepassword.setVisibility(View.VISIBLE);
-                edittextsenha.setSelection(edittextsenha.getText().length());
-            }
+        imgolhoopenpassword.setOnClickListener(v -> {
+            edittextsenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            imgolhoopenpassword.setVisibility(View.GONE);
+            imgolhoclosepassword.setVisibility(View.VISIBLE);
+            edittextsenha.setSelection(edittextsenha.getText().length());
         });
 
         //  When you click on the closed eye it will execute the defined commands
-        imgolhoclosepassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edittextsenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                imgolhoopenpassword.setVisibility(View.VISIBLE);
-                imgolhoclosepassword.setVisibility(View.GONE);
-                edittextsenha.setSelection(edittextsenha.getText().length());
-            }
+        imgolhoclosepassword.setOnClickListener(v -> {
+            edittextsenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            imgolhoopenpassword.setVisibility(View.VISIBLE);
+            imgolhoclosepassword.setVisibility(View.GONE);
+            edittextsenha.setSelection(edittextsenha.getText().length());
         });
 
         //  When making a change in the text of edittext it will execute a sequence of commands in real time
@@ -155,42 +152,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //  Clicking on the Logar Agora now will execute a series of defined commands
-        btnlogaragora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edittextusuario.setEnabled(false);
+        btnlogaragora.setOnClickListener(v -> {
+            if (edittextcpffunc.getText() == null || edittextcpffunc.getText().length() < 5){
+                Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: CPF\nMinimo de caracteres: 11", Toast.LENGTH_SHORT).show();
+                edittextcpffunc.requestFocus();
+                imm.showSoftInput(edittextcpffunc, InputMethodManager.SHOW_IMPLICIT);
+            }
+            else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 8){
+                Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 8", Toast.LENGTH_SHORT).show();
+                edittextsenha.requestFocus();
+                imm.showSoftInput(edittextsenha, InputMethodManager.SHOW_IMPLICIT);
+            }
+            else {
+                edittextcpffunc.setEnabled(false);
                 edittextsenha.setEnabled(false);
                 relativeprincipallogin.setVisibility(View.GONE);
                 relativeinferiorlogin.setVisibility(View.GONE);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        progressloadinglogin.setVisibility(View.VISIBLE);
-                    }
-                },155);
-                tempoloadinglogin.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                new Handler().postDelayed(() -> progressloadinglogin.setVisibility(View.VISIBLE),155);
+                tempoloadinglogin.postDelayed(() -> {
+                    DaoLogins daoLogins = new DaoLogins(MainActivity.this);
+                    String cpf = edittextcpffunc.getText().toString();
+                    String senha = edittextsenha.getText().toString();
+                    boolean sucesso = daoLogins.onLogin(cpf,senha);
+                    if (sucesso){
                         Intent irparaprincipal = new Intent(MainActivity.this,PrincipalActivity.class);
-                        irparaprincipal.putExtra("nomeusu", edittextusuario.getText().toString());
+                        irparaprincipal.putExtra("cpffunc", cpf);
                         startActivity(irparaprincipal);
                         finish();
                     }
-                },500);//  Change when database connect
-
-                //  Command disabled for build new activity, when Principalactivity is finish that's command will be build
-
-                /*if (edittextusuario.getText() == null || edittextusuario.getText().length() < 5){
-                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Usuario\nMinimo de caracteres: 5", Toast.LENGTH_SHORT).show();
-                    edittextusuario.requestFocus();
-                }
-                else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 8){
-                    Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 8", Toast.LENGTH_SHORT).show();
-                    edittextsenha.requestFocus();
-                }
-                else {
-                    //  Command will be defined when finalizing the 3 login screens
-                }*/
+                    else {
+                        edittextcpffunc.setEnabled(true);
+                        edittextsenha.setEnabled(true);
+                        edittextcpffunc.setText("");
+                        edittextsenha.setText("");
+                        relativeprincipallogin.setVisibility(View.VISIBLE);
+                        relativeinferiorlogin.setVisibility(View.VISIBLE);
+                        progressloadinglogin.setVisibility(View.GONE);
+                        AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
+                        aviso.setTitle("Eita.. :(");
+                        aviso.setIcon(R.mipmap.ic_launcher_system);
+                        aviso.setMessage("CPF OU SENHA informados não estão corretos ou não estão cadastrados\n\nVerifique o CPF e a SENHA!");
+                        aviso.setPositiveButton("OK", null);
+                        aviso.show();
+                    }
+                },550);
             }
         });
 
@@ -227,8 +232,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-/**
+/*
  *  Copyright (c) 2020 System Strength
  *  Official repository https://github.com/System-Strength/Mobile
  *  Responsible developer: https://github.com/Kauavitorio
- **/
+ */
