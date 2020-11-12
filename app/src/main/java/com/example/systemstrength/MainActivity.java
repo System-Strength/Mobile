@@ -23,6 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.systemstrength.Classes.Login.DaoLogins;
+
 /**
  *  Copyright (c) 2020 System Strength
  *  Official repository https://github.com/System-Strength/Mobile
