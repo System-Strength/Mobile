@@ -81,7 +81,6 @@
     </LinearLayout>
 
     <!--Body-->
-
     <LinearLayout
             android:layout_weight="7"
             android:layout_width="match_parent"
@@ -89,12 +88,963 @@
             android:layout_height="0dp"
             tools:ignore="ObsoleteLayoutParam">
 
-            <!--Contender-->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="1.5"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            tools:ignore="InefficientWeight,NestedWeights,UselessLeaf,UselessParent">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarSize="5dp"
+                android:layout_marginBottom="8dp"
+                android:scrollbarThumbVertical="@drawable/custom_scroll_style"
+                tools:ignore="UselessParent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--Menu Horizontal-->
+                    <LinearLayout
+                        android:id="@+id/basemenuhorizontal"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--Contender-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <HorizontalScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scrollbarSize="5dp"
+                                android:layout_marginBottom="8dp"
+                                android:scrollbarThumbHorizontal="@drawable/custom_scroll_style_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="#000"
+                                    android:orientation="horizontal"
+                                    tools:ignore="ScrollViewSize">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="TooDeepLayout">
+
+                                        <!--CardView WellCome Back-->
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/cardviewbemvindo"
+                                            android:layout_width="300dp"
+                                            android:layout_height="120dp"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:visibility="visible"
+                                            app:cardBackgroundColor="#fff"
+                                            app:cardCornerRadius="20dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent">
+
+                                            <androidx.constraintlayout.widget.ConstraintLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+                                                <!--Text WellCome Back-->
+                                                <TextView
+                                                    android:id="@+id/txtbemvindo"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="8dp"
+                                                    android:text="@string/bemvindo"
+                                                    android:textColor="#000"
+                                                    android:textSize="16sp"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                                <!--Text Title Time-->
+                                                <TextView
+                                                    android:id="@+id/txttitulosaoagora"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginTop="5dp"
+                                                    android:textSize="15sp"
+                                                    android:text="@string/saoagora"
+                                                    android:textColor="#EB000000"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txtbemvindo" />
+
+                                                <!--Text TIme-->
+                                                <TextView
+                                                    android:id="@+id/txthoraatual"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="2dp"
+                                                    android:layout_marginTop="5dp"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
+                                                    android:text="@string/horaatual"
+                                                    android:textColor="#000"
+                                                    app:layout_constraintStart_toEndOf="@+id/txttitulosaoagora"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txtbemvindo" />
+
+                                                <!--Text Title Cargo-->
+                                                <TextView
+                                                    android:id="@+id/txttitulocargoatual"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginTop="9dp"
+                                                    android:textSize="15sp"
+                                                    android:text="@string/cargoatual"
+                                                    android:textColor="#EB000000"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txttitulosaoagora" />
+
+                                                <!--Text Cargo-->
+                                                <TextView
+                                                    android:id="@+id/txtcargoatual"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="5dp"
+                                                    android:layout_marginTop="6dp"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
+                                                    android:text="@string/cargo"
+                                                    android:textColor="#000"
+                                                    app:layout_constraintStart_toEndOf="@+id/txttitulocargoatual"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txthoraatual" />
+
+                                                <!--Text Title Proxima Reunião-->
+                                                <TextView
+                                                    android:id="@+id/txttituloproximareuniao"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginTop="5dp"
+                                                    android:textColor="#EB000000"
+                                                    android:text="@string/proximareuniao"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txtcargoatual" />
+
+                                                <!--Text Proxima Reunião-->
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="3dp"
+                                                    android:layout_marginTop="4dp"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
+                                                    android:textColor="#000"
+                                                    android:text="@string/aquiestaaproximareuniao"
+                                                    app:layout_constraintStart_toEndOf="@+id/txttituloproximareuniao"
+                                                    app:layout_constraintTop_toBottomOf="@+id/txtcargoatual" />
+
+                                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                        </androidx.cardview.widget.CardView>
+
+                                        <!--CardView Agenda-->
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/cardviewagenda"
+                                            android:layout_width="250dp"
+                                            android:layout_height="120dp"
+                                            android:visibility="visible"
+                                            android:layout_marginStart="24dp"
+                                            android:layout_marginBottom="8dp"
+                                            app:cardBackgroundColor="#fff"
+                                            app:cardCornerRadius="20dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toEndOf="@+id/cardviewbemvindo"
+                                            app:layout_constraintTop_toTopOf="parent">
+
+                                            <LinearLayout
+                                                android:orientation="vertical"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+                                                <!--Text Agenda-->
+                                                <LinearLayout
+                                                    android:orientation="vertical"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content">
+
+                                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        tools:ignore="TooDeepLayout">
+
+                                                        <TextView
+                                                            android:id="@+id/txttituloagenda"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginTop="5dp"
+                                                            android:text="@string/tituloagenda"
+                                                            android:textColor="#000"
+                                                            android:textSize="20sp"
+                                                            app:layout_constraintEnd_toEndOf="parent"
+                                                            app:layout_constraintStart_toStartOf="parent"
+                                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                                </LinearLayout>
+
+                                                <!--ListView-->
+                                                <LinearLayout
+                                                    android:layout_weight="1"
+                                                    android:orientation="horizontal"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    tools:ignore="InefficientWeight,UselessLeaf">
+
+                                                    <ListView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:background="#fff"
+                                                        tools:ignore="NestedScrolling" />
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </androidx.cardview.widget.CardView>
+
+                                        <!--CardView Clientes-->
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/cardviewservicos"
+                                            android:layout_width="230dp"
+                                            android:layout_height="120dp"
+                                            android:visibility="visible"
+                                            android:layout_marginStart="24dp"
+                                            android:layout_marginEnd="32dp"
+                                            android:layout_marginBottom="8dp"
+                                            app:cardBackgroundColor="#fff"
+                                            app:cardCornerRadius="20dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toEndOf="@+id/cardviewagenda"
+                                            app:layout_constraintTop_toTopOf="parent">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical"
+                                                tools:ignore="UselessLeaf">
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_weight="4"
+                                                    tools:ignore="UselessParent">
+
+                                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:text="@string/tituloclientes"
+                                                            android:textColor="#000"
+                                                            android:textSize="20sp"
+                                                            app:layout_constraintBottom_toBottomOf="parent"
+                                                            app:layout_constraintEnd_toEndOf="parent"
+                                                            app:layout_constraintStart_toStartOf="parent"
+                                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_weight="1"
+                                                    android:orientation="horizontal">
+
+                                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:animateLayoutChanges="true">
+
+                                                        <!--Img Palace Petz-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogopalace"
+                                                            android:layout_width="30dp"
+                                                            android:layout_height="30dp"
+                                                            android:layout_marginStart="20dp"
+                                                            android:layout_marginTop="11dp"
+                                                            android:src="@drawable/patapalacepet"
+                                                            app:layout_constraintStart_toStartOf="parent"
+                                                            app:layout_constraintTop_toTopOf="parent"
+                                                            tools:ignore="ContentDescription" />
+
+                                                        <!--Img ESPN-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogoespn"
+                                                            android:layout_width="40dp"
+                                                            android:layout_height="40dp"
+                                                            android:layout_marginStart="16dp"
+                                                            android:layout_marginTop="8dp"
+                                                            android:src="@drawable/logospn"
+                                                            app:layout_constraintStart_toEndOf="@+id/imglogopalace"
+                                                            app:layout_constraintTop_toTopOf="parent"
+                                                            tools:ignore="ContentDescription" />
+
+                                                        <!--Img Dell-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogodell"
+                                                            android:layout_width="30dp"
+                                                            android:layout_height="30dp"
+                                                            android:layout_marginStart="20dp"
+                                                            android:layout_marginTop="12dp"
+                                                            android:src="@drawable/logodell"
+                                                            app:layout_constraintStart_toStartOf="parent"
+                                                            app:layout_constraintTop_toBottomOf="@+id/imglogopalace"
+                                                            tools:ignore="ContentDescription" />
+
+                                                        <!--Img Samsung-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogosamsung"
+                                                            android:layout_width="40dp"
+                                                            android:layout_height="40dp"
+                                                            android:layout_marginStart="16dp"
+                                                            android:layout_marginBottom="6dp"
+                                                            android:src="@drawable/logosamsung"
+                                                            app:layout_constraintBottom_toBottomOf="parent"
+                                                            app:layout_constraintStart_toEndOf="@+id/imglogodell"
+                                                            app:layout_constraintTop_toBottomOf="@+id/imglogoespn"
+                                                            tools:ignore="ContentDescription" />
+
+                                                        <!--Img Tesla-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogotesla"
+                                                            android:layout_width="40dp"
+                                                            android:layout_height="40dp"
+                                                            android:layout_marginStart="5dp"
+                                                            android:layout_marginBottom="5dp"
+                                                            android:src="@drawable/logotesla"
+                                                            app:layout_constraintBottom_toTopOf="@+id/imglogoapple"
+                                                            app:layout_constraintStart_toEndOf="@+id/imglogoespn"
+                                                            tools:ignore="ContentDescription" />
+
+                                                        <!--Img Apple-->
+                                                        <ImageView
+                                                            android:id="@+id/imglogoapple"
+                                                            android:layout_width="35dp"
+                                                            android:layout_height="35dp"
+                                                            android:layout_marginStart="8dp"
+                                                            android:layout_marginBottom="9dp"
+                                                            android:src="@drawable/logoapple"
+                                                            app:layout_constraintBottom_toBottomOf="parent"
+                                                            app:layout_constraintStart_toEndOf="@+id/imglogosamsung"
+                                                            app:layout_constraintTop_toBottomOf="@+id/imglogoespn"
+                                                            tools:ignore="ContentDescription"
+                                                            android:scaleType="centerCrop"/>
+
+                                                        <!--Btn ver clientes-->
+                                                        <androidx.cardview.widget.CardView
+                                                            android:id="@+id/cardviewbtnverclientes"
+                                                            android:layout_width="35dp"
+                                                            android:layout_height="35dp"
+                                                            android:layout_marginEnd="16dp"
+                                                            android:layout_marginBottom="12dp"
+                                                            android:outlineProvider="none"
+                                                            app:cardBackgroundColor="#FF3300"
+                                                            app:cardCornerRadius="30dp"
+                                                            app:layout_constraintBottom_toBottomOf="parent"
+                                                            app:layout_constraintEnd_toEndOf="parent">
+
+                                                            <androidx.constraintlayout.widget.ConstraintLayout
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="match_parent">
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginBottom="5dp"
+                                                                    android:text="@string/mais"
+                                                                    android:textColor="#fff"
+                                                                    android:textSize="25sp"
+                                                                    app:layout_constraintBottom_toBottomOf="parent"
+                                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                                    app:layout_constraintStart_toStartOf="parent"
+                                                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                                        </androidx.cardview.widget.CardView>
+
+                                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </androidx.cardview.widget.CardView>
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </LinearLayout>
+
+                            </HorizontalScrollView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <!--Contender CardView Java-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contendercardviewjava"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/basemenuhorizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="350dp"
+                            android:layout_height="130dp"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cardviewjava">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="40dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="@string/java"
+                                    android:textColor="#DD472D"
+                                    android:textSize="50sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/logojava"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="ContentDescription" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <!--Btn Saber Mais Java-->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnlermaisjava"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="15dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#000"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="#fff"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="@string/mais"
+                                            android:textColor="#000"
+                                            android:textSize="30sp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TooDeepLayout" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--Contender CardView C#-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contendercardviewcsharp"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contendercardviewjava">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="350dp"
+                            android:layout_height="130dp"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cardviewcsharp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="80dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="@string/csharp"
+                                    android:textColor="#2A0067"
+                                    android:textSize="50sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/logocsharp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="ContentDescription" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--Btn Saber Mais Java-->
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnlermaiscsharp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="15dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#000"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="#fff"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="@string/mais"
+                                            android:textColor="#000"
+                                            android:textSize="30sp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TooDeepLayout" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--Contender CardView JavaScript-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contendercardviewjavascript"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contendercardviewcsharp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="350dp"
+                            android:layout_height="130dp"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cardviewjs">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="17dp"
+                                    android:text="@string/js"
+                                    android:textColor="#000"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/logojavascript"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="ContentDescription" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--Btn Saber Mais Java-->
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnlermaisjavascript"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="15dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#000"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="#fff"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="@string/mais"
+                                            android:textColor="#000"
+                                            android:textSize="30sp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TooDeepLayout" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--Contender CardView Html-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contendercardviewhtml"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contendercardviewjavascript">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="350dp"
+                            android:layout_height="130dp"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="TooManyViews">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cardviewhtml">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="70dp"
+                                    android:layout_marginTop="17dp"
+                                    android:text="@string/html"
+                                    android:textColor="#E47226"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/logohtml"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="ContentDescription" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--Btn Saber Mais HTML-->
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnlermaishtml"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="15dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#000"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="#fff"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="@string/mais"
+                                            android:textColor="#000"
+                                            android:textSize="30sp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TooDeepLayout" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--Contender CardView CSS-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contendercardviewcss"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/contendercardviewhtml">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="350dp"
+                            android:layout_height="130dp"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cardviewcss">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="80dp"
+                                    android:layout_marginTop="17dp"
+                                    android:text="@string/css"
+                                    android:textColor="#1F61AE"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/logocss"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="ContentDescription" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <!--Btn Saber Mais CSS-->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardviewbtnlermaiscss"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="15dp"
+                            android:outlineProvider="none"
+                            app:cardBackgroundColor="#000"
+                            app:cardCornerRadius="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="#fff"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="@string/mais"
+                                            android:textColor="#000"
+                                            android:textSize="30sp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:ignore="TooDeepLayout" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -112,7 +1062,7 @@
             <!--Constrant to designer-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/navbarprincipal"
-                android:layout_width="280dp"
+                android:layout_width="350dp"
                 android:layout_height="62dp"
                 android:background="@drawable/navbardesigner"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -179,11 +1129,11 @@
 
                         <!--Image Contato-->
                         <ImageView
-                            android:id="@+id/imgcontato"
+                            android:id="@+id/imgagenda"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_marginTop="4dp"
-                            android:src="@drawable/iconecontatopreto"
+                            android:src="@drawable/imgagendapreta"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -193,13 +1143,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/contato"
+                            android:text="@string/agenda"
                             android:textColor="#000"
                             android:textSize="10sp"
                             tools:ignore="SmallSp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imgcontato" />
+                            app:layout_constraintTop_toBottomOf="@+id/imgagenda" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -210,10 +1160,10 @@
                     android:id="@+id/linearbtnservicosprincipal"
                     android:layout_width="50dp"
                     android:layout_height="62dp"
+                    android:layout_marginEnd="24dp"
                     android:orientation="vertical"
-                    android:layout_marginEnd="45dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/linearbtnclienteprincipal"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <!--Base Contender-->
@@ -227,24 +1177,68 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_marginTop="4dp"
+                            android:contentDescription="@string/descnamesystem"
                             android:src="@drawable/iconeservicospreto"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:contentDescription="@string/descnamesystem"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <!--Text Serviços-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/servicos"
-                            android:textSize="10sp"
-                            tools:ignore="SmallSp"
-                            android:textColor="#000"
                             android:layout_marginStart="4dp"
+                            android:text="@string/servicos"
+                            android:textColor="#000"
+                            android:textSize="10sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imgservico" />
+                            app:layout_constraintTop_toBottomOf="@+id/imgservico"
+                            tools:ignore="SmallSp" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <!--Client Button-->
+                <LinearLayout
+                    android:id="@+id/linearbtnclienteprincipal"
+                    android:layout_width="50dp"
+                    android:layout_height="62dp"
+                    android:layout_marginEnd="45dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--Base Contender-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--Image Contato-->
+                        <ImageView
+                            android:id="@+id/imgcliente"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/descnamesystem"
+                            android:src="@drawable/imgclientepreto"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!--Text Contato-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/clientes"
+                            android:textColor="#000"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgcliente"
+                            tools:ignore="SmallSp" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,11 +10,12 @@
     <!--Screen Login-->
     <string name="descnamesystem">System Strength</string>
     <string name="login">Login</string>
-    <string name="usuario">Usuário</string>
+    <string name="cpf">Cpf</string>
     <string name="senha">Senha</string>
     <string name="logaragora">LOGAR AGORA</string>
     <string name="criarconta">Criar Conta</string>
     <string name="esqueciasenha">Esqueci a Senha</string>
+    <string name="hinteditcpf"> Insira aqui seu cpf</string>
     <string name="hintusuario">Insira aqui seu nome de usuario</string>
     <string name="hintsenha">Insira aqui sua senha</string>
 
@@ -22,7 +23,6 @@
     <string name="ola">Olá,</string>
     <string name="criesuaconta">Crie sua conta para entrar</string>
     <string name="hinteditnomefunc"> Insira seu nome</string>
-    <string name="hinteditcpf"> Insira seu cpf</string>
     <string name="hinteditemail"> Insira seu email</string>
     <string name="hinteditsenha"> Insira uma senha</string>
     <string name="hinteditend"> Insira seu endereço</string>
@@ -54,11 +54,19 @@
     <string name="contatenossaequipe">Contate nossa equipe para mais informações</string>
 
     <!--Tela Principal-->
+    <string name="java">JAVA</string>
+    <string name="csharp">C#</string>
+    <string name="js">JAVASCRIPT</string>
+    <string name="html">HTML</string>
+    <string name="css">CSS</string>
     <string name="seunome">Seu Nome</string>
     <string name="bemvindo">Bem Vindo de volta :)</string>
+    <string name="tituloagenda">Agenda</string>
+    <string name="tituloclientes">Clientes</string>
     <string name="saoagora">São agora: </string>
     <string name="horaatual">Hora atual</string>
     <string name="cargoatual">Você é: </string>
+    <string name="mais">+</string>
     <string name="cargo">Cargooo</string>
     <string name="proximareuniao">Proxima reúnião: </string>
     <string name="aquiestaaproximareuniao">Proxima reu as..</string>
