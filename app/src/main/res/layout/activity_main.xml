@@ -62,6 +62,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/txttitulocpf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/cpf"
@@ -94,7 +95,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/textviewsenha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
@@ -120,7 +121,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        app:layout_constraintTop_toBottomOf="@+id/textviewsenha"
                         tools:ignore="Autofill" />
 
                     <ImageView
@@ -132,7 +133,7 @@
                         android:src="@drawable/iconeeyeopenpassword"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        app:layout_constraintTop_toBottomOf="@+id/textviewsenha"
                         android:contentDescription="@string/descnamesystem" />
 
                     <ImageView
@@ -145,7 +146,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:contentDescription="@string/descnamesystem"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/textviewsenha" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
