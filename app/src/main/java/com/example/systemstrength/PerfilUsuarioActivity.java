@@ -206,7 +206,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
 
         cardviewadmperfil.setOnClickListener(v -> {
             Intent irparagerenciamento = new Intent(PerfilUsuarioActivity.this,GerenciarUserActivity.class);
-            irparagerenciamento.putExtra("id",idparaalterar);
+            irparagerenciamento.putExtra("cpfuseradm",cpfrecebidoprincipal);
             startActivity(irparagerenciamento);
             finish();
         });
