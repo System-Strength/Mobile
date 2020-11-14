@@ -15,7 +15,7 @@
     <string name="logaragora">LOGAR AGORA</string>
     <string name="criarconta">Criar Conta</string>
     <string name="esqueciasenha">Esqueci a Senha</string>
-    <string name="hinteditcpf"> Insira aqui seu cpf</string>
+    <string name="hinteditcpf"> Insira seu cpf</string>
     <string name="hintusuario">Insira aqui seu nome de usuario</string>
     <string name="hintsenha">Insira aqui sua senha</string>
 
@@ -88,6 +88,25 @@
     <string name="sobrekaua">Olá! Me chamo Kauã Vitório da Silva Lima, tenho 16 anos, sou de Lins interior de SP mas moro atualmente em São Paulo Capital, estou cursando Desenvolvimento de Sistemas a 9 meses.</string>
     <string name="sobrematheus">Olá! Sou o Matheus Souza, tenho 17 anos, faço técnico em Desenvolvimento de sistemas na ETEC. Atuo na área de front-end e Back-end da nossa empresa, a  System Strength.</string>
     <string name="sobrepedro">Olá meu nome é Pedro Henrique Morato Mesquita Ferreira, tenho 17 anos, moro em Santana de Parnaíba, curso Desenvolvimento de Sistemas na ETEC Professor Basilides de Godoy.</string>
+
+    <!--Perfil Usuario-->
+    <string name="nomefuncperfil">Nome do Funcionario</string>
+    <string name="cpfperfil">cpf:</string>
+    <string name="adressperfil">Adress do func aqui</string>
+    <string name="phoneperfil">Phone do func aqui</string>
+    <string name="emailperfil">Email do func aqui</string>
+    <string name="cargoperfil">Cargo do func aqui</string>
+    <string name="proximareuperfil">Proxima reunião aqui</string>
+    <string name="perfilcpfbase">000.000.000-00</string>
+    <string name="editarperfil">Editar Perfil</string>
+    <string name="adm">Gerenciar Usuarios</string>
+    <string name="nome">nome</string>
+    <string name="emailedit">email</string>
+    <string name="cargoedit">cargo</string>
+    <string name="hintproximareuniao">Quando será a proxima reunião?</string>
+    <string name="proximareuniaoedit">proxima reunião</string>
+    <string name="salvar">Salvar</string>
+    <string name="voltaraocracha">Voltar ao Crachá</string>
 
 
 </resources>

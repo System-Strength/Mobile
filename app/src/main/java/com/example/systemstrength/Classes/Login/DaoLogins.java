@@ -70,21 +70,42 @@ public class DaoLogins extends SQLiteOpenHelper {
     }
 
     //  Method Verification Name in database
-    public boolean verificarnome(String cpf){
-        String comando = "SELECT NOMEFUNC FROM " + TABELA + " WHERE CPFFUNC =?";
+    public DtoLogins verificarusuario(String cpf){
+        String comando = "SELECT * FROM " + TABELA + " WHERE CPFFUNC =?";
         String[] parametros = {cpf};
         Cursor cursor = getWritableDatabase().rawQuery(comando, parametros);
-
-        ArrayList<DtoLogins> arrayList = new ArrayList<>();
+        DtoLogins dtoLogins = new DtoLogins();
 
         while (cursor.moveToNext()) {
-            DtoLogins dtoLogins = new DtoLogins();
-            dtoLogins.setNomefunc(cursor.getString(0));
+            dtoLogins.setId(cursor.getInt(0));
+            dtoLogins.setCpffunc(cursor.getString(1));
+            dtoLogins.setNomefunc(cursor.getString(2));
+            dtoLogins.setEmailfunc(cursor.getString(3));
+            dtoLogins.setEnderecofunc(cursor.getString(4));
+            dtoLogins.setTelefonefunc(cursor.getString(5));
+            dtoLogins.setCargofunc(cursor.getString(6));
+            dtoLogins.setUltamareufunc(cursor.getString(7));
+            dtoLogins.setSenhafunc(cursor.getString(8));
 
-            arrayList.add(dtoLogins);
+
         }
+        return dtoLogins;
+    }
 
-        return cursor.moveToNext();
+    public int atualizar(DtoLogins dtoLogins) {
+        ContentValues values = new ContentValues();
+        values.put("CPFFUNC", dtoLogins.getCpffunc());
+        values.put("NOMEFUNC", dtoLogins.getNomefunc());
+        values.put("EMAILFUNC", dtoLogins.getEmailfunc());
+        values.put("ENDERECOFUNC", dtoLogins.getEnderecofunc());
+        values.put("TELEFONEFUNC", dtoLogins.getTelefonefunc());
+        values.put("CARGOFUNC", dtoLogins.getCargofunc());
+        values.put("ULTIMAREUNIAOFUNC", dtoLogins.getUltamareufunc());
+
+        String id = "id=?";
+        String[] args = {dtoLogins.getId()+""};
+
+        return getWritableDatabase().update(TABELA, values, id, args);
     }
 }
 
