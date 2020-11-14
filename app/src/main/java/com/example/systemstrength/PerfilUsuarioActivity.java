@@ -204,14 +204,11 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
             finish();
         });
 
-        cardviewadmperfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent irparagerenciamento = new Intent(PerfilUsuarioActivity.this,GerenciarUserActivity.class);
-                irparagerenciamento.putExtra("id",idparaalterar);
-                startActivity(irparagerenciamento);
-                finish();
-            }
+        cardviewadmperfil.setOnClickListener(v -> {
+            Intent irparagerenciamento = new Intent(PerfilUsuarioActivity.this,GerenciarUserActivity.class);
+            irparagerenciamento.putExtra("id",idparaalterar);
+            startActivity(irparagerenciamento);
+            finish();
         });
     }
 
