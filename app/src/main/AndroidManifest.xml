@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SystemStrength">
-        <activity android:name=".GerenciarUserActivity"></activity>
+        <activity android:name=".ClientesActivity"></activity>
+        <activity android:name=".GerenciarUserActivity" />
         <activity android:name=".PerfilUsuarioActivity" />
         <activity android:name=".NossaEquipeActivity" />
         <activity android:name=".PrincipalActivity" />
