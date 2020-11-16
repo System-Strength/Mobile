@@ -62,6 +62,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         editedittelefoneperfil.addTextChangedListener(MaskEditUtil.mask(editedittelefoneperfil, MaskEditUtil.FORMAT_FONE));
         editeditproximareuniaoperfil.addTextChangedListener(MaskEditUtil.mask(editeditproximareuniaoperfil, MaskEditUtil.FORMAT_DATETIME));
 
+        //  Get information of another screen
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidoprincipal = bundle.getString("cpfusu");
@@ -128,7 +129,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         });
 
         cardviewbtnsalvareditperfil.setOnClickListener(v -> {
-            if (editeditcpfperfil.getText().length() < 0 || editeditcpfperfil.getText().length() == 0){
+            if (editeditcpfperfil.getText().length() < 14 || editeditcpfperfil.getText().length() == 0){
                 Toast.makeText(PerfilUsuarioActivity.this, "Obrigatório preencher  o campo: CPF", Toast.LENGTH_SHORT).show();
                 editeditcpfperfil.requestFocus();
                 imm.showSoftInput(editeditcpfperfil, InputMethodManager.SHOW_IMPLICIT);
@@ -161,6 +162,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                     dtoLoginsalterar.setUltamareufunc(editeditproximareuniaoperfil.getText().toString());
                     long linhasalteradas = daologinsatualizar.atualizar(dtoLoginsalterar);
                     if (linhasalteradas > 0){
+                        cpfrecebidoprincipal = editeditcpfperfil.getText().toString();
                         Toast.makeText(PerfilUsuarioActivity.this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
                         constraintbasecardperfil.setVisibility(View.VISIBLE);
                         constraintbaseeditperfil.setVisibility(View.GONE);

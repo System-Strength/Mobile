@@ -28,6 +28,7 @@
 
             <!--Section card menu Usuario-->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayoutperfilusu"
                 android:layout_width="180dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="4dp"
@@ -112,9 +113,11 @@
                     <!--Menu Horizontal-->
                     <LinearLayout
                         android:id="@+id/basemenuhorizontal"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <!--Contender-->
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -124,8 +127,8 @@
                             <HorizontalScrollView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:scrollbarSize="5dp"
                                 android:layout_marginBottom="8dp"
+                                android:scrollbarSize="5dp"
                                 android:scrollbarThumbHorizontal="@drawable/custom_scroll_style_horizontal"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent">
@@ -178,11 +181,11 @@
                                                     android:id="@+id/txttitulosaoagora"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginStart="14dp"
                                                     android:layout_marginTop="5dp"
-                                                    android:textSize="15sp"
                                                     android:text="@string/saoagora"
                                                     android:textColor="#EB000000"
+                                                    android:textSize="15sp"
                                                     app:layout_constraintStart_toStartOf="parent"
                                                     app:layout_constraintTop_toBottomOf="@+id/txtbemvindo" />
 
@@ -193,10 +196,10 @@
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginStart="2dp"
                                                     android:layout_marginTop="5dp"
-                                                    android:textSize="16sp"
-                                                    android:textStyle="bold"
                                                     android:text="@string/horaatual"
                                                     android:textColor="#000"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold"
                                                     app:layout_constraintStart_toEndOf="@+id/txttitulosaoagora"
                                                     app:layout_constraintTop_toBottomOf="@+id/txtbemvindo" />
 
@@ -205,11 +208,11 @@
                                                     android:id="@+id/txttitulocargoatual"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginStart="14dp"
                                                     android:layout_marginTop="9dp"
-                                                    android:textSize="15sp"
                                                     android:text="@string/cargoatual"
                                                     android:textColor="#EB000000"
+                                                    android:textSize="15sp"
                                                     app:layout_constraintStart_toStartOf="parent"
                                                     app:layout_constraintTop_toBottomOf="@+id/txttitulosaoagora" />
 
@@ -218,12 +221,12 @@
                                                     android:id="@+id/txtcargoatual"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginStart="5dp"
-                                                    android:layout_marginTop="6dp"
-                                                    android:textSize="16sp"
-                                                    android:textStyle="bold"
+                                                    android:layout_marginStart="4dp"
+                                                    android:layout_marginTop="7dp"
                                                     android:text="@string/cargo"
                                                     android:textColor="#000"
+                                                    android:textSize="15sp"
+                                                    android:textStyle="bold"
                                                     app:layout_constraintStart_toEndOf="@+id/txttitulocargoatual"
                                                     app:layout_constraintTop_toBottomOf="@+id/txthoraatual" />
 
@@ -232,23 +235,24 @@
                                                     android:id="@+id/txttituloproximareuniao"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginStart="16dp"
+                                                    android:layout_marginStart="14dp"
                                                     android:layout_marginTop="5dp"
-                                                    android:textColor="#EB000000"
                                                     android:text="@string/proximareuniao"
+                                                    android:textColor="#EB000000"
                                                     app:layout_constraintStart_toStartOf="parent"
                                                     app:layout_constraintTop_toBottomOf="@+id/txtcargoatual" />
 
                                                 <!--Text Proxima Reunião-->
                                                 <TextView
+                                                    android:id="@+id/txtproximareuniao"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginStart="3dp"
-                                                    android:layout_marginTop="4dp"
-                                                    android:textSize="16sp"
-                                                    android:textStyle="bold"
-                                                    android:textColor="#000"
+                                                    android:layout_marginStart="2.6dp"
+                                                    android:layout_marginTop="5dp"
                                                     android:text="@string/aquiestaaproximareuniao"
+                                                    android:textColor="#000"
+                                                    android:textSize="14sp"
+                                                    android:textStyle="bold"
                                                     app:layout_constraintStart_toEndOf="@+id/txttituloproximareuniao"
                                                     app:layout_constraintTop_toBottomOf="@+id/txtcargoatual" />
 
@@ -261,9 +265,9 @@
                                             android:id="@+id/cardviewagenda"
                                             android:layout_width="250dp"
                                             android:layout_height="120dp"
-                                            android:visibility="visible"
                                             android:layout_marginStart="24dp"
                                             android:layout_marginBottom="8dp"
+                                            android:visibility="visible"
                                             app:cardBackgroundColor="#fff"
                                             app:cardCornerRadius="20dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
@@ -271,15 +275,15 @@
                                             app:layout_constraintTop_toTopOf="parent">
 
                                             <LinearLayout
-                                                android:orientation="vertical"
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent">
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
 
                                                 <!--Text Agenda-->
                                                 <LinearLayout
-                                                    android:orientation="vertical"
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content">
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
 
                                                     <androidx.constraintlayout.widget.ConstraintLayout
                                                         android:layout_width="match_parent"
@@ -304,10 +308,10 @@
 
                                                 <!--ListView-->
                                                 <LinearLayout
-                                                    android:layout_weight="1"
-                                                    android:orientation="horizontal"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:orientation="horizontal"
                                                     tools:ignore="InefficientWeight,UselessLeaf">
 
                                                     <ListView
@@ -327,10 +331,10 @@
                                             android:id="@+id/cardviewservicos"
                                             android:layout_width="230dp"
                                             android:layout_height="120dp"
-                                            android:visibility="visible"
                                             android:layout_marginStart="24dp"
                                             android:layout_marginEnd="32dp"
                                             android:layout_marginBottom="8dp"
+                                            android:visibility="visible"
                                             app:cardBackgroundColor="#fff"
                                             app:cardCornerRadius="20dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
@@ -448,12 +452,12 @@
                                                             android:layout_height="35dp"
                                                             android:layout_marginStart="8dp"
                                                             android:layout_marginBottom="9dp"
+                                                            android:scaleType="centerCrop"
                                                             android:src="@drawable/logoapple"
                                                             app:layout_constraintBottom_toBottomOf="parent"
                                                             app:layout_constraintStart_toEndOf="@+id/imglogosamsung"
                                                             app:layout_constraintTop_toBottomOf="@+id/imglogoespn"
-                                                            tools:ignore="ContentDescription"
-                                                            android:scaleType="centerCrop"/>
+                                                            tools:ignore="ContentDescription" />
 
                                                         <!--Btn ver clientes-->
                                                         <androidx.cardview.widget.CardView
