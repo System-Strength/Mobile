@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 
 /**
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     Button btncriarconta, btnesqueciasenha, btnlogaragora;
     ImageView imgolhoopenpassword, imgolhoclosepassword;
     EditText edittextsenha, edittextcpffunc;
-    ProgressBar progressloadinglogin;
+    LottieAnimationView progressloadinglogin;
     TextView txttitulocpf, textviewsenha;
     int Tempodeanimacao = 2000;
 
@@ -189,7 +190,10 @@ public class MainActivity extends AppCompatActivity {
                 edittextsenha.setEnabled(false);
                 relativeprincipallogin.setVisibility(View.GONE);
                 relativeinferiorlogin.setVisibility(View.GONE);
-                new Handler().postDelayed(() -> progressloadinglogin.setVisibility(View.VISIBLE),155);
+                new Handler().postDelayed(() -> {
+                    progressloadinglogin.setVisibility(View.VISIBLE);
+                    progressloadinglogin.playAnimation();
+                },150);
                 tempoloadinglogin.postDelayed(() -> {
                     DaoLogins daoLogins = new DaoLogins(MainActivity.this);
                     String cpf = edittextcpffunc.getText().toString();
@@ -216,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                         aviso.setPositiveButton("OK", null);
                         aviso.show();
                     }
-                },550);
+                },1050);
             }
         });
 

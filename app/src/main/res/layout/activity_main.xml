@@ -32,7 +32,7 @@
         <!--Cantos para realizar o Login-->
         <RelativeLayout
             android:id="@+id/relativeprincipallogin"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_below="@+id/imgView"
             android:layout_width="wrap_content"
             android:layout_marginBottom="80dp"
@@ -209,9 +209,9 @@
     </RelativeLayout>
 
     <!--ProgressBar to loading the login-->
-    <ProgressBar
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progressloadinglogin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:indeterminateDrawable="@drawable/cpb_1"
         android:indeterminateDuration="@android:integer/config_longAnimTime"
@@ -221,6 +221,9 @@
         android:layout_marginStart="185dp"
         android:layout_marginEnd="175dp"
         android:layout_marginBottom="225dp"
+        app:lottie_rawRes="@raw/loading1"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         android:visibility="visible" />
 
 </RelativeLayout>

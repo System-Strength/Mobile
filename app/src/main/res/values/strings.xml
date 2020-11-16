@@ -90,7 +90,7 @@
     <string name="sobrepedro">Olá meu nome é Pedro Henrique Morato Mesquita Ferreira, tenho 17 anos, moro em Santana de Parnaíba, curso Desenvolvimento de Sistemas na ETEC Professor Basilides de Godoy.</string>
 
     <!--Perfil Usuario-->
-        <string name="nomefuncperfil">Nome do Usuário</string>
+    <string name="nomefuncperfil">Nome do Usuário</string>
     <string name="cpfperfil">cpf:</string>
     <string name="adressperfil">Adress do func aqui</string>
     <string name="phoneperfil">Phone do func aqui</string>
@@ -120,6 +120,9 @@
     <string name="hinteditnomefuncgerenciar"> Insira o nome do usuário</string>
     <string name="hinteditemailgerenciar"> Insira o email do usuário</string>
     <string name="hinteditcpfgerenciar"> Insira o cpf do usuário</string>
+
+    <!--Clientes-->
+    <string name="cadastrarnovocliente"><u>Cadastrar novo Cliente</u></string>
 
 
 </resources>
