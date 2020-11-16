@@ -7,11 +7,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
 
@@ -29,7 +32,8 @@ public class PrincipalActivity extends AppCompatActivity {
     TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao;
     //ImageView imgavatarusu;
     ConstraintLayout constraintlayoutperfilusu;
-    CardView  cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    LottieAnimationView animacaoservicoespricipal;
+    CardView  loadingparaclientes, loadingparaservicos, cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
 
@@ -50,6 +54,9 @@ public class PrincipalActivity extends AppCompatActivity {
         linearbtnservicosprincipal = findViewById(R.id.linearbtnservicosprincipal);
         linearbtnclienteprincipal = findViewById(R.id.linearbtnclienteprincipal);
         constraintlayoutperfilusu = findViewById(R.id.constraintlayoutperfilusu);
+        loadingparaclientes = findViewById(R.id.loadingparaclientes);
+        loadingparaservicos = findViewById(R.id.loadingparaservicos);
+        animacaoservicoespricipal = findViewById(R.id.animacaoservicoespricipal);
         txtnomeusu = findViewById(R.id.txtnomeusu);
         txthoraatual = findViewById(R.id.txthoraatual);
         //imgavatarusu = findViewById(R.id.imgavatarusu);
@@ -84,11 +91,27 @@ public class PrincipalActivity extends AppCompatActivity {
 
         linearbtnhomeprincipal.setOnClickListener(v -> Toast.makeText(PrincipalActivity.this, "Você já está aqui!", Toast.LENGTH_SHORT).show());
 
+        linearbtnservicosprincipal.setOnClickListener(v ->{
+            loadingparaservicos.setVisibility(View.VISIBLE);
+            animacaoservicoespricipal.setSpeed(2);
+            new Handler().postDelayed(() -> {
+                Toast.makeText(this, "Em Desenvolvimento!!!", Toast.LENGTH_SHORT).show();
+                loadingparaservicos.setVisibility(View.GONE);
+                /*Intent irparaclientes = new Intent(PrincipalActivity.this,ServicosActivity.class);
+                irparaclientes.putExtra("cpfusu",cpfrecebido);
+                startActivity(irparaclientes);
+                finish();*/
+            },1700);
+        });
+
         linearbtnclienteprincipal.setOnClickListener(v -> {
-            Intent irparaclientes = new Intent(PrincipalActivity.this,ClientesActivity.class);
-            irparaclientes.putExtra("cpfusu",cpfrecebido);
-            startActivity(irparaclientes);
-            finish();
+            loadingparaclientes.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaclientes = new Intent(PrincipalActivity.this,ClientesActivity.class);
+                irparaclientes.putExtra("cpfusu",cpfrecebido);
+                startActivity(irparaclientes);
+                finish();
+            },1500);
         });
     }
 }
