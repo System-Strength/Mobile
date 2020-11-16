@@ -90,7 +90,7 @@
     <string name="sobrepedro">Olá meu nome é Pedro Henrique Morato Mesquita Ferreira, tenho 17 anos, moro em Santana de Parnaíba, curso Desenvolvimento de Sistemas na ETEC Professor Basilides de Godoy.</string>
 
     <!--Perfil Usuario-->
-    <string name="nomefuncperfil">Nome do Funcionario</string>
+        <string name="nomefuncperfil">Nome do Usuário</string>
     <string name="cpfperfil">cpf:</string>
     <string name="adressperfil">Adress do func aqui</string>
     <string name="phoneperfil">Phone do func aqui</string>
@@ -99,6 +99,7 @@
     <string name="proximareuperfil">Proxima reunião aqui</string>
     <string name="perfilcpfbase">000.000.000-00</string>
     <string name="editarperfil">Editar Perfil</string>
+    <string name="hintsenhaedit">Senha do usuario aqui</string>
     <string name="adm">Gerenciar Usuarios</string>
     <string name="nome">nome</string>
     <string name="emailedit">email</string>
@@ -107,6 +108,18 @@
     <string name="proximareuniaoedit">proxima reunião</string>
     <string name="salvar">Salvar</string>
     <string name="voltaraocracha">Voltar ao Crachá</string>
+
+    <!--Gerenciamento de Usuario-->
+    <string name="gerenciamentodeusu">Gerenciamento de Usuario</string>
+    <string name="hintgerenciarbuscarcpf">INSIRA O CPF DO USUARIO</string>
+    <string name="voceestalogadocom">Você está logado com:</string>
+    <string name="aguardandocpf">Aguardando CPF...</string>
+    <string name="hinteditcargogerenciar"> Insira o cargo do usuário</string>
+    <string name="hintedittellgerenciar"> Insira o celular do usuário</string>
+    <string name="hinteditendgerenciar"> Insira o endereço do usuário</string>
+    <string name="hinteditnomefuncgerenciar"> Insira o nome do usuário</string>
+    <string name="hinteditemailgerenciar"> Insira o email do usuário</string>
+    <string name="hinteditcpfgerenciar"> Insira o cpf do usuário</string>
 
 
 </resources>
