@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.systemstrength.Classes.Login.DaoLogins;
@@ -36,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
     Handler apareceropcoes = new Handler ();
     Handler tempodeloading = new Handler ();
     Handler tempoloadinglogin = new Handler ();
+    Handler tempoavisocor = new Handler ();
     RelativeLayout relativeprincipallogin, relativeinferiorlogin, relativeimgsystem;
     Button btncriarconta, btnesqueciasenha, btnlogaragora;
     ImageView imgolhoopenpassword, imgolhoclosepassword;
     EditText edittextsenha, edittextcpffunc;
     ProgressBar progressloadinglogin;
+    TextView txttitulocpf, textviewsenha;
     int Tempodeanimacao = 2000;
 
     @Override
@@ -48,23 +51,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Ids
-        relativeprincipallogin = (RelativeLayout)findViewById(R.id.relativeprincipallogin);
-        relativeinferiorlogin = (RelativeLayout)findViewById(R.id.relativeinferiorlogin);
-        relativeimgsystem = (RelativeLayout)findViewById(R.id.relativeimgsystem);
-        btncriarconta = (Button) findViewById(R.id.btncriarconta);
-        btnlogaragora = (Button) findViewById(R.id.btnlogaragora);
-        btnesqueciasenha = (Button) findViewById(R.id.btnesqueciasenha);
-        imgolhoopenpassword = (ImageView) findViewById(R.id.imgolhoopenpassword);
-        imgolhoclosepassword = (ImageView) findViewById(R.id.imgolhoclosepassword);
-        edittextsenha = (EditText) findViewById(R.id.edittextsenha);
-        edittextcpffunc = (EditText) findViewById(R.id.edittextcpffunc);
-        progressloadinglogin = (ProgressBar) findViewById(R.id.progressloadinglogin);
+        relativeprincipallogin = findViewById(R.id.relativeprincipallogin);
+        relativeinferiorlogin = findViewById(R.id.relativeinferiorlogin);
+        relativeimgsystem = findViewById(R.id.relativeimgsystem);
+        btncriarconta = findViewById(R.id.btncriarconta);
+        btnlogaragora = findViewById(R.id.btnlogaragora);
+        btnesqueciasenha = findViewById(R.id.btnesqueciasenha);
+        imgolhoopenpassword = findViewById(R.id.imgolhoopenpassword);
+        imgolhoclosepassword = findViewById(R.id.imgolhoclosepassword);
+        edittextsenha = findViewById(R.id.edittextsenha);
+        edittextcpffunc = findViewById(R.id.edittextcpffunc);
+        progressloadinglogin = findViewById(R.id.progressloadinglogin);
+        txttitulocpf = findViewById(R.id.txttitulocpf);
+        textviewsenha = findViewById(R.id.textviewsenha);
         InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         edittextcpffunc.addTextChangedListener(MaskEditUtil.mask(edittextcpffunc, MaskEditUtil.FORMAT_CPF));
 
-        //  Verification in Inent for to see if null
-        Intent intent =  getIntent();
+        edittextcpffunc.setText("43333349850");
+        edittextsenha.setText("kaua2004");
+
+        //  Verification in Intent for to see if is null
+        Intent intent = getIntent();
         if (intent == null){
             Tempodeanimacao = 2000 ;
         }
@@ -90,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
             //My two Relative Layouts
             relativeprincipallogin.setVisibility(View.VISIBLE);
             relativeinferiorlogin.setVisibility(View.VISIBLE);
+            /*Intent irparalocaldetest = new Intent(MainActivity.this,PrincipalActivity.class);
+            startActivity(irparalocaldetest);
+            finish();*/
         },Tempodeanimacao);
 
         //  Button CriarConta Press
@@ -108,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             tempodeloading.postDelayed(() -> {
                 Intent irparaesqueciasenha = new Intent(MainActivity.this,MenuEsqueciASenhaActivity.class);
                 startActivity(irparaesqueciasenha);
-            },700);
+            },400);
         });
 
         //  When you click on the open eye it will execute the defined commands
@@ -156,14 +167,22 @@ public class MainActivity extends AppCompatActivity {
         //  Clicking on the Logar Agora now will execute a series of defined commands
         btnlogaragora.setOnClickListener(v -> {
             if (edittextcpffunc.getText() == null || edittextcpffunc.getText().length() < 5){
-                Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: CPF\nMinimo de caracteres: 11", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Preencha corretamente o campo: CPF\nCaracteres necessários: 11", Toast.LENGTH_SHORT).show();
                 edittextcpffunc.requestFocus();
                 imm.showSoftInput(edittextcpffunc, InputMethodManager.SHOW_IMPLICIT);
+                tempoavisocor.postDelayed(() -> {
+                    txttitulocpf.setTextColor(Color.RED);
+                    tempoavisocor.postDelayed(() -> txttitulocpf.setTextColor(Color.WHITE),300);
+                },50);
             }
             else if (edittextsenha.getText() == null || edittextsenha.getText().length() < 8){
-                Toast.makeText(MainActivity.this, "Necessário preencher corretamente o campo: Senha\nMinimo de caracteres: 8", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Preencha corretamente o campo: Senha\nMinimo de caracteres: 8", Toast.LENGTH_SHORT).show();
                 edittextsenha.requestFocus();
                 imm.showSoftInput(edittextsenha, InputMethodManager.SHOW_IMPLICIT);
+                tempoavisocor.postDelayed(() -> {
+                    textviewsenha.setTextColor(Color.RED);
+                    tempoavisocor.postDelayed(() -> textviewsenha.setTextColor(Color.WHITE),300);
+                },50);
             }
             else {
                 edittextcpffunc.setEnabled(false);
@@ -223,6 +242,15 @@ public class MainActivity extends AppCompatActivity {
             aviso.setTitle("Opss.. :(");
             aviso.setIcon(R.mipmap.ic_launcher_system);
             aviso.setMessage("Você está sem conexão a internet\nNão será possivel acesar sua conta ou mesmo criar um!");
+            aviso.setNeutralButton("Verificar novamente", (dialog, which) -> {
+                Intent irparaloading = new Intent(MainActivity.this,LoadingActivity.class);
+                startActivity(irparaloading);
+                finish();
+                tempodeloading.postDelayed(() -> {
+                    Intent voltarmain = new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(voltarmain);
+                },300);
+            });
             aviso.setPositiveButton("OK", null);
             aviso.show();
         }
