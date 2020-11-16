@@ -1,6 +1,5 @@
 package com.example.systemstrength;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -65,7 +64,7 @@ public class GerenciarUserActivity extends AppCompatActivity {
         editeditproximareuniaoperfilgerenciar.addTextChangedListener(MaskEditUtil.mask(editeditproximareuniaoperfilgerenciar, MaskEditUtil.FORMAT_DATETIME));
 
         //  Defining msg Alert
-        AlertDialog.Builder msg = new AlertDialog.Builder(GerenciarUserActivity.this);
+        //  AlertDialog.Builder msg = new AlertDialog.Builder(GerenciarUserActivity.this);
 
         //  Defining with gone some Thing
         cardviewiniciareditgerenciar.setVisibility(View.GONE);
@@ -77,6 +76,7 @@ public class GerenciarUserActivity extends AppCompatActivity {
 
         InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
+        //  Set commands for do in real time when insert some inside edittext
         edittextpesquisarcpfusuariogerenciar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -90,29 +90,21 @@ public class GerenciarUserActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edittextpesquisarcpfusuariogerenciar.getText().length() ==  14){
+                if (edittextpesquisarcpfusuariogerenciar.getText().length() == 14){
                     cpfdousuario = edittextpesquisarcpfusuariogerenciar.getText().toString();
                     DaoLogins daoLogins = new DaoLogins(GerenciarUserActivity.this);
                     DtoLogins dtousuariorecebido = daoLogins.verificarusuario(cpfdousuario);
-                    if (dtousuariorecebido == null){
-                        msg.setIcon(R.drawable.logosystemstrengthsemfundo);
-                        msg.setTitle("Usuário não encontrado!!");
-                        msg.setMessage("O CPF inserido não corresponde a nenhum usuário\nVerifique o cpf inserido e o redigite");
-                        msg.setPositiveButton("OK",null);
-                        msg.show();
-                    }else {
-                        iddousuarioasereditado = dtousuariorecebido.getId();
-                        txtnomefuncperfilgerenciar.setText(dtousuariorecebido.getNomefunc());
-                        cpfrecebidoedit = dtousuariorecebido.getCpffunc();
-                        txtcpffuncperfilgerenciar.setText(cpfrecebidoedit);
-                        txtendfuncperfilgerenciar.setText(dtousuariorecebido.getEnderecofunc());
-                        txtphonefuncperfilgerenciar.setText(dtousuariorecebido.getTelefonefunc());
-                        txtemailfuncperfilgerenciar.setText(dtousuariorecebido.getEmailfunc());
-                        txtcargofuncperfilgerenciar.setText(dtousuariorecebido.getCargofunc());
-                        txtproximareuniaoperfilgerenciar.setText(dtousuariorecebido.getUltamareufunc());
-                        senhadousuarioasereditada = dtousuariorecebido.getSenhafunc();
-                        cardviewiniciareditgerenciar.setVisibility(View.VISIBLE);
-                    }
+                    iddousuarioasereditado = dtousuariorecebido.getId();
+                    txtnomefuncperfilgerenciar.setText(dtousuariorecebido.getNomefunc());
+                    cpfrecebidoedit = dtousuariorecebido.getCpffunc();
+                    txtcpffuncperfilgerenciar.setText(cpfrecebidoedit);
+                    txtendfuncperfilgerenciar.setText(dtousuariorecebido.getEnderecofunc());
+                    txtphonefuncperfilgerenciar.setText(dtousuariorecebido.getTelefonefunc());
+                    txtemailfuncperfilgerenciar.setText(dtousuariorecebido.getEmailfunc());
+                    txtcargofuncperfilgerenciar.setText(dtousuariorecebido.getCargofunc());
+                    txtproximareuniaoperfilgerenciar.setText(dtousuariorecebido.getUltamareufunc());
+                    senhadousuarioasereditada = dtousuariorecebido.getSenhafunc();
+                    cardviewiniciareditgerenciar.setVisibility(View.VISIBLE);
                 }
                 else {
                     txtnomefuncperfilgerenciar.setText(String.format("%s...", edittextpesquisarcpfusuariogerenciar.getText()));
@@ -127,6 +119,7 @@ public class GerenciarUserActivity extends AppCompatActivity {
             }
         });
 
+        //  When click in this Cardview will defining text for Edittext and show ConstraintLayout
         cardviewiniciareditgerenciar.setOnClickListener(v -> {
             constraintcardviewperfilgerenciar.setVisibility(View.GONE);
             constraintbaseeditperfilgerenciar.setVisibility(View.VISIBLE);
@@ -140,12 +133,14 @@ public class GerenciarUserActivity extends AppCompatActivity {
             editeditsenhaperfilgerenciar.setText(senhadousuarioasereditada);
         });
 
+        //  When click in this Cardview will return for first cardview ConstraintLayout
         cardviewbtnvoltarcardperfilgerenciar.setOnClickListener(v -> {
             constraintcardviewperfilgerenciar.setVisibility(View.VISIBLE);
             constraintbaseeditperfilgerenciar.setVisibility(View.GONE);
             cardviewiniciareditgerenciar.setVisibility(View.VISIBLE);
         });
 
+        //  When CLick in this cardview will do some validation and try edit user
         cardviewbtnsalvareditperfilgerenciar.setOnClickListener(v -> {
             if (editeditcpfperfilgerenciar.getText().length() < 14 || editeditcpfperfilgerenciar.getText().length() == 0){
                 Toast.makeText(GerenciarUserActivity.this, "Preencha corretamente o campo: CPF", Toast.LENGTH_SHORT).show();
@@ -201,6 +196,7 @@ public class GerenciarUserActivity extends AppCompatActivity {
             }
         });
 
+        //  When CLick in this Linear will close that Activity and go to PerfilUsuarioActivity
         linearbtnvoltargerenciaruser.setOnClickListener(v -> {
             Intent voltarparaperfil = new Intent(GerenciarUserActivity.this, PerfilUsuarioActivity.class);
             voltarparaperfil.putExtra("cpfusu", cpfrecebidodoperfil);
