@@ -107,6 +107,23 @@ public class DaoLogins extends SQLiteOpenHelper {
 
         return getWritableDatabase().update(TABELA, values, id, args);
     }
+
+    public int atualizaradm(DtoLogins dtoLogins) {
+        ContentValues values = new ContentValues();
+        values.put("CPFFUNC", dtoLogins.getCpffunc());
+        values.put("NOMEFUNC", dtoLogins.getNomefunc());
+        values.put("EMAILFUNC", dtoLogins.getEmailfunc());
+        values.put("ENDERECOFUNC", dtoLogins.getEnderecofunc());
+        values.put("TELEFONEFUNC", dtoLogins.getTelefonefunc());
+        values.put("CARGOFUNC", dtoLogins.getCargofunc());
+        values.put("ULTIMAREUNIAOFUNC", dtoLogins.getUltamareufunc());
+        values.put("SENHAFUNC", dtoLogins.getSenhafunc());
+
+        String id = "id=?";
+        String[] args = {dtoLogins.getId()+""};
+
+        return getWritableDatabase().update(TABELA, values, id, args);
+    }
 }
 
 /*
