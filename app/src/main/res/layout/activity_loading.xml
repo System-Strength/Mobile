@@ -7,11 +7,12 @@
     android:background="#000"
     tools:context=".LoadingActivity">
 
-    <ProgressBar
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:indeterminateDrawable="@drawable/cpb_1"
-        android:indeterminateDuration="@android:integer/config_longAnimTime"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:lottie_rawRes="@raw/loadinghourglass"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

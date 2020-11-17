@@ -123,6 +123,13 @@
 
     <!--Clientes-->
     <string name="cadastrarnovocliente"><u>Cadastrar novo Cliente</u></string>
+    <string name="nomedocliente">Insira o nome do cliente</string>
+    <string name="endereccliente">Endereço</string>
+    <string name="enderecodocliente">Insira o endereço do cliente</string>
+    <string name="phonecliente">Telefone</string>
+    <string name="phonedocliente">Insira o telefone do cliente</string>
+    <string name="cnpjcliente">CNPJ</string>
+    <string name="cnpjedocliente">Insira o cnpj do cliente</string>
 
 
 </resources>
