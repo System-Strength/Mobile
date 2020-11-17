@@ -35,16 +35,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/voltar"
-                        android:textColor="#fd0000"
-                        android:textSize="18sp"
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/setinhaanimadaperfil"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/setinhaesquerda" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

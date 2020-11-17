@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
 
@@ -21,6 +23,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     LinearLayout linearbtnvoltarperfil;
     TextView txtnomefuncperfil, txtcpffuncperfil, txtendfuncperfil, txtphonefuncperfil, txtemailfuncperfil, txtcargofuncperfil, txtproximareuniaoperfil;
     String cpfrecebidoprincipal;
+    LottieAnimationView setinhaanimadaperfil;
     ConstraintLayout constraintbasecardperfil, constraintbaseeditperfil;
     CardView cardviewbtniniciaredit, cardviewbtnsalvareditperfil, cardviewbtnvoltarcardperfil, cardviewadmperfil;
     EditText editeditcpfperfil, editeditnomeperfil, editeditemailperfil, editeditenderecoperfil, editedittelefoneperfil, editeditcargoperfil, editeditproximareuniaoperfil;
@@ -38,6 +41,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         txtphonefuncperfil = findViewById(R.id.txtphonefuncperfil);
         txtemailfuncperfil = findViewById(R.id.txtemailfuncperfil);
         txtcargofuncperfil = findViewById(R.id.txtcargofuncperfil);
+        setinhaanimadaperfil = findViewById(R.id.setinhaanimadaperfil);
         txtproximareuniaoperfil = findViewById(R.id.txtproximareuniaoperfil);
         cardviewbtniniciaredit = findViewById(R.id.cardviewbtniniciaredit);
         cardviewbtnvoltarcardperfil = findViewById(R.id.cardviewbtnvoltarcardperfil);
@@ -200,10 +204,16 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         });
 
         linearbtnvoltarperfil.setOnClickListener(v -> {
-            Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
-            voltarparaprincipal.putExtra("cpffunc",cpfrecebidoprincipal);
-            startActivity(voltarparaprincipal);
-            finish();
+            setinhaanimadaperfil.playAnimation();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
+                    voltarparaprincipal.putExtra("cpffunc",cpfrecebidoprincipal);
+                    startActivity(voltarparaprincipal);
+                    finish();
+                }
+            },900);
         });
 
         cardviewadmperfil.setOnClickListener(v -> {
