@@ -129,7 +129,10 @@
     <string name="phonecliente">Telefone</string>
     <string name="phonedocliente">Insira o telefone do cliente</string>
     <string name="cnpjcliente">CNPJ</string>
-    <string name="cnpjedocliente">Insira o cnpj do cliente</string>
+    <string name="cnpjedocliente">Insira o CNPJ do cliente</string>
+    <string name="emailcliente">EMAIL</string>
+    <string name="emaildocliente">Insira o email do cliente</string>
+    <string name="editarcliente"><u>Editar Cliente</u></string>
 
 
 </resources>
