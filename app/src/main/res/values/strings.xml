@@ -2,11 +2,13 @@
     <string name="app_name">System Strength</string>
     <string name="voltar">Voltar</string>
     <string name="icomore">+</string>
+
     <!--Navigation Bar-->
     <string name="home">Home</string>
     <string name="agenda">Agenda</string>
     <string name="servicos">Serviços</string>
     <string name="clientes">Clientes</string>
+
     <!--Screen Login-->
     <string name="descnamesystem">System Strength</string>
     <string name="login">Login</string>
@@ -78,11 +80,13 @@
     <string name="kaua">Kauã Vitório</string>
     <string name="matheus">Matheus Souza</string>
     <string name="pedro">Pedro Morato</string>
+
     <!--Cargos-->
     <string name="cargodanilo">Front-end Developer</string>
     <string name="cargokaua">Mobile Developer</string>
     <string name="cargomatheus">Back-end Developer</string>
     <string name="cargppedro">Infrastructure Analyst</string>
+
     <!--Sobre Integrante-->
     <string name="sobredanilo">Olá! Me chamo Danilo Oliveira, tenho 17 anos e moro na capital de São Paulo. Estou cursando Desenvolvimento de Sistemas há 9 meses na escola Etec Prof. Basilides de Godoy, focando na área de front-end.</string>
     <string name="sobrekaua">Olá! Me chamo Kauã Vitório da Silva Lima, tenho 16 anos, sou de Lins interior de SP mas moro atualmente em São Paulo Capital, estou cursando Desenvolvimento de Sistemas a 9 meses.</string>
@@ -121,7 +125,7 @@
     <string name="hinteditemailgerenciar"> Insira o email do usuário</string>
     <string name="hinteditcpfgerenciar"> Insira o cpf do usuário</string>
 
-    <!--Clientes-->
+    <!--Clients-->
     <string name="cadastrarnovocliente"><u>Cadastrar novo Cliente</u></string>
     <string name="nomedocliente">Insira o nome do cliente</string>
     <string name="endereccliente">Endereço</string>
@@ -133,6 +137,24 @@
     <string name="emailcliente">EMAIL</string>
     <string name="emaildocliente">Insira o email do cliente</string>
     <string name="editarcliente"><u>Editar Cliente</u></string>
+
+
+    <!--Schedule-->
+    <string name="novoagendamento"><u>Novo Agendamento</u></string>
+    <string name="escolhercliente">Selecionar Cliente</string>
+    <string name="titulonovoagendamento">Novo Agendamento</string>
+    <string name="selecioneocliente">Selecione o cliente</string>
+    <string name="clientedoisponto">Cliente: </string>
+    <string name="cnpjdoisponto">CNPJ: </string>
+    <string name="dataagenda">DATA: </string>
+    <string name="hintdataagenda">Insira a data</string>
+    <string name="horaagenda">HORA: </string>
+    <string name="hinthoraagenda">Insira a hora</string>
+    <string name="localagenda">LOCAL: </string>
+    <string name="hintlocalagenda">Insira o local</string>
+    <string name="descagenda">Descrição:</string>
+    <string name="hintdescagenda">Insira a descrição do agendamento</string>
+    <string name="selecionaroutrocliente"><u>Selecionar outro Cliente</u></string>
 
 
 </resources>
