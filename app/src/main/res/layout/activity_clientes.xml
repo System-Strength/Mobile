@@ -105,8 +105,41 @@
             android:layout_height="match_parent">
 
             <ListView
+                android:id="@+id/listviewclientes"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
+                android:divider="#FF4900"
+                android:dividerHeight="3dp"
                 android:layout_height="match_parent"/>
+
+            <!--CardView Animation Delete-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardviewanimationdelete"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                app:cardCornerRadius="20dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#1A6E6E6E"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationdelete"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/delete1"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <!--CardView Animation Principal-->
             <androidx.cardview.widget.CardView
