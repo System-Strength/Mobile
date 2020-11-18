@@ -19,6 +19,13 @@ public class DtoClientes {
         this.cnpjcliente = cnpjcliente;
     }
 
+    public DtoClientes(){}
+
+    @Override
+    public String toString() {
+        return "\n" + "• " + nomecliente + "\n" +"• " + emailcliente + "\n" + "• " + cnpjcliente + "\n";
+    }
+
     public int getId() {
         return id;
     }
