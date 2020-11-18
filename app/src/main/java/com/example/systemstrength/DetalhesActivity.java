@@ -3,10 +3,13 @@ package com.example.systemstrength;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -55,9 +58,9 @@ public class DetalhesActivity extends AppCompatActivity {
         animacaorigth = findViewById(R.id.animacaorigth);
         animacaobolinha = findViewById(R.id.animacaobolinha);
         animacaoloaginerro = findViewById(R.id.animacaoloaginerro);
-
         InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
+        //  Set mask for edittext
         edittextcnpjcliente.addTextChangedListener(MaskEditUtil.mask(edittextcnpjcliente, MaskEditUtil.FORMAT_CNPJ));
         edittexttelefonecliente.addTextChangedListener(MaskEditUtil.mask(edittexttelefonecliente, MaskEditUtil.FORMAT_FONE));
 
@@ -74,6 +77,7 @@ public class DetalhesActivity extends AppCompatActivity {
         txtemailcliente.setText(dtoClientes.getEmailcliente());
         txtcnpcliente.setText(dtoClientes.getCnpjcliente());
 
+        //  When click in this card will verification in edittext and save changes
         cardviewbtnsalvaraltercliente.setOnClickListener(v -> {
             if (edittextnomecliente.getText().length() < 5 || edittextnomecliente.getText().length() == 0){
                 Toast.makeText(DetalhesActivity.this, "Campo NOME preenchido incorretamente!!", Toast.LENGTH_SHORT).show();
@@ -137,6 +141,7 @@ public class DetalhesActivity extends AppCompatActivity {
             }
         });
 
+        //  When click in this linear will enable change for client
         linearbtnstarteditcliente.setOnClickListener(v -> {
             linearbtnstarteditcliente.setVisibility(View.GONE);
             txttitulonomeeditcliente.setVisibility(View.VISIBLE);
@@ -169,6 +174,114 @@ public class DetalhesActivity extends AppCompatActivity {
                 startActivity(voltaraosclientes);
                 finish();
             },800);
+        });
+
+        //  When you edit name client in edittext will show in real time in textview
+        edittextnomecliente.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittextnomecliente.getText().length() > 0){
+                    txtnomecliente.setText(edittextnomecliente.getText());
+                }else {
+                    txtnomecliente.setText("Insira o nome do cliente");
+                }
+            }
+        });
+
+        //  When you edit address client in edittext will show in real time in textview
+        edittextenderecocliente.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittextenderecocliente.getText().length() > 0){
+                    txtendcliente.setText(edittextenderecocliente.getText());
+                }else   txtendcliente.setText("Insira o endereço do cliente");
+            }
+        });
+
+        //  When you edit phone client in edittext will show in real time in textview
+        edittexttelefonecliente.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittexttelefonecliente.getText().length() > 0){
+                    txtphonecliente.setText(edittexttelefonecliente.getText());
+                }else txtphonecliente.setText("Insira o telefone do cliente");
+            }
+        });
+
+        //  When you edit email client in edittext will show in real time in textview
+        edittextemailcliente.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittextemailcliente.getText().length() > 0){
+                    txtemailcliente.setText(edittextemailcliente.getText());
+                }else txtemailcliente.setText("Insira o email do cliente");
+
+            }
+        });
+
+        //  When you edit CNPJ client in edittext will show in real time in textview
+        edittextcnpjcliente.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittextcnpjcliente.getText().length() > 0){
+                    txtcnpcliente.setText(edittextcnpjcliente.getText());
+                }else txtcnpcliente.setText("Insira o CNPJ do cliente");
+            }
         });
     }
 
