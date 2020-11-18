@@ -114,7 +114,7 @@ public class ClientesActivity extends AppCompatActivity {
         });
     }
 
-    //  Criando o metodo de Atualização do ListView
+    //  Create method for update  ListView
     private void atualizarlistview() {
         ArrayAdapter adapter = new ArrayAdapter(ClientesActivity.this, android.R.layout.simple_list_item_1, arrayListclientes);
         listviewclientes.setAdapter(adapter);
