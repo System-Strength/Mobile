@@ -95,7 +95,7 @@ public class ClientesActivity extends AppCompatActivity {
             cardviewloadingprincipal.setVisibility(View.VISIBLE);
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(ClientesActivity.this,PrincipalActivity.class);
-                voltarparaprincipal.putExtra("cpffunc",cpfrecebidodaprincipal);
+                voltarparaprincipal.putExtra("cpfusu",cpfrecebidodaprincipal);
                 startActivity(voltarparaprincipal);
                 finish();
             },1500);
@@ -150,7 +150,7 @@ public class ClientesActivity extends AppCompatActivity {
 
         menu.setHeaderTitle("•  " + clientes.getNomecliente() + "  •");
         menu.add(0,0,0,"Detalhes / Alterar");
-        menu.add(0,1,1,"Compromissos");
+        menu.add(0,1,1,"Novo Compromisso");
         menu.add(0,2,2,"Excluir Organização");
         menu.add(0,3,3,"Ligar");
     }
@@ -163,7 +163,7 @@ public class ClientesActivity extends AppCompatActivity {
             irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
             startActivity(irparaagenda);
         }else if(item.getItemId() == 1){
-            Intent irparaagenda = new Intent(ClientesActivity.this, AgendaActivity.class);
+            Intent irparaagenda = new Intent(ClientesActivity.this, NovoAgendamentoActivity.class);
             irparaagenda.putExtra("cpfusu",cpfrecebidodaprincipal);
             irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
             startActivity(irparaagenda);

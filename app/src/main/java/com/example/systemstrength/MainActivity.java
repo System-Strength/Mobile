@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     boolean sucesso = daoLogins.onLogin(cpf,senha);
                     if (sucesso){
                         Intent irparaprincipal = new Intent(MainActivity.this,PrincipalActivity.class);
-                        irparaprincipal.putExtra("cpffunc", cpf);
+                        irparaprincipal.putExtra("cpfusu", cpf);
                         startActivity(irparaprincipal);
                         finish();
                     }

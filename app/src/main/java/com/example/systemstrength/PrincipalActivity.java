@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,12 +27,12 @@ import java.util.Date;
  **/
 
 public class PrincipalActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeprincipal, linearbtncontatoprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal;
-    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao;
+    LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal;
+    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes;
     //ImageView imgavatarusu;
     ConstraintLayout constraintlayoutperfilusu;
-    LottieAnimationView animacaoservicoespricipal;
-    CardView  loadingparaclientes, loadingparaservicos, cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    LottieAnimationView animacaoservicoespricipal, animacaoagenda;
+    CardView  loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
 
@@ -50,18 +49,24 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         linearbtnhomeprincipal = findViewById(R.id.linearbtnhomeprincipal);
-        linearbtncontatoprincipal = findViewById(R.id.linearbtncontatoprincipal);
+        linearbtnagendaprincipal = findViewById(R.id.linearbtnagendaprincipal);
         linearbtnservicosprincipal = findViewById(R.id.linearbtnservicosprincipal);
         linearbtnclienteprincipal = findViewById(R.id.linearbtnclienteprincipal);
         constraintlayoutperfilusu = findViewById(R.id.constraintlayoutperfilusu);
+        cardviewbtnverclientes = findViewById(R.id.cardviewbtnverclientes);
         loadingparaclientes = findViewById(R.id.loadingparaclientes);
         loadingparaservicos = findViewById(R.id.loadingparaservicos);
+        loadingparaagenda = findViewById(R.id.loadingparaagenda);
+        txtplusclientes = findViewById(R.id.txtplusclientes);
         animacaoservicoespricipal = findViewById(R.id.animacaoservicoespricipal);
+        animacaoagenda = findViewById(R.id.animacaoagenda);
         txtnomeusu = findViewById(R.id.txtnomeusu);
         txthoraatual = findViewById(R.id.txthoraatual);
         //imgavatarusu = findViewById(R.id.imgavatarusu);
         txtcargoatual = findViewById(R.id.txtcargoatual);
         txtproximareuniao = findViewById(R.id.txtproximareuniao);
+
+        //  Defining somethings with GONE
 
         //  Taking the current time and placing it on TextView
         horarecebida = new SimpleDateFormat("HH:mm").format(new Date());
@@ -70,7 +75,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //  Get Name of user Turn on this later
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        cpfrecebido = bundle.getString("cpffunc");
+        cpfrecebido = bundle.getString("cpfusu");
         DaoLogins daoLogins = new DaoLogins(PrincipalActivity.this);
         DtoLogins dtoLogins = daoLogins.verificarusuario(cpfrecebido);
         txtnomeusu.setText(dtoLogins.getNomefunc());
@@ -88,8 +93,27 @@ public class PrincipalActivity extends AppCompatActivity {
             finish();
         });
 
+        cardviewbtnverclientes.setOnClickListener(v -> {
+                Intent irparaclientes = new Intent(PrincipalActivity.this,ClientesActivity.class);
+                irparaclientes.putExtra("cpfusu",cpfrecebido);
+                startActivity(irparaclientes);
+                finish();
+        });
 
         linearbtnhomeprincipal.setOnClickListener(v -> Toast.makeText(PrincipalActivity.this, "Você já está aqui!", Toast.LENGTH_SHORT).show());
+
+        linearbtnagendaprincipal.setOnClickListener(v -> {
+            loadingparaagenda.setVisibility(View.VISIBLE);
+            animacaoagenda.playAnimation();
+            new Handler().postDelayed(() -> {
+                loadingparaagenda.setVisibility(View.GONE);
+                animacaoagenda.pauseAnimation();
+                Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
+                irparaagenda.putExtra("cpfusu",cpfrecebido);
+                startActivity(irparaagenda);
+                finish();
+            },1700);
+        });
 
         linearbtnservicosprincipal.setOnClickListener(v ->{
             loadingparaservicos.setVisibility(View.VISIBLE);

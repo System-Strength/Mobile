@@ -209,7 +209,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
-                    voltarparaprincipal.putExtra("cpffunc",cpfrecebidoprincipal);
+                    voltarparaprincipal.putExtra("cpfusu",cpfrecebidoprincipal);
                     startActivity(voltarparaprincipal);
                     finish();
                 }
@@ -237,7 +237,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
-        voltarparaprincipal.putExtra("cpffunc",cpfrecebidoprincipal);
+        voltarparaprincipal.putExtra("cpfusu",cpfrecebidoprincipal);
         startActivity(voltarparaprincipal);
         finish();
     }

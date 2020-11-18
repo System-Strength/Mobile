@@ -38,27 +38,21 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
         txtprotocolo.setVisibility(View.GONE);
         cardviewbtncontatorecuperarsenha.setVisibility(View.GONE);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                progressminiloadingprotocolo.setVisibility(View.GONE);
-                txtcontatoprotoculo.setVisibility(View.VISIBLE);
-                txtprotocolo.setVisibility(View.VISIBLE);
-                cardviewbtncontatorecuperarsenha.setVisibility(View.VISIBLE);
-            }
+        new Handler().postDelayed(() -> {
+            progressminiloadingprotocolo.setVisibility(View.GONE);
+            txtcontatoprotoculo.setVisibility(View.VISIBLE);
+            txtprotocolo.setVisibility(View.VISIBLE);
+            cardviewbtncontatorecuperarsenha.setVisibility(View.VISIBLE);
         },900);
 
-        cardviewbtncontatorecuperarsenha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //  When ContatoActivity is create will be sync here
-            }
+        cardviewbtncontatorecuperarsenha.setOnClickListener(v -> {
+            //  When ContatoActivity is create will be sync here
         });
     }
 }
 
-/**
+/*
  *  Copyright (c) 2020 System Strength
  *  Official repository https://github.com/System-Strength/Mobile
  *  Responsible developer: https://github.com/Kauavitorio
- **/
+ */
