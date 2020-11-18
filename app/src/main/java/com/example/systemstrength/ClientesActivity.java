@@ -1,21 +1,36 @@
 package com.example.systemstrength;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.systemstrength.Classes.Clientes.DaoClientes;
+import com.example.systemstrength.Classes.Clientes.DtoClientes;
+
+import java.util.ArrayList;
 
 public class ClientesActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeclientes, linearbtnclientes;
-    CardView cardviewloadingprincipal, cardviewalertyouarehere, cardviewanimacaocadastronovocliente, cardviewcadastrarnovocliente;
-    LottieAnimationView smileanimationalert;
+    CardView cardviewloadingprincipal, cardviewalertyouarehere, cardviewanimacaocadastronovocliente, cardviewcadastrarnovocliente, cardviewanimationdelete;
+    LottieAnimationView smileanimationalert, animationdelete;
+    ListView listviewclientes;
+    ArrayList<DtoClientes> arrayListclientes;
+    DaoClientes daoClientes = new DaoClientes(ClientesActivity.this);
+    DtoClientes clientes;
     String cpfrecebidodaprincipal;
 
     @Override
@@ -24,9 +39,12 @@ public class ClientesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clientes);
         linearbtnhomeclientes = findViewById(R.id.linearbtnhomeclientes);
         linearbtnclientes = findViewById(R.id.linearbtnclientes);
+        animationdelete = findViewById(R.id.animationdelete);
         cardviewloadingprincipal = findViewById(R.id.cardviewloadingprincipal);
         cardviewalertyouarehere = findViewById(R.id.cardviewalertyouarehere);
+        cardviewanimationdelete = findViewById(R.id.cardviewanimationdelete);
         smileanimationalert = findViewById(R.id.smileanimationalert);
+        listviewclientes = findViewById(R.id.listviewclientes);
         cardviewcadastrarnovocliente = findViewById(R.id.cardviewcadastrarnovocliente);
         cardviewanimacaocadastronovocliente = findViewById(R.id.cardviewanimacaocadastronovocliente);
 
@@ -35,6 +53,32 @@ public class ClientesActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         cpfrecebidodaprincipal = bundle.getString("cpfusu");
 
+        DaoClientes daoClientes = new DaoClientes(ClientesActivity.this);
+        arrayListclientes = daoClientes.consultarTodos();
+        atualizarlistview();
+
+        listviewclientes.setOnItemClickListener((parent, view, position, id) -> {
+            clientes = arrayListclientes.get(position);
+            AlertDialog.Builder msg = new AlertDialog.Builder(ClientesActivity.this);
+            msg.setIcon(R.drawable.logosystemstrengthsemfundo);
+            msg.setTitle("Ligar para: "+ clientes.getNomecliente());
+            msg.setMessage("Deseja ligar para essa organização:");
+            msg.setPositiveButton("Sim", (dialog, which) -> {
+                Intent callfor = new Intent(Intent.ACTION_DIAL);
+                callfor.setData(Uri.parse("tel:"+ clientes.getTelefonecliente()));
+                startActivity(callfor);
+            });
+            msg.setNegativeButton("Não",null);
+            msg.show();
+        });
+
+        listviewclientes.setOnItemLongClickListener((parent, view, position, id) -> {
+            clientes = arrayListclientes.get(position);
+            registerForContextMenu(listviewclientes);
+            return false;
+        });
+
+        //  When you click in this cardview go to CadastrarCliente
         cardviewcadastrarnovocliente.setOnClickListener(v ->{
             cardviewanimacaocadastronovocliente.setVisibility(View.VISIBLE);
             cardviewcadastrarnovocliente.setVisibility(View.GONE);
@@ -43,7 +87,7 @@ public class ClientesActivity extends AppCompatActivity {
                 irparacadastrodecliente.putExtra("cpfusu",cpfrecebidodaprincipal);
                 startActivity(irparacadastrodecliente);
                 finish();
-            },1200);
+            },1000);
         });
 
         //  When you click in this linear go do one animation and go to PrincipalActivity
@@ -68,5 +112,69 @@ public class ClientesActivity extends AppCompatActivity {
 
             },2000);
         });
+    }
+
+    //  Criando o metodo de Atualização do ListView
+    private void atualizarlistview() {
+        ArrayAdapter adapter = new ArrayAdapter(ClientesActivity.this, android.R.layout.simple_list_item_1, arrayListclientes);
+        listviewclientes.setAdapter(adapter);
+    }
+
+    //  Create method for delete some client of  ListView
+    private void excluir() {
+        AlertDialog.Builder msg = new AlertDialog.Builder(ClientesActivity.this);
+        msg.setMessage("Confirma a exclusão?");
+        msg.setPositiveButton("Sim", (dialogInterface, i) -> {
+            int deletados = daoClientes.excluir(clientes);
+            if (deletados>0){
+                cardviewanimationdelete.setVisibility(View.VISIBLE);
+                animationdelete.playAnimation();
+                new Handler().postDelayed(() -> {
+                    Toast.makeText(ClientesActivity.this, "Excluído com sucesso!", Toast.LENGTH_SHORT).show();
+                    arrayListclientes = daoClientes.consultarTodos();
+                    atualizarlistview();
+                    cardviewanimationdelete.setVisibility(View.GONE);
+                    animationdelete.pauseAnimation();
+                },2000);
+            } else {
+                Toast.makeText(ClientesActivity.this, "Erro ao Excluir!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        msg.setNegativeButton("Não", null);
+        msg.show();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        menu.setHeaderTitle("•  " + clientes.getNomecliente() + "  •");
+        menu.add(0,0,0,"Detalhes / Alterar");
+        menu.add(0,1,1,"Compromissos");
+        menu.add(0,2,2,"Excluir Organização");
+        menu.add(0,3,3,"Ligar");
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == 0){
+            Intent irparaagenda = new Intent(ClientesActivity.this, DetalhesActivity.class);
+            irparaagenda.putExtra("cpfusu",cpfrecebidodaprincipal);
+            irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
+            startActivity(irparaagenda);
+        }else if(item.getItemId() == 1){
+            Intent irparaagenda = new Intent(ClientesActivity.this, AgendaActivity.class);
+            irparaagenda.putExtra("cpfusu",cpfrecebidodaprincipal);
+            irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
+            startActivity(irparaagenda);
+        }else if(item.getItemId() == 2){
+            excluir();
+
+        }else if (item.getItemId() == 3){
+            Intent callfor = new Intent(Intent.ACTION_DIAL);
+            callfor.setData(Uri.parse("tel:"+ clientes.getTelefonecliente()));
+            startActivity(callfor);
+        }
+        return super.onContextItemSelected(item);
     }
 }
