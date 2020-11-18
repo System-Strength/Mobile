@@ -477,6 +477,7 @@
                                                                 android:layout_height="match_parent">
 
                                                                 <TextView
+                                                                    android:id="@+id/txtplusclientes"
                                                                     android:layout_width="wrap_content"
                                                                     android:layout_height="wrap_content"
                                                                     android:layout_marginBottom="5dp"
@@ -1075,6 +1076,42 @@
 
                     </androidx.cardview.widget.CardView>
 
+                    <!--Card Animation Agenda-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/loadingparaagenda"
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        android:visibility="gone"
+                        android:outlineProvider="none"
+                        android:layout_marginBottom="150dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="#97000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:outlineProvider="none"
+                            android:layout_height="match_parent">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animacaoagenda"
+                                android:layout_width="280dp"
+                                android:layout_height="280dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/scanningsearching" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
                     <!--Card Animation Serviços-->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/loadingparaservicos"
@@ -1180,7 +1217,7 @@
 
                 <!--Contact Button-->
                 <LinearLayout
-                    android:id="@+id/linearbtncontatoprincipal"
+                    android:id="@+id/linearbtnagendaprincipal"
                     android:layout_width="50dp"
                     android:layout_height="62dp"
                     android:orientation="vertical"
@@ -1194,7 +1231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <!--Image Contato-->
+                        <!--Image Agenda-->
                         <ImageView
                             android:id="@+id/imgagenda"
                             android:layout_width="40dp"
@@ -1206,7 +1243,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             android:contentDescription="@string/descnamesystem"/>
 
-                        <!--Text Contato-->
+                        <!--Text Agenda-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
