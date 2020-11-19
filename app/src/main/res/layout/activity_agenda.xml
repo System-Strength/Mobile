@@ -115,7 +115,7 @@
 
             <!--CardView Animation Delete-->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardviewanimationdelete"
+                android:id="@+id/cardviewanimationdeleteagenda"
                 android:layout_width="350dp"
                 android:layout_height="300dp"
                 android:visibility="gone"
@@ -131,7 +131,7 @@
                     android:layout_height="match_parent">
 
                     <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/animationdelete"
+                        android:id="@+id/animationdeleteagenda"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:lottie_autoPlay="true"

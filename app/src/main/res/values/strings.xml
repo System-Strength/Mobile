@@ -155,6 +155,7 @@
     <string name="descagenda">Descrição:</string>
     <string name="hintdescagenda">Insira a descrição do agendamento</string>
     <string name="selecionaroutrocliente"><u>Selecionar outro Cliente</u></string>
+    <string name="detalhes">Detalhes</string>
 
 
 </resources>
