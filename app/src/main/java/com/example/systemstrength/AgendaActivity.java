@@ -132,7 +132,11 @@ public class AgendaActivity extends AppCompatActivity {
         if (item.getItemId() == 0){
             aparecerpopup();
         }else if (item.getItemId()  == 1){
-
+            Intent irparaedit = new Intent(AgendaActivity.this,EdicaoAgendaActivity.class);
+            irparaedit.putExtra("idagendaasereditada", agenda.getId());
+            irparaedit.putExtra("cpfusu",cpfrecebidobase);
+            startActivity(irparaedit);
+            finish();
         }else if (item.getItemId() == 2){
             excluir();
         }

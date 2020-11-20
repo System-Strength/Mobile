@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import com.example.systemstrength.Classes.Clientes.DaoClientes;
 import com.example.systemstrength.Classes.Clientes.DtoClientes;
 
 public class NovoAgendamentoActivity extends AppCompatActivity {
-    LinearLayout linearvoltaraagenda, linearselecionaroutrocliente;
+    LinearLayout linearvoltaraagenda, linearselecionaroutrocliente, btnendcliente;
     LottieAnimationView animacaovoltaraagenda, loadingcadastro, animacaocorreto;
     TextView txtsalvaragenda;
     CardView cardviewbtnescolhercliente, cardviewbtnsalvarnovoagendamento;
@@ -49,6 +50,7 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
         loadingcadastro = findViewById(R.id.loadingcadastro);
         animacaocorreto = findViewById(R.id.animacaocorreto);
         txtsalvaragenda = findViewById(R.id.txtsalvaragenda);
+        btnendcliente = findViewById(R.id.btnendcliente);
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         linearselecionaroutrocliente.setVisibility(View.GONE);
@@ -68,6 +70,8 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
 
         validacaoerecebimentodadoscliente();
 
+        btnendcliente.setOnClickListener(v -> receberendcliente());
+
         cardviewbtnescolhercliente.setOnClickListener(v -> {
             Intent irparalistadeclientes = new Intent(NovoAgendamentoActivity.this,ListadeClientesActivity.class);
             irparalistadeclientes.putExtra("cpfusu",cpfrecebidodaagenda);
@@ -80,6 +84,27 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
             irparalistadeclientes.putExtra("cpfusu",cpfrecebidodaagenda);
             startActivity(irparalistadeclientes);
             finish();
+        });
+
+        edittextlocalnovoagendamento.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edittextlocalnovoagendamento.getText().length() <= 0) {
+                    btnendcliente.setVisibility(View.VISIBLE);
+                } else {
+                    btnendcliente.setVisibility(View.GONE);
+                }
+            }
         });
 
         cardviewbtnsalvarnovoagendamento.setOnClickListener(v -> {
@@ -95,6 +120,10 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
                 Toast.makeText(NovoAgendamentoActivity.this, "Campo HORA preenchido incorretamente!!", Toast.LENGTH_SHORT).show();
                 edittexthoranovoagendamento.requestFocus();
                 imm.showSoftInput(edittexthoranovoagendamento, InputMethodManager.SHOW_IMPLICIT);
+            }else if(edittextlocalnovoagendamento.getText().length() == 0 || edittextlocalnovoagendamento.getText().length() < 5){
+                Toast.makeText(NovoAgendamentoActivity.this, "Campo LOCAL preenchido incorretamente!!", Toast.LENGTH_SHORT).show();
+                edittextlocalnovoagendamento.requestFocus();
+                imm.showSoftInput(edittextlocalnovoagendamento, InputMethodManager.SHOW_IMPLICIT);
             }else if(edittextdescnovoagendamento.getText().length() == 0 || edittextdescnovoagendamento.getText().length() < 10){
                 Toast.makeText(NovoAgendamentoActivity.this, "Campo DESCRIÇÃO preenchido incorretamente!!", Toast.LENGTH_SHORT).show();
                 edittextdescnovoagendamento.requestFocus();
@@ -156,6 +185,7 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
     private void validacaoerecebimentodadoscliente() {
         if (clienteescolhido == null){
             cardviewbtnescolhercliente.setVisibility(View.VISIBLE);
+            btnendcliente.setVisibility(View.GONE);
         }else{
             cardviewbtnescolhercliente.setVisibility(View.GONE);
             DaoClientes daoClientes = new DaoClientes(NovoAgendamentoActivity.this);
@@ -163,7 +193,17 @@ public class NovoAgendamentoActivity extends AppCompatActivity {
             edittextclientenovoagendamento.setText(dtoClientes.getNomecliente());
             edittextcnpjclientenovoagendamento.setText(dtoClientes.getCnpjcliente());
             linearselecionaroutrocliente.setVisibility(View.VISIBLE);
+            btnendcliente.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void receberendcliente(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        DaoClientes daoClientes = new DaoClientes(NovoAgendamentoActivity.this);
+        DtoClientes dtoClientes = daoClientes.consultarcliente(clienteescolhido);
+        edittextlocalnovoagendamento.setText(dtoClientes.getEnderecocliente());
+        edittextdescnovoagendamento.requestFocus();
+        imm.showSoftInput(edittextdescnovoagendamento, InputMethodManager.SHOW_IMPLICIT);
     }
 
     private void msgselecioneocliente(){
