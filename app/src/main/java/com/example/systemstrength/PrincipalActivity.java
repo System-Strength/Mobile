@@ -43,7 +43,7 @@ public class PrincipalActivity extends AppCompatActivity {
     //  cardviewbtnlermaiscss
 
 
-    @SuppressLint("SimpleDateFormat")
+    @SuppressLint({"SimpleDateFormat", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,20 +112,19 @@ public class PrincipalActivity extends AppCompatActivity {
                 irparaagenda.putExtra("cpfusu",cpfrecebido);
                 startActivity(irparaagenda);
                 finish();
-            },1700);
+            },1300);
         });
 
         linearbtnservicosprincipal.setOnClickListener(v ->{
             loadingparaservicos.setVisibility(View.VISIBLE);
             animacaoservicoespricipal.setSpeed(2);
             new Handler().postDelayed(() -> {
-                Toast.makeText(this, "Em Desenvolvimento!!!", Toast.LENGTH_SHORT).show();
                 loadingparaservicos.setVisibility(View.GONE);
-                /*Intent irparaclientes = new Intent(PrincipalActivity.this,ServicosActivity.class);
-                irparaclientes.putExtra("cpfusu",cpfrecebido);
-                startActivity(irparaclientes);
-                finish();*/
-            },1700);
+                Intent irparaservicos = new Intent(PrincipalActivity.this,ServicosActivity.class);
+                irparaservicos.putExtra("cpfusu",cpfrecebido);
+                startActivity(irparaservicos);
+                finish();
+            },1400);
         });
 
         linearbtnclienteprincipal.setOnClickListener(v -> {
