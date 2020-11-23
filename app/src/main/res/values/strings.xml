@@ -96,7 +96,7 @@
     <!--Perfil Usuario-->
     <string name="nomefuncperfil">Nome do Usuário</string>
     <string name="cpfperfil">cpf:</string>
-    <string name="adressperfil">Adress do func aqui</string>
+    <string name="adressperfil">Address do func aqui</string>
     <string name="phoneperfil">Phone do func aqui</string>
     <string name="emailperfil">Email do func aqui</string>
     <string name="cargoperfil">Cargo do func aqui</string>
@@ -147,9 +147,9 @@
     <string name="clientedoisponto">Cliente: </string>
     <string name="cnpjdoisponto">CNPJ: </string>
     <string name="dataagenda">DATA: </string>
-    <string name="hintdataagenda">Insira a data</string>
+    <string name="hintdataagenda">Insira a data (00/00/0000)</string>
     <string name="horaagenda">HORA: </string>
-    <string name="hinthoraagenda">Insira a hora</string>
+    <string name="hinthoraagenda">Insira a hora (00:00)</string>
     <string name="localagenda">LOCAL: </string>
     <string name="hintlocalagenda">Insira o local</string>
     <string name="descagenda">Descrição:</string>
