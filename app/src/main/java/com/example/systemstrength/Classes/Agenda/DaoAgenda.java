@@ -92,6 +92,21 @@ public class DaoAgenda extends SQLiteOpenHelper {
         return dtoAgenda;
     }
 
+    public int editaragenda(DtoAgenda dtoAgenda){
+        ContentValues values = new ContentValues();
+        values.put("NOMECLIENTE", dtoAgenda.getNomecliente());
+        values.put("CNPJCLIENTE", dtoAgenda.getCnpjcliente());
+        values.put("DATAAGENDAMENTO", dtoAgenda.getDataagendamento());
+        values.put("HORAAGENDAMENTO", dtoAgenda.getHoraagendamento());
+        values.put("LOCALAGENDAMENTO", dtoAgenda.getLocaldoagendamento());
+        values.put("DESCRICAOAGENDAMENTO", dtoAgenda.getDescricaoagendamento());
+
+        String  id = "id=?";
+        String[] args = {dtoAgenda.getId()+""};
+
+        return getWritableDatabase().update(TABELA,values,id,args);
+    }
+
     public  int excluir(DtoAgenda agenda){
         String id = "id=?";
         String[] args  = {agenda.getId()+""};

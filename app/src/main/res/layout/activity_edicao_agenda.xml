@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <!--Body-->
-    <LinearLayout
+    <ScrollView
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,7 +72,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <!--CardView New Schedule-->
             <androidx.cardview.widget.CardView
@@ -338,8 +338,84 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--CardView Btn Save-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardviewbtnsalvareditagenda"
+                android:layout_width="202dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/cardviewbaseforedit">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        app:cardBackgroundColor="#000"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animacaobolinhaedit"
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                app:lottie_rawRes="@raw/bolinha"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animacaocheckedit"
+                                android:layout_width="140dp"
+                                android:layout_height="70dp"
+                                app:lottie_rawRes="@raw/checkmarck"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txtsalvaredit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/salvar"
+                                android:textColor="#fff"
+                                android:textSize="30sp"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
