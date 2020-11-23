@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -26,15 +25,16 @@ import com.example.systemstrength.Classes.Agenda.DtoAgenda;
 import java.util.ArrayList;
 
 public class AgendaActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeagenda;
-    CardView cardviewloadingpricipalagenda, cardviewnovoagendamento, cardviewanimacaonovoagendamento, cardviewanimationdeleteagenda;
+    LinearLayout linearbtnhomeagenda, linearbtncontatoagenda, linearbtnservicosagendaagenda, linearbtnclientesagenda;
+    CardView cardviewloadingpricipalagenda, cardviewnovoagendamento, cardviewanimacaonovoagendamento, cardviewanimationdeleteagenda, loadingparaservicosagenda, loadingparaclientesagenda;
     ListView listviewagenda;
-    LottieAnimationView animationdeleteagenda;
+    LottieAnimationView animationdeleteagenda, animacaoservicosagenda;
     ArrayList<DtoAgenda> arraylistagenda;
     DtoAgenda agenda;
     DaoAgenda daoAgenda = new DaoAgenda(AgendaActivity.this);
     Dialog myDialog;
     String cpfrecebidobase;
+    int idparasereditado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,12 @@ public class AgendaActivity extends AppCompatActivity {
         listviewagenda = findViewById(R.id.listviewagenda);
         cardviewanimationdeleteagenda = findViewById(R.id.cardviewanimationdeleteagenda);
         animationdeleteagenda = findViewById(R.id.animationdeleteagenda);
+        linearbtncontatoagenda = findViewById(R.id.linearbtncontatoagenda);
+        linearbtnservicosagendaagenda = findViewById(R.id.linearbtnservicosagendaagenda);
+        loadingparaservicosagenda = findViewById(R.id.loadingparaservicosagenda);
+        animacaoservicosagenda = findViewById(R.id.animacaoservicosagenda);
+        linearbtnclientesagenda = findViewById(R.id.linearbtnclientesagenda);
+        loadingparaclientesagenda = findViewById(R.id.loadingparaclientesagenda);
         myDialog = new Dialog(this);
 
         //  Get some information
@@ -64,6 +70,7 @@ public class AgendaActivity extends AppCompatActivity {
             return false;
         });
 
+        //  When click in this linear you will go to New Agendamento
         cardviewnovoagendamento.setOnClickListener(v -> {
             cardviewnovoagendamento.setVisibility(View.GONE);
             cardviewanimacaonovoagendamento.setVisibility(View.VISIBLE);
@@ -73,6 +80,35 @@ public class AgendaActivity extends AppCompatActivity {
                 startActivity(irparanovoagendamento);
                 finish();
             },1500);
+        });
+
+        //  When click in this linear you will go to Client Activity
+        linearbtnclientesagenda.setOnClickListener(v -> {
+            loadingparaclientesagenda.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaclientes = new Intent(AgendaActivity.this,ClientesActivity.class);
+                irparaclientes.putExtra("cpfusu",cpfrecebidobase);
+                startActivity(irparaclientes);
+                finish();
+            },1500);
+        });
+
+        //  When click in this linear you will go to Services Activity
+        linearbtnservicosagendaagenda.setOnClickListener(v -> {
+            loadingparaservicosagenda.setVisibility(View.VISIBLE);
+            animacaoservicosagenda.setSpeed(2);
+            new Handler().postDelayed(() -> {
+                loadingparaservicosagenda.setVisibility(View.GONE);
+                Intent irparaservicos = new Intent(AgendaActivity.this,ServicosActivity.class);
+                irparaservicos.putExtra("cpfusu",cpfrecebidobase);
+                startActivity(irparaservicos);
+                finish();
+            },1400);
+        });
+
+        //  When click in this linear you will see one msg
+        linearbtncontatoagenda.setOnClickListener(v -> {
+            Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show();
         });
 
         //  When click in this linear you will go to Principal Activity
@@ -117,6 +153,14 @@ public class AgendaActivity extends AppCompatActivity {
         msg.show();
     }
 
+    private void editar(){
+        Intent irparaedit = new Intent(AgendaActivity.this,EdicaoAgendaActivity.class);
+        irparaedit.putExtra("idagendaasereditada", agenda.getId());
+        irparaedit.putExtra("cpfusu",cpfrecebidobase);
+        startActivity(irparaedit);
+        finish();
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -132,11 +176,7 @@ public class AgendaActivity extends AppCompatActivity {
         if (item.getItemId() == 0){
             aparecerpopup();
         }else if (item.getItemId()  == 1){
-            Intent irparaedit = new Intent(AgendaActivity.this,EdicaoAgendaActivity.class);
-            irparaedit.putExtra("idagendaasereditada", agenda.getId());
-            irparaedit.putExtra("cpfusu",cpfrecebidobase);
-            startActivity(irparaedit);
-            finish();
+            editar();
         }else if (item.getItemId() == 2){
             excluir();
         }
@@ -148,13 +188,13 @@ public class AgendaActivity extends AppCompatActivity {
         TextView txtnomeclientedetalhes, txtcnpjclientedetalhes, txtdatadetalhes, txthourdetalhes, txtlocaldetalhes, txtdescdetalhes;
         LinearLayout btnclosedetalhes;
         myDialog.setContentView(R.layout.popupdetalhesagenda);
-        txtnomeclientedetalhes = (TextView) myDialog.findViewById(R.id.txtnomeclientedetalhes);
-        txtcnpjclientedetalhes = (TextView) myDialog.findViewById(R.id.txtcnpjclientedetalhes);
-        txtdatadetalhes = (TextView) myDialog.findViewById(R.id.txtdatadetalhes);
-        txthourdetalhes = (TextView) myDialog.findViewById(R.id.txthourdetalhes);
-        txtlocaldetalhes = (TextView) myDialog.findViewById(R.id.txtlocaldetalhes);
-        txtdescdetalhes = (TextView) myDialog.findViewById(R.id.txtdescdetalhes);
-        btnclosedetalhes = (LinearLayout) myDialog.findViewById(R.id.btnclosedetalhes);
+        txtnomeclientedetalhes = myDialog.findViewById(R.id.txtnomeclientedetalhes);
+        txtcnpjclientedetalhes = myDialog.findViewById(R.id.txtcnpjclientedetalhes);
+        txtdatadetalhes = myDialog.findViewById(R.id.txtdatadetalhes);
+        txthourdetalhes = myDialog.findViewById(R.id.txthourdetalhes);
+        txtlocaldetalhes = myDialog.findViewById(R.id.txtlocaldetalhes);
+        txtdescdetalhes = myDialog.findViewById(R.id.txtdescdetalhes);
+        btnclosedetalhes = myDialog.findViewById(R.id.btnclosedetalhes);
 
         txtnomeclientedetalhes.setText(agenda.getNomecliente());
         txtcnpjclientedetalhes.setText(agenda.getCnpjcliente());

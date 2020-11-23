@@ -73,6 +73,25 @@ public class DaoAgenda extends SQLiteOpenHelper {
         return  agenda;
     }
 
+    public DtoAgenda consultaragendamentoporid(int id){
+        String comando = "SELECT * FROM " + TABELA + " WHERE  ID=?";
+        String[] parametros = {String.valueOf(id)};
+        Cursor cursor = getWritableDatabase().rawQuery(comando, parametros);
+        DtoAgenda dtoAgenda = new DtoAgenda();
+
+        while (cursor.moveToNext()){
+            dtoAgenda.setId(cursor.getInt(0));
+            dtoAgenda.setNomecliente(cursor.getString(1));
+            dtoAgenda.setCnpjcliente(cursor.getString(2));
+            dtoAgenda.setDataagendamento(cursor.getString(3));
+            dtoAgenda.setHoraagendamento(cursor.getString(4));
+            dtoAgenda.setLocaldoagendamento(cursor.getString(5));
+            dtoAgenda.setDescricaoagendamento(cursor.getString(6));
+
+        }
+        return dtoAgenda;
+    }
+
     public  int excluir(DtoAgenda agenda){
         String id = "id=?";
         String[] args  = {agenda.getId()+""};

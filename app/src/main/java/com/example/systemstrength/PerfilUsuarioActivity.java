@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     EditText editeditcpfperfil, editeditnomeperfil, editeditemailperfil, editeditenderecoperfil, editedittelefoneperfil, editeditcargoperfil, editeditproximareuniaoperfil;
     int idparaalterar;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +79,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         txtcpffuncperfil.setText(dtoLogins.getCpffunc());
         txtemailfuncperfil.setText(dtoLogins.getEmailfunc());
         idparaalterar = dtoLogins.getId();
-        if (idparaalterar == 2){
+        if (dtoLogins.getCpffunc().equals("433.333.498-50") || dtoLogins.getCpffunc().equals("508.204.608-11")){
             cardviewadmperfil.setVisibility(View.VISIBLE);
         } else {
             cardviewadmperfil.setVisibility(View.GONE);
@@ -205,14 +207,11 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
 
         linearbtnvoltarperfil.setOnClickListener(v -> {
             setinhaanimadaperfil.playAnimation();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
-                    voltarparaprincipal.putExtra("cpfusu",cpfrecebidoprincipal);
-                    startActivity(voltarparaprincipal);
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent voltarparaprincipal = new Intent(PerfilUsuarioActivity.this, PrincipalActivity.class);
+                voltarparaprincipal.putExtra("cpfusu",cpfrecebidoprincipal);
+                startActivity(voltarparaprincipal);
+                finish();
             },900);
         });
 
