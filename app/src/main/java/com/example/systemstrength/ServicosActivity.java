@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class ServicosActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeservicos;
-    CardView cardviewloadingprincipalservicos;
+    LinearLayout linearbtnhomeservicos, linearbtnclientesservicos, linearbtncontatoservicos, linearbtnservicosservicos;
+    CardView cardviewloadingprincipalservicos, loadingparaclientesservicos, loadingparaagendaservicos;
     String cpfrecebidoprincipal;
 
     @Override
@@ -19,12 +20,42 @@ public class ServicosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicos);
         linearbtnhomeservicos = findViewById(R.id.linearbtnhomeservicos);
+        linearbtnclientesservicos = findViewById(R.id.linearbtnclientesservicos);
+        linearbtncontatoservicos = findViewById(R.id.linearbtncontatoservicos);
+        linearbtnservicosservicos = findViewById(R.id.linearbtnservicosservicos);
         cardviewloadingprincipalservicos = findViewById(R.id.cardviewloadingprincipalservicos);
+        loadingparaclientesservicos = findViewById(R.id.loadingparaclientesservicos);
+        loadingparaagendaservicos = findViewById(R.id.loadingparaagendaservicos);
 
         //  Get some information
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidoprincipal = bundle.getString("cpfusu");
+
+        //  When click in this linear you will show some msg
+        linearbtnservicosservicos.setOnClickListener(v -> Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show());
+
+        //  When click in this linear you will be back to AgendaActivity
+        linearbtncontatoservicos.setOnClickListener(v -> {
+            loadingparaagendaservicos.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaagenda = new Intent(ServicosActivity.this,AgendaActivity.class);
+                irparaagenda.putExtra("cpfusu",cpfrecebidoprincipal);
+                startActivity(irparaagenda);
+                finish();
+            },1200);
+        });
+
+        //  When click in this linear you will be back to ClienteActivity
+        linearbtnclientesservicos.setOnClickListener(v -> {
+            loadingparaclientesservicos.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaclientes = new Intent(ServicosActivity.this,ClientesActivity.class);
+                irparaclientes.putExtra("cpfusu",cpfrecebidoprincipal);
+                startActivity(irparaclientes);
+                finish();
+            },1200);
+        });
 
         //  When click in this linear you will be back to principal activity
         linearbtnhomeservicos.setOnClickListener(v -> {
