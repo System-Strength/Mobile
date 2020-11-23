@@ -72,6 +72,8 @@
     <string name="cargo">Cargooo</string>
     <string name="proximareuniao">Proxima reúnião: </string>
     <string name="aquiestaaproximareuniao">Proxima reu as..</string>
+    <string name="vcpossui">Você possui: </string>
+    <string name="naohacompromissos">Não há compromissos\n cadastrados</string>
 
     <!--Tela Nossa Equipe-->
 

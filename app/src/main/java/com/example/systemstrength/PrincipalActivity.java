@@ -14,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.systemstrength.Classes.Agenda.DaoAgenda;
+import com.example.systemstrength.Classes.Agenda.DtoAgenda;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -28,11 +31,12 @@ import java.util.Date;
 
 public class PrincipalActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal;
-    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes;
+    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda;
     //ImageView imgavatarusu;
     ConstraintLayout constraintlayoutperfilusu;
-    LottieAnimationView animacaoservicoespricipal, animacaoagenda;
-    CardView  loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda;
+    ArrayList<DtoAgenda> arrayListagenda;
+    CardView  loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
 
@@ -65,6 +69,12 @@ public class PrincipalActivity extends AppCompatActivity {
         //imgavatarusu = findViewById(R.id.imgavatarusu);
         txtcargoatual = findViewById(R.id.txtcargoatual);
         txtproximareuniao = findViewById(R.id.txtproximareuniao);
+        txtquantiadeagenda = findViewById(R.id.txtquantiadeagenda);
+        animacaohaagenda = findViewById(R.id.animacaohaagenda);
+        txtvcpossui = findViewById(R.id.txtvcpossui);
+        txtsemagenda = findViewById(R.id.txtsemagenda);
+        animacaosemagenda = findViewById(R.id.animacaosemagenda);
+        cardviewbtnveragenda = findViewById(R.id.cardviewbtnveragenda);
 
         //  Defining somethings with GONE
 
@@ -85,6 +95,34 @@ public class PrincipalActivity extends AppCompatActivity {
         }else {
             txtproximareuniao.setText(dtoLogins.getUltamareufunc());
         }
+
+        DaoAgenda daoAgenda = new DaoAgenda(PrincipalActivity.this);
+        arrayListagenda = daoAgenda.consultarTodaagenda();
+        if (arrayListagenda.size() > 0){
+            animacaohaagenda.setVisibility(View.VISIBLE);
+            txtquantiadeagenda.setVisibility(View.VISIBLE);
+            txtvcpossui.setVisibility(View.VISIBLE);
+            txtsemagenda.setVisibility(View.GONE);
+            animacaosemagenda.setVisibility(View.GONE);
+            if (arrayListagenda.size() == 1){
+                txtquantiadeagenda.setText(arrayListagenda.size()+" Compromisso");
+            }else{
+                txtquantiadeagenda.setText(arrayListagenda.size()+" Compromissos");
+            }
+        }else {
+            animacaohaagenda.setVisibility(View.GONE);
+            txtquantiadeagenda.setVisibility(View.GONE);
+            txtvcpossui.setVisibility(View.GONE);
+            txtsemagenda.setVisibility(View.VISIBLE);
+            animacaosemagenda.setVisibility(View.VISIBLE);
+        }
+
+        cardviewbtnveragenda.setOnClickListener(v -> {
+            Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
+            irparaagenda.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparaagenda);
+            finish();
+        });
 
         constraintlayoutperfilusu.setOnClickListener(v -> {
             Intent irparaperfildeusuario = new Intent(PrincipalActivity.this,PerfilUsuarioActivity.class);
