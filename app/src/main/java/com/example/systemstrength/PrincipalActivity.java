@@ -1,5 +1,7 @@
 package com.example.systemstrength;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -8,6 +10,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,15 +34,16 @@ import java.util.Date;
  **/
 
 public class PrincipalActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal;
-    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda;
+    LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal, header, btnvoltarfecharmenuinfo;
+    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda, txtnomeusermoreinfo, txtemailuserinfo;
     //ImageView imgavatarusu;
-    ConstraintLayout constraintlayoutperfilusu;
+    ConstraintLayout constraintlayoutperfilusu, cardviewlogoutinfo;
     LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda;
     ArrayList<DtoAgenda> arrayListagenda;
-    CardView  loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    CardView  btnlogout, cardviewbtnmaisinfo,loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
+    int novotempodeanimacao = 10;
 
     //  cardviewbtnlermaisjava
     //  cardviewbtnlermaiscsharp
@@ -75,6 +80,13 @@ public class PrincipalActivity extends AppCompatActivity {
         txtsemagenda = findViewById(R.id.txtsemagenda);
         animacaosemagenda = findViewById(R.id.animacaosemagenda);
         cardviewbtnveragenda = findViewById(R.id.cardviewbtnveragenda);
+        cardviewlogoutinfo = findViewById(R.id.cardviewlogoutinfo);
+        header = findViewById(R.id.header);
+        btnvoltarfecharmenuinfo = findViewById(R.id.btnvoltarfecharmenuinfo);
+        btnlogout = findViewById(R.id.btnlogout);
+        cardviewbtnmaisinfo = findViewById(R.id.cardviewbtnmaisinfo);
+        txtnomeusermoreinfo = findViewById(R.id.txtnomeusermoreinfo);
+        txtemailuserinfo = findViewById(R.id.txtemailuserinfo);
 
         //  Defining somethings with GONE
 
@@ -89,6 +101,8 @@ public class PrincipalActivity extends AppCompatActivity {
         DaoLogins daoLogins = new DaoLogins(PrincipalActivity.this);
         DtoLogins dtoLogins = daoLogins.verificarusuario(cpfrecebido);
         txtnomeusu.setText(dtoLogins.getNomefunc());
+        txtnomeusermoreinfo.setText(dtoLogins.getNomefunc());
+        txtemailuserinfo.setText(dtoLogins.getEmailfunc());
         txtcargoatual.setText(dtoLogins.getCargofunc());
         if (dtoLogins.getUltamareufunc() == null || dtoLogins.getUltamareufunc().equals("")){
             txtproximareuniao.setText("Não há reunião agendada");
@@ -117,6 +131,7 @@ public class PrincipalActivity extends AppCompatActivity {
             animacaosemagenda.setVisibility(View.VISIBLE);
         }
 
+        //  When you click in this liner will go to AgendaActivity
         cardviewbtnveragenda.setOnClickListener(v -> {
             Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
             irparaagenda.putExtra("cpfusu",cpfrecebido);
@@ -125,12 +140,40 @@ public class PrincipalActivity extends AppCompatActivity {
         });
 
         constraintlayoutperfilusu.setOnClickListener(v -> {
+            header.setVisibility(View.GONE);
+            cardviewlogoutinfo.setVisibility(View.VISIBLE);
+        });
+
+        //  When click in this cardview will to User Profile
+        cardviewbtnmaisinfo.setOnClickListener(v -> {
             Intent irparaperfildeusuario = new Intent(PrincipalActivity.this,PerfilUsuarioActivity.class);
             irparaperfildeusuario.putExtra("cpfusu",cpfrecebido);
             startActivity(irparaperfildeusuario);
             finish();
         });
 
+        //  Btn close menu
+        btnvoltarfecharmenuinfo.setOnClickListener( v -> {
+            header.setVisibility(View.VISIBLE);
+            cardviewlogoutinfo.setVisibility(View.GONE);
+        });
+
+        //  When click will show msg to confirm if really want to logout
+        btnlogout.setOnClickListener(v -> {
+            AlertDialog.Builder msg = new AlertDialog.Builder(PrincipalActivity.this);
+            msg.setTitle("Log Out");
+            msg.setMessage("Deseja realmente deslogar?");
+            msg.setPositiveButton("Sim", (dialog, which) -> {
+                Intent deslogar = new Intent(PrincipalActivity.this,MainActivity.class);
+                deslogar.putExtra("novotempo",novotempodeanimacao);
+                startActivity(deslogar);
+                finish();
+            });
+            msg.setNegativeButton("Não", null);
+            msg.show();
+        });
+
+        //  When you click in this liner will go to ClientesActivity
         cardviewbtnverclientes.setOnClickListener(v -> {
                 Intent irparaclientes = new Intent(PrincipalActivity.this,ClientesActivity.class);
                 irparaclientes.putExtra("cpfusu",cpfrecebido);
@@ -138,8 +181,10 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
         });
 
+        //  When you click in this liner will see some message
         linearbtnhomeprincipal.setOnClickListener(v -> Toast.makeText(PrincipalActivity.this, "Você já está aqui!", Toast.LENGTH_SHORT).show());
 
+        //  When you click in this liner will go to AgendaActivity
         linearbtnagendaprincipal.setOnClickListener(v -> {
             loadingparaagenda.setVisibility(View.VISIBLE);
             animacaoagenda.playAnimation();
@@ -153,6 +198,7 @@ public class PrincipalActivity extends AppCompatActivity {
             },1300);
         });
 
+        //  When you click in this liner will go to ServicosActivity
         linearbtnservicosprincipal.setOnClickListener(v ->{
             loadingparaservicos.setVisibility(View.VISIBLE);
             animacaoservicoespricipal.setSpeed(2);
@@ -165,6 +211,7 @@ public class PrincipalActivity extends AppCompatActivity {
             },1400);
         });
 
+        //  When you click in this liner will go to ClientesActivity
         linearbtnclienteprincipal.setOnClickListener(v -> {
             loadingparaclientes.setVisibility(View.VISIBLE);
             new Handler().postDelayed(() -> {
