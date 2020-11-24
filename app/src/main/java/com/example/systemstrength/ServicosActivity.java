@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class ServicosActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeservicos, linearbtnclientesservicos, linearbtncontatoservicos, linearbtnservicosservicos;
-    CardView cardviewloadingprincipalservicos, loadingparaclientesservicos, loadingparaagendaservicos;
+    CardView cardviewloadingprincipalservicos, loadingparaclientesservicos, loadingparaagendaservicos, cardviewbtnmoreequipe;
     String cpfrecebidoprincipal;
 
     @Override
@@ -26,11 +28,19 @@ public class ServicosActivity extends AppCompatActivity {
         cardviewloadingprincipalservicos = findViewById(R.id.cardviewloadingprincipalservicos);
         loadingparaclientesservicos = findViewById(R.id.loadingparaclientesservicos);
         loadingparaagendaservicos = findViewById(R.id.loadingparaagendaservicos);
+        cardviewbtnmoreequipe = findViewById(R.id.cardviewbtnmoreequipe);
 
         //  Get some information
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidoprincipal = bundle.getString("cpfusu");
+
+        cardviewbtnmoreequipe.setOnClickListener(v -> {
+            Intent iranossaequipe = new Intent(ServicosActivity.this,NossaEquipeActivity.class);
+            iranossaequipe.putExtra("cpfusu",cpfrecebidoprincipal);
+            startActivity(iranossaequipe);
+            finish();
+        });
 
         //  When click in this linear you will show some msg
         linearbtnservicosservicos.setOnClickListener(v -> Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show());

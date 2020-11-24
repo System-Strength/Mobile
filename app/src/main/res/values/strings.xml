@@ -76,7 +76,7 @@
     <string name="vcpossui">Você possui: </string>
     <string name="naohacompromissos">Não há compromissos\n cadastrados</string>
     <string name="logout">Log Out</string>
-    <string name="maisinfo">Mais Informações</string>
+    <string name="maisinfo"><u>Mais Informações</u></string>
 
     <!--Tela Nossa Equipe-->
 
@@ -94,7 +94,7 @@
 
     <!--Sobre Integrante-->
     <string name="sobredanilo">Olá! Me chamo Danilo Oliveira, tenho 17 anos e moro na capital de São Paulo. Estou cursando Desenvolvimento de Sistemas há 9 meses na escola Etec Prof. Basilides de Godoy, focando na área de front-end.</string>
-    <string name="sobrekaua">Olá! Me chamo Kauã Vitório da Silva Lima, tenho 16 anos, sou de Lins interior de SP mas moro atualmente em São Paulo Capital, estou cursando Desenvolvimento de Sistemas a 9 meses.</string>
+    <string name="sobrekaua">Olá! Me chamo Kauã Vitório, tenho 16 anos, moro atualmente em São Paulo Capital, curso técnico em Desenvolvimento de sistemas na ETEC. Atuo na área de Back-end de nossa empresa, a  System Strength.</string>
     <string name="sobrematheus">Olá! Sou o Matheus Souza, tenho 17 anos, faço técnico em Desenvolvimento de sistemas na ETEC. Atuo na área de front-end e Back-end da nossa empresa, a  System Strength.</string>
     <string name="sobrepedro">Olá meu nome é Pedro Henrique Morato Mesquita Ferreira, tenho 17 anos, moro em Santana de Parnaíba, curso Desenvolvimento de Sistemas na ETEC Professor Basilides de Godoy.</string>
 
@@ -162,6 +162,10 @@
     <string name="selecionaroutrocliente"><u>Selecionar outro Cliente</u></string>
     <string name="detalhes">Detalhes</string>
     <string name="btnenderecodocliente"><u><i>Endereço do cliente</i></u></string>
+
+    <!--Services-->
+    <string name="nossosespecialistas">Nossos especialistas</string>
+    <string name="txtfuncsystem">Aqui você pode ver nossos funcionarios e seus respectivos cargos</string>
 
 
 </resources>

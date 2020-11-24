@@ -40,8 +40,7 @@
                 android:layout_width="60dp"
                 android:layout_height="65dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/layout_shadow"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -49,48 +48,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="58dp"
-                        android:layout_height="60dp"
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:cardBackgroundColor="#fff"
-                            android:outlineAmbientShadowColor="#fff"
-                            app:cardCornerRadius="20dp"
-                            tools:ignore="UnusedAttribute">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgsetaesquerda"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:rotation="180"
-                                    android:src="@drawable/setinhaparadireita"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="ContentDescription"/>
-
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                        </androidx.cardview.widget.CardView>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/setinhaesquerda" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -248,15 +214,14 @@
                                         tools:ignore="TooDeepLayout">
 
                                         <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="80dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconeinsta"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/instagram" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -296,21 +261,21 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent">
 
-                                    <!--Base para imagem do insta-->
+                                    <!--Base para imagem do GitHub-->
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:src="@drawable/logogithub"
+                                        <!--Img GitHub-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/github" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -355,16 +320,16 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <!--Img Twitter-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconetwitter"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/twitter3" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -458,7 +423,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/cardviewimgkaua"
                             app:layout_constraintVertical_bias="0.0" />
 
-                        <!--Sobre Danilo-->
+                        <!--Sobre Kauã-->
                         <TextView
                             android:id="@+id/txtsobrekaua"
                             android:layout_width="250dp"
@@ -508,15 +473,14 @@
                                         android:layout_height="match_parent">
 
                                         <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="80dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconeinsta"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/instagram" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -561,16 +525,16 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:src="@drawable/logogithub"
+                                        <!--Img GitHub-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/github" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -610,21 +574,21 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent">
 
-                                    <!--Base para imagem do insta-->
+                                    <!--Base para imagem do Twitter-->
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <!--Img Twitter-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconetwitter"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/twitter3" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -768,15 +732,14 @@
                                         android:layout_height="match_parent">
 
                                         <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="80dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconeinsta"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/instagram" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -820,16 +783,17 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:src="@drawable/logogithub"
+                                        <!--Img GitHub-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/github" />
+
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -869,21 +833,21 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     tools:ignore="TooManyViews">
 
-                                    <!--Base para imagem do insta-->
+                                    <!--Base para imagem do Twitter-->
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <!--Img Twitter-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconetwitter"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/twitter3" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -910,7 +874,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardviewmathues">
+                    app:layout_constraintTop_toBottomOf="@+id/cardviewmathues"
+                    tools:ignore="TooManyViews">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -1029,15 +994,14 @@
                                         android:layout_height="match_parent">
 
                                         <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="80dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconeinsta"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/instagram" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1076,21 +1040,21 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent">
 
-                                    <!--Base para imagem do insta-->
+                                    <!--Base para imagem do github-->
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:src="@drawable/logogithub"
+                                        <!--Img GitHub-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/github" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1129,21 +1093,21 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent">
 
-                                    <!--Base para imagem do insta-->
+                                    <!--Base para imagem do Twitter-->
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                        <!--Img Insta-->
-                                        <ImageView
-                                            android:layout_width="50dp"
+                                        <!--Img Twitter-->
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:layout_width="40dp"
                                             android:layout_height="50dp"
-                                            android:src="@drawable/iconetwitter"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            tools:ignore="ContentDescription"/>
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_rawRes="@raw/twitter3" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
 
