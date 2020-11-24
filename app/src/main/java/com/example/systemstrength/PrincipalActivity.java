@@ -35,12 +35,12 @@ import java.util.Date;
 
 public class PrincipalActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal, header, btnvoltarfecharmenuinfo;
-    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda, txtnomeusermoreinfo, txtemailuserinfo;
+    TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda, txtnomeusermoreinfo, cardviewbtnmaisinfo,txtemailuserinfo;
     //ImageView imgavatarusu;
     ConstraintLayout constraintlayoutperfilusu, cardviewlogoutinfo;
-    LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda;
+    LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda, imganimationinfo, animaionbtnvoltarinfo;
     ArrayList<DtoAgenda> arrayListagenda;
-    CardView  btnlogout, cardviewbtnmaisinfo,loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    CardView  btnlogout,loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
     int novotempodeanimacao = 10;
@@ -87,6 +87,8 @@ public class PrincipalActivity extends AppCompatActivity {
         cardviewbtnmaisinfo = findViewById(R.id.cardviewbtnmaisinfo);
         txtnomeusermoreinfo = findViewById(R.id.txtnomeusermoreinfo);
         txtemailuserinfo = findViewById(R.id.txtemailuserinfo);
+        imganimationinfo = findViewById(R.id.imganimationinfo);
+        animaionbtnvoltarinfo = findViewById(R.id.animaionbtnvoltarinfo);
 
         //  Defining somethings with GONE
 
@@ -142,6 +144,8 @@ public class PrincipalActivity extends AppCompatActivity {
         constraintlayoutperfilusu.setOnClickListener(v -> {
             header.setVisibility(View.GONE);
             cardviewlogoutinfo.setVisibility(View.VISIBLE);
+            imganimationinfo.playAnimation();
+            animaionbtnvoltarinfo.playAnimation();
         });
 
         //  When click in this cardview will to User Profile
@@ -221,6 +225,16 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
             },1500);
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (cardviewlogoutinfo.getVisibility() == View.VISIBLE){
+            header.setVisibility(View.VISIBLE);
+            cardviewlogoutinfo.setVisibility(View.GONE);
+        }else {
+            finish();
+        }
     }
 }
 
