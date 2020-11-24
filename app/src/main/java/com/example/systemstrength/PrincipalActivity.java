@@ -91,8 +91,8 @@ public class PrincipalActivity extends AppCompatActivity {
         //  Defining somethings with GONE
 
         //  Taking the current time and placing it on TextView
-        horarecebida = new SimpleDateFormat("HH:mm").format(new Date());
-        txthoraatual.setText(horarecebida);
+        //horarecebida = new SimpleDateFormat("HH:mm").format(new Date());
+        //txthoraatual.setText(horarecebida);
 
         //  Get Name of user Turn on this later
         Intent intent = getIntent();
