@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SystemStrength">
-        <activity android:name=".ServicosActivity"></activity>
+        <activity android:name=".ContatoActivity"></activity>
+        <activity android:name=".ServicosActivity" />
         <activity android:name=".EdicaoAgendaActivity" />
         <activity android:name=".ListadeClientesActivity" />
         <activity android:name=".NovoAgendamentoActivity" />

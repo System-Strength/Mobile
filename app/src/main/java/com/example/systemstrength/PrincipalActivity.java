@@ -40,7 +40,7 @@ public class PrincipalActivity extends AppCompatActivity {
     ConstraintLayout constraintlayoutperfilusu, cardviewlogoutinfo;
     LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda, imganimationinfo, animaionbtnvoltarinfo;
     ArrayList<DtoAgenda> arrayListagenda;
-    CardView  btnlogout,loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    CardView  btnlogout, cardviewbtnirparacontato, loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
     String cpfrecebido;
     String horarecebida;
     int novotempodeanimacao = 10;
@@ -89,6 +89,7 @@ public class PrincipalActivity extends AppCompatActivity {
         txtemailuserinfo = findViewById(R.id.txtemailuserinfo);
         imganimationinfo = findViewById(R.id.imganimationinfo);
         animaionbtnvoltarinfo = findViewById(R.id.animaionbtnvoltarinfo);
+        cardviewbtnirparacontato = findViewById(R.id.cardviewbtnirparacontato);
 
         //  Defining somethings with GONE
 
@@ -133,6 +134,14 @@ public class PrincipalActivity extends AppCompatActivity {
             animacaosemagenda.setVisibility(View.VISIBLE);
         }
 
+        //  When click in this cardview will go to ContactActivity
+        cardviewbtnirparacontato.setOnClickListener(v -> {
+            Intent irparacontato = new Intent(PrincipalActivity.this,ContatoActivity.class);
+            irparacontato.putExtra("cpfusu", cpfrecebido);
+            startActivity(irparacontato);
+            finish();
+        });
+
         //  When you click in this liner will go to AgendaActivity
         cardviewbtnveragenda.setOnClickListener(v -> {
             Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
@@ -141,6 +150,7 @@ public class PrincipalActivity extends AppCompatActivity {
             finish();
         });
 
+        //  When click in this constraint will open menu off info
         constraintlayoutperfilusu.setOnClickListener(v -> {
             header.setVisibility(View.GONE);
             cardviewlogoutinfo.setVisibility(View.VISIBLE);
@@ -207,11 +217,11 @@ public class PrincipalActivity extends AppCompatActivity {
             loadingparaservicos.setVisibility(View.VISIBLE);
             animacaoservicoespricipal.setSpeed(2);
             new Handler().postDelayed(() -> {
-                loadingparaservicos.setVisibility(View.GONE);
                 Intent irparaservicos = new Intent(PrincipalActivity.this,ServicosActivity.class);
                 irparaservicos.putExtra("cpfusu",cpfrecebido);
                 startActivity(irparaservicos);
                 finish();
+                loadingparaservicos.setVisibility(View.GONE);
             },1400);
         });
 
