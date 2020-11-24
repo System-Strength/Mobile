@@ -3,11 +3,13 @@ package com.example.systemstrength;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -15,6 +17,8 @@ import com.airbnb.lottie.LottieAnimationView;
 public class ServicosActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeservicos, linearbtnclientesservicos, linearbtncontatoservicos, linearbtnservicosservicos;
     CardView cardviewloadingprincipalservicos, loadingparaclientesservicos, loadingparaagendaservicos, cardviewbtnmoreequipe;
+    TextView txtbtnbackend, txtbtnfrontend, txtbtnanalise, txtbtninfra;
+    Dialog popupinfo;
     String cpfrecebidoprincipal;
 
     @Override
@@ -29,6 +33,11 @@ public class ServicosActivity extends AppCompatActivity {
         loadingparaclientesservicos = findViewById(R.id.loadingparaclientesservicos);
         loadingparaagendaservicos = findViewById(R.id.loadingparaagendaservicos);
         cardviewbtnmoreequipe = findViewById(R.id.cardviewbtnmoreequipe);
+        txtbtnbackend = findViewById(R.id.txtbtnbackend);
+        txtbtnfrontend = findViewById(R.id.txtbtnfrontend);
+        txtbtnanalise = findViewById(R.id.txtbtnanalise);
+        txtbtninfra = findViewById(R.id.txtbtninfra);
+        popupinfo = new Dialog(this);
 
         //  Get some information
         Intent intent = getIntent();
@@ -41,6 +50,19 @@ public class ServicosActivity extends AppCompatActivity {
             startActivity(iranossaequipe);
             finish();
         });
+
+        //  When click here will open BackEndPopUp
+        txtbtnbackend.setOnClickListener(v -> popupbackend());
+
+        //  When click here will open FrontEndPopUp
+        txtbtnfrontend.setOnClickListener(v -> popupfrontend());
+
+        //  When click here will open AnalisePopUp
+        txtbtnanalise.setOnClickListener(v -> popupanalise());
+
+        //  When click here will open InfraPopUp
+        txtbtninfra.setOnClickListener(v -> popupinfra());
+
 
         //  When click in this linear you will show some msg
         linearbtnservicosservicos.setOnClickListener(v -> Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show());
@@ -77,5 +99,46 @@ public class ServicosActivity extends AppCompatActivity {
                 finish();
             },1500);
         });
+    }
+
+    //  Create popup
+    public void popupbackend() {
+        LottieAnimationView btnvoltarbackend;
+        popupinfo.setContentView(R.layout.popupbackend);
+        btnvoltarbackend = popupinfo.findViewById(R.id.btnvoltarbackend);
+
+        btnvoltarbackend.setOnClickListener(v -> popupinfo.dismiss());
+
+        popupinfo.show();
+    }
+
+    public void popupfrontend() {
+        LottieAnimationView btnvoltarfrontend;
+        popupinfo.setContentView(R.layout.popupfrontend);
+        btnvoltarfrontend = popupinfo.findViewById(R.id.btnvoltarfrontend);
+
+        btnvoltarfrontend.setOnClickListener(v -> popupinfo.dismiss());
+
+        popupinfo.show();
+    }
+
+    public void popupanalise() {
+        LottieAnimationView btnvoltaranalise;
+        popupinfo.setContentView(R.layout.popupanalise);
+        btnvoltaranalise = popupinfo.findViewById(R.id.btnvoltaranalise);
+
+        btnvoltaranalise.setOnClickListener(v -> popupinfo.dismiss());
+
+        popupinfo.show();
+    }
+
+    public void popupinfra() {
+        LottieAnimationView btnvoltarinfra;
+        popupinfo.setContentView(R.layout.popupinfra);
+        btnvoltarinfra = popupinfo.findViewById(R.id.btnvoltarinfra);
+
+        btnvoltarinfra.setOnClickListener(v -> popupinfo.dismiss());
+
+        popupinfo.show();
     }
 }
