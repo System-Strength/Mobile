@@ -195,5 +195,11 @@
     <string name="emailmatheus">matheus@gmail.com</string>
     <string name="emailpedro">pedromorato@gmail.com</string>
     <string name="title_activity_maps">Map</string>
+    <string name="endsystem">R. Guaipá, 678</string>
+    <string name="visualizarnomapa"><u>Visualizar no mapa</u></string>
+    <string name="instagramsystem"><u>System Strength</u></string>
+    <string name="youtubesystem"><u>System Strength</u></string>
+    <string name="twittersystem"><u>SystemStrength1</u></string>
+    <string name="githubsystem"><u>System Strength</u></string>
 
 </resources>

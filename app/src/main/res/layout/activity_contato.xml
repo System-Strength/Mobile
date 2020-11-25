@@ -84,11 +84,12 @@
 
                     <!--CardView Contacts-->
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView2"
                         android:layout_width="350dp"
                         android:layout_height="220dp"
-                        android:layout_marginTop="35dp"
-                        app:cardCornerRadius="20dp"
+                        android:layout_marginTop="45dp"
                         app:cardBackgroundColor="#fff"
+                        app:cardCornerRadius="20dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -180,7 +181,6 @@
                                         android:layout_width="55dp"
                                         android:layout_height="55dp"
                                         android:outlineProvider="none"
-                                        android:layout_marginEnd="8dp"
                                         app:cardBackgroundColor="#CEE8E8E8"
                                         app:cardCornerRadius="30dp"
                                         app:cardElevation="20dp"
@@ -195,11 +195,11 @@
                                             <com.airbnb.lottie.LottieAnimationView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
+                                                android:layout_marginEnd="3dp"
                                                 app:layout_constraintBottom_toBottomOf="parent"
                                                 app:layout_constraintEnd_toEndOf="parent"
                                                 app:layout_constraintStart_toStartOf="parent"
                                                 app:layout_constraintTop_toTopOf="parent"
-                                                android:layout_marginEnd="3dp"
                                                 app:lottie_autoPlay="true"
                                                 app:lottie_rawRes="@raw/emailline"
                                                 tools:ignore="TooDeepLayout" />
@@ -349,11 +349,12 @@
 
                             <!--CardView Social Media-->
                             <androidx.cardview.widget.CardView
+                                android:id="@+id/cardviewbtnverredessociais"
                                 android:layout_width="200dp"
                                 android:layout_height="70dp"
                                 android:layout_marginTop="20dp"
-                                app:cardBackgroundColor="#FF5C00"
                                 android:outlineProvider="none"
+                                app:cardBackgroundColor="#DCFF6B17"
                                 app:cardCornerRadius="20dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/linearaddress"
@@ -861,9 +862,9 @@
 
             <!--Info Maps-->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cardinfomaps"
+                android:id="@+id/miniinfomaps"
                 android:layout_width="300dp"
-                android:layout_height="400dp"
+                android:layout_height="190dp"
                 android:visibility="gone"
                 android:background="@drawable/navbardesigner"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -873,8 +874,8 @@
                 <!--Btn Close-->
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/fecharinfomaps"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:lottie_autoPlay="true"
@@ -894,6 +895,192 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Img Animation-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/imganimationlocalend"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txttitulomapsinfomaps"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/pointcontato"
+                    tools:ignore="TooDeepLayout,TooManyViews" />
+
+                <!--Text System-->
+                <TextView
+                    android:id="@+id/txtnomesystemend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="@string/systemstrength"
+                    android:textColor="#B0000000"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toEndOf="@+id/imganimationlocalend"
+                    app:layout_constraintTop_toBottomOf="@+id/txttitulomapsinfomaps"
+                    tools:ignore="SmallSp" />
+
+                <!--Text End System-->
+                <TextView
+                    android:id="@+id/txtendsystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/endsystem"
+                    android:textColor="#002E73"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imganimationlocalend"
+                    app:layout_constraintTop_toBottomOf="@+id/txtnomesystemend" />
+
+                <!--Text Ver no Mapa-->
+                <TextView
+                    android:id="@+id/txtvernomapa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizarnomapa"
+                    android:layout_marginTop="30dp"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtendsystem" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Info Social Medias-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menuinosocialmedias"
+                android:layout_width="300dp"
+                android:layout_height="330dp"
+                android:visibility="gone"
+                android:background="@drawable/navbardesigner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <!--Btn Close-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/fecharinforedes"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    app:lottie_rawRes="@raw/arrowleftblack" />
+
+                <!--Text Tittle-->
+                <TextView
+                    android:id="@+id/txttituloredesmenuredes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/redessociais"
+                    android:textColor="#000"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Animation Insta-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationinstaredes"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    app:lottie_autoPlay="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txttituloredesmenuredes"
+                    app:lottie_rawRes="@raw/instagram" />
+
+                <!--Text Insta-->
+                <TextView
+                    android:id="@+id/txtinstagramsystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instagramsystem"
+                    android:layout_marginTop="24dp"
+                    android:textSize="20sp"
+                    android:textColor="#002E73"
+                    app:layout_constraintStart_toEndOf="@+id/animationinstaredes"
+                    app:layout_constraintTop_toBottomOf="@+id/txttituloredesmenuredes" />
+
+                <!--Animation Yt-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationyoutuberedes"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="14dp"
+                    app:lottie_autoPlay="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/animationinstaredes"
+                    app:lottie_rawRes="@raw/youtube1" />
+
+                <!--Text Youtube-->
+                <TextView
+                    android:id="@+id/txtyoutubesystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/youtubesystem"
+                    android:layout_marginTop="40dp"
+                    android:textSize="20sp"
+                    android:textColor="#002E73"
+                    app:layout_constraintStart_toEndOf="@+id/animationyoutuberedes"
+                    app:layout_constraintTop_toBottomOf="@+id/txtinstagramsystem" />
+
+                <!--Animation Twitter-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationtwitterredes"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="14dp"
+                    app:lottie_autoPlay="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/animationyoutuberedes"
+                    app:lottie_rawRes="@raw/twitter3" />
+
+                <!--Text Twitter-->
+                <TextView
+                    android:id="@+id/txttwittersystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/twittersystem"
+                    android:layout_marginTop="40dp"
+                    android:textSize="20sp"
+                    android:textColor="#002E73"
+                    app:layout_constraintStart_toEndOf="@+id/animationtwitterredes"
+                    app:layout_constraintTop_toBottomOf="@+id/txtyoutubesystem" />
+
+                <!--Animation Git Hub-->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationgithubredes"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="18dp"
+                    app:lottie_autoPlay="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/animationtwitterredes"
+                    app:lottie_rawRes="@raw/github" />
+
+                <!--Text Git Hub-->
+                <TextView
+                    android:id="@+id/txtgithubsystem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/githubsystem"
+                    android:layout_marginTop="35dp"
+                    android:textSize="20sp"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#002E73"
+                    app:layout_constraintStart_toEndOf="@+id/animationgithubredes"
+                    app:layout_constraintTop_toBottomOf="@+id/txttwittersystem" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
