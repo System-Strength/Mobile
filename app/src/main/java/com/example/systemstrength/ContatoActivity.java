@@ -202,7 +202,7 @@ public class ContatoActivity extends AppCompatActivity {
         });
 
         //  When click will go to Twitter of system
-        txtyoutubesystem.setOnClickListener(v -> {
+        txttwittersystem.setOnClickListener(v -> {
             Uri twitter = Uri.parse("https://twitter.com/SystemStrength1");
             Intent twitterintent = new Intent(Intent.ACTION_VIEW, twitter);
             startActivity(twitterintent);
@@ -210,9 +210,9 @@ public class ContatoActivity extends AppCompatActivity {
 
         //  When click will go to GitBub of system
         txtgithubsystem.setOnClickListener(v -> {
-            Uri twitter = Uri.parse("https://github.com/System-Strength");
-            Intent twitterintent = new Intent(Intent.ACTION_VIEW, twitter);
-            startActivity(twitterintent);
+            Uri github = Uri.parse("https://github.com/System-Strength");
+            Intent githubintent = new Intent(Intent.ACTION_VIEW, github);
+            startActivity(githubintent);
         });
 
         //  When click here will go back to Principal Activity
