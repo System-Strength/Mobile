@@ -201,4 +201,9 @@
     <string name="twittersystem"><u>SystemStrength1</u></string>
     <string name="githubsystem"><u>System Strength</u></string>
 
+    <!--Contratos-->
+    <string name="contrato"><i><u>Contrato</u></i></string>
+    <string name="contratode">Contrato: </string>
+    <string name="contratoapresentado">Contraaaa</string>
+
 </resources>
