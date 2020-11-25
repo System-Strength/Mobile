@@ -15,6 +15,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
+/**
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ **/
+
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback , View.OnClickListener{
 
     private lateinit var mMap: GoogleMap
@@ -55,3 +61,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback , View.OnClickListe
         finish()
     }
 }
+
+/*
+ *  Copyright (c) 2020 System Strength
+ *  Official repository https://github.com/System-Strength/Mobile
+ *  Responsible developer: https://github.com/Kauavitorio
+ */
