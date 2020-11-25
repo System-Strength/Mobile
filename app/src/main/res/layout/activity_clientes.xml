@@ -197,6 +197,74 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Card Animation Agenda-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/loadingparaagendaclientes"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:visibility="gone"
+                android:outlineProvider="none"
+                android:layout_marginBottom="150dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#97000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:outlineProvider="none"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animacaoagenda"
+                        android:layout_width="280dp"
+                        android:layout_height="280dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/scanningsearching" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--Card Animation Serviços-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/loadingparaservicoscliente"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:visibility="gone"
+                android:outlineProvider="none"
+                android:layout_marginBottom="150dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#97000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:outlineProvider="none"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animacaoservicoespricipal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/loadingparaservices"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

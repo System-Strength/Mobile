@@ -24,8 +24,8 @@ import com.example.systemstrength.Classes.Clientes.DtoClientes;
 import java.util.ArrayList;
 
 public class ClientesActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeclientes, linearbtnclientes;
-    CardView cardviewloadingprincipal, cardviewalertyouarehere, cardviewanimacaocadastronovocliente, cardviewcadastrarnovocliente, cardviewanimationdelete;
+    LinearLayout linearbtnhomeclientes, linearbtnclientes, linearbtnservicoscliente, linearbtncontatoclientes;
+    CardView cardviewloadingprincipal, cardviewalertyouarehere, cardviewanimacaocadastronovocliente, cardviewcadastrarnovocliente, cardviewanimationdelete, loadingparaservicoscliente, loadingparaagendaclientes;
     LottieAnimationView smileanimationalert, animationdelete;
     ListView listviewclientes;
     ArrayList<DtoClientes> arrayListclientes;
@@ -39,6 +39,8 @@ public class ClientesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clientes);
         linearbtnhomeclientes = findViewById(R.id.linearbtnhomeclientes);
         linearbtnclientes = findViewById(R.id.linearbtnclientes);
+        linearbtnservicoscliente = findViewById(R.id.linearbtnservicoscliente);
+        linearbtncontatoclientes = findViewById(R.id.linearbtncontatoclientes);
         animationdelete = findViewById(R.id.animationdelete);
         cardviewloadingprincipal = findViewById(R.id.cardviewloadingprincipal);
         cardviewalertyouarehere = findViewById(R.id.cardviewalertyouarehere);
@@ -47,6 +49,8 @@ public class ClientesActivity extends AppCompatActivity {
         listviewclientes = findViewById(R.id.listviewclientes);
         cardviewcadastrarnovocliente = findViewById(R.id.cardviewcadastrarnovocliente);
         cardviewanimacaocadastronovocliente = findViewById(R.id.cardviewanimacaocadastronovocliente);
+        loadingparaservicoscliente = findViewById(R.id.loadingparaservicoscliente);
+        loadingparaagendaclientes = findViewById(R.id.loadingparaagendaclientes);
 
         //  Get Some information
         Intent intent = getIntent();
@@ -57,6 +61,7 @@ public class ClientesActivity extends AppCompatActivity {
         arrayListclientes = daoClientes.consultarTodos();
         atualizarlistview();
 
+        //  When you click here will see msg to call company
         listviewclientes.setOnItemClickListener((parent, view, position, id) -> {
             clientes = arrayListclientes.get(position);
             AlertDialog.Builder msg = new AlertDialog.Builder(ClientesActivity.this);
@@ -72,10 +77,33 @@ public class ClientesActivity extends AppCompatActivity {
             msg.show();
         });
 
+        //  When click here will se menu context
         listviewclientes.setOnItemLongClickListener((parent, view, position, id) -> {
             clientes = arrayListclientes.get(position);
             registerForContextMenu(listviewclientes);
             return false;
+        });
+
+        //  When you click in this linear go do one animation and go to ServicosActivity
+        linearbtnservicoscliente.setOnClickListener(v -> {
+            loadingparaservicoscliente.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaservicos = new Intent(ClientesActivity.this,ServicosActivity.class);
+                irparaservicos.putExtra("cpfusu", cpfrecebidodaprincipal);
+                startActivity(irparaservicos);
+                finish();
+            },1400);
+        });
+
+        //  When you click in this linear go do one animation and go to AgendaActivity
+        linearbtncontatoclientes.setOnClickListener(v -> {
+            loadingparaagendaclientes.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> {
+                Intent irparaagenda = new Intent(ClientesActivity.this,AgendaActivity.class);
+                irparaagenda.putExtra("cpfusu", cpfrecebidodaprincipal);
+                startActivity(irparaagenda);
+                finish();
+            },1300);
         });
 
         //  When you click in this cardview go to CadastrarCliente
@@ -153,6 +181,7 @@ public class ClientesActivity extends AppCompatActivity {
         menu.add(0,1,1,"Novo Compromisso");
         menu.add(0,2,2,"Excluir Organização");
         menu.add(0,3,3,"Ligar");
+        menu.add(0,4,4,"Contratos");
     }
 
     @Override
@@ -169,11 +198,14 @@ public class ClientesActivity extends AppCompatActivity {
             startActivity(irparaagenda);
         }else if(item.getItemId() == 2){
             excluir();
-
         }else if (item.getItemId() == 3){
             Intent callfor = new Intent(Intent.ACTION_DIAL);
             callfor.setData(Uri.parse("tel:"+ clientes.getTelefonecliente()));
             startActivity(callfor);
+        }else if (item.getItemId() == 4) {
+            Intent irparacontratos = new Intent(ClientesActivity.this, ContratosActivity.class);
+            irparacontratos.putExtra("cpfusu",cpfrecebidodaprincipal);
+            startActivity(irparacontratos);
         }
         return super.onContextItemSelected(item);
     }
