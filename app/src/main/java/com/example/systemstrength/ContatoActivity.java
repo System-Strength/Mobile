@@ -55,7 +55,7 @@ public class ContatoActivity extends AppCompatActivity {
 
         //  When click here will open info menu phones
         lineartelefone.setOnClickListener(v -> {
-            if (cardinfotelefones.getVisibility() == View.VISIBLE || cardinfoemail.getVisibility() == View.VISIBLE){
+            if (cardinfotelefones.getVisibility() == View.VISIBLE){
                 headercontato.setVisibility(View.VISIBLE);
                 cardinfotelefones.setVisibility(View.GONE);
                 cardinfoemail.setVisibility(View.GONE);
@@ -87,8 +87,8 @@ public class ContatoActivity extends AppCompatActivity {
 
         //  When click here will open info menu email
         linearemail.setOnClickListener(v -> {
-            if (cardinfotelefones.getVisibility() == View.VISIBLE || cardinfoemail.getVisibility() == View.VISIBLE){
-                headercontato.setVisibility(View.GONE);
+            if (cardinfoemail.getVisibility() == View.VISIBLE){
+                headercontato.setVisibility(View.VISIBLE);
                 cardinfotelefones.setVisibility(View.GONE);
                 cardinfoemail.setVisibility(View.GONE);
             }else {
