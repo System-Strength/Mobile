@@ -1,7 +1,6 @@
 package com.example.systemstrength;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,8 +15,6 @@ import android.widget.TextView;
  **/
 
 public class MenuEsqueciASenhaActivity extends AppCompatActivity {
-
-    CardView cardviewbtncontatorecuperarsenha;
     TextView txtcontatoprotoculo, txtprotocolo;
     ProgressBar progressminiloadingprotocolo;
 
@@ -29,25 +26,19 @@ public class MenuEsqueciASenhaActivity extends AppCompatActivity {
         txtcontatoprotoculo = findViewById(R.id.txtcontatoprotoculo);
         txtprotocolo = findViewById(R.id.txtprotocolo);
         progressminiloadingprotocolo = findViewById(R.id.progressminiloadingprotocolo);
-        cardviewbtncontatorecuperarsenha = findViewById(R.id.cardviewbtncontatorecuperarsenha);
 
 
         //  When screen open will set that 3 items Visible and Gone
         progressminiloadingprotocolo.setVisibility(View.VISIBLE);
         txtcontatoprotoculo.setVisibility(View.GONE);
         txtprotocolo.setVisibility(View.GONE);
-        cardviewbtncontatorecuperarsenha.setVisibility(View.GONE);
 
         new Handler().postDelayed(() -> {
             progressminiloadingprotocolo.setVisibility(View.GONE);
             txtcontatoprotoculo.setVisibility(View.VISIBLE);
             txtprotocolo.setVisibility(View.VISIBLE);
-            cardviewbtncontatorecuperarsenha.setVisibility(View.VISIBLE);
-        },900);
+        },800);
 
-        cardviewbtncontatorecuperarsenha.setOnClickListener(v -> {
-            //  When ContatoActivity is create will be sync here
-        });
     }
 }
 

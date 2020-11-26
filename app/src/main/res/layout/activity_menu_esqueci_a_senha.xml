@@ -98,42 +98,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtprotocolo" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardviewbtncontatorecuperarsenha"
-                    android:layout_width="120dp"
-                    android:layout_height="50dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardBackgroundColor="#D31900"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtcontatoprotoculo">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/contato"
-                            android:textColor="#fff"
-                            android:textAllCaps="true"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
 
                 <ProgressBar
                     android:id="@+id/progressminiloadingprotocolo"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
                     android:indeterminateDrawable="@drawable/cpb_3"
                     android:indeterminateDuration="@android:integer/config_longAnimTime"
                     app:layout_constraintBottom_toBottomOf="parent"
