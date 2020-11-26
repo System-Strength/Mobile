@@ -119,7 +119,7 @@
     <string name="salvar">Salvar</string>
     <string name="voltaraocracha">Voltar ao Crachá</string>
 
-    <!--Gerenciamento de Usuario-->
+    <!--Gerenciamento de Usuário-->
     <string name="gerenciamentodeusu">Gerenciamento de Usuario</string>
     <string name="hintgerenciarbuscarcpf">INSIRA O CPF DO USUARIO</string>
     <string name="voceestalogadocom">Você está logado com:</string>
@@ -130,6 +130,7 @@
     <string name="hinteditnomefuncgerenciar"> Insira o nome do usuário</string>
     <string name="hinteditemailgerenciar"> Insira o email do usuário</string>
     <string name="hinteditcpfgerenciar"> Insira o cpf do usuário</string>
+    <string name="listadeusuarios"><u>Lista de Usuários</u></string>
 
     <!--Clients-->
     <string name="cadastrarnovocliente"><u>Cadastrar novo Cliente</u></string>

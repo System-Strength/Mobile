@@ -22,6 +22,7 @@ import com.example.systemstrength.Classes.Agenda.DaoAgenda;
 import com.example.systemstrength.Classes.Agenda.DtoAgenda;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -90,6 +91,7 @@ public class PrincipalActivity extends AppCompatActivity {
         imganimationinfo = findViewById(R.id.imganimationinfo);
         animaionbtnvoltarinfo = findViewById(R.id.animaionbtnvoltarinfo);
         cardviewbtnirparacontato = findViewById(R.id.cardviewbtnirparacontato);
+        cardviewbtnlermaisjava = findViewById(R.id.cardviewbtnlermaisjava);
 
         //  Defining somethings with GONE
 
@@ -112,6 +114,12 @@ public class PrincipalActivity extends AppCompatActivity {
         }else {
             txtproximareuniao.setText(dtoLogins.getUltamareufunc());
         }
+
+        cardviewbtnlermaisjava.setOnClickListener(v-> {
+            Snackbar.make(v,"Testtt", Snackbar.LENGTH_SHORT)
+                    .setAnimationMode(Snackbar.ANIMATION_MODE_FADE)
+                    .setAction("Action", null).show();
+        });
 
         DaoAgenda daoAgenda = new DaoAgenda(PrincipalActivity.this);
         arrayListagenda = daoAgenda.consultarTodaagenda();

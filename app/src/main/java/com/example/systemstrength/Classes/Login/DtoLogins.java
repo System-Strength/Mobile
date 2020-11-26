@@ -24,6 +24,11 @@ public class DtoLogins {
 
     public DtoLogins(){}
 
+    @Override
+    public String toString() {
+        return "\n" + "• Nome: " + nomefunc + "\n" + "• CPF: " + cargofunc + "\n" +"• Email: " + emailfunc + "\n" +"• Telefone: " + telefonefunc + "\n";
+    }
+
     //  Declaration to Getter and Setter
     public int getId() {
         return id;

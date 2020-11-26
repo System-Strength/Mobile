@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.systemstrength.Classes.Clientes.DtoClientes;
+
 import java.util.ArrayList;
 
 /**
@@ -123,6 +125,29 @@ public class DaoLogins extends SQLiteOpenHelper {
         String[] args = {dtoLogins.getId()+""};
 
         return getWritableDatabase().update(TABELA, values, id, args);
+    }
+
+    //  Method for look all user on DataBase
+    public ArrayList<DtoLogins> consultartodos() {
+        String comando = "SELECT * FROM " + TABELA;
+        Cursor cursor = getWritableDatabase().rawQuery(comando, null);
+        ArrayList<DtoLogins> arrayListuser = new ArrayList<>();
+
+        while (cursor.moveToNext()){
+            DtoLogins dtoLogins = new DtoLogins();
+            dtoLogins.setId(cursor.getInt(0));
+            dtoLogins.setNomefunc(cursor.getString(1));
+            dtoLogins.setCpffunc(cursor.getString(2));
+            dtoLogins.setEmailfunc(cursor.getString(3));
+            dtoLogins.setEnderecofunc(cursor.getString(4));
+            dtoLogins.setTelefonefunc(cursor.getString(5));
+            dtoLogins.setCargofunc(cursor.getString(6));
+            dtoLogins.setUltamareufunc(cursor.getString(7));
+            dtoLogins.setSenhafunc(cursor.getString(8));
+
+            arrayListuser.add(dtoLogins);
+        }
+        return  arrayListuser;
     }
 }
 
