@@ -115,7 +115,7 @@
     <string name="emailedit">email</string>
     <string name="cargoedit">cargo</string>
     <string name="hintproximareuniao">Quando será a proxima reunião?</string>
-    <string name="proximareuniaoedit">proxima reunião</string>
+    <string name="proximareuniaoedit">proxima reunião (Mm:hR dd/mm/aa)</string>
     <string name="salvar">Salvar</string>
     <string name="voltaraocracha">Voltar ao Crachá</string>
 
