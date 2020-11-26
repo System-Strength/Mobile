@@ -19,7 +19,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         edittextcpffunc.addTextChangedListener(MaskEditUtil.mask(edittextcpffunc, MaskEditUtil.FORMAT_CPF));
 
-        edittextcpffunc.setText("43333349850");
-        edittextsenha.setText("kaua2004");
+        //  edittextcpffunc.setText("43333349850");
+        //  edittextsenha.setText("kaua2004");
 
         //  Verification in Intent for to see if is null
         Intent intent = getIntent();
