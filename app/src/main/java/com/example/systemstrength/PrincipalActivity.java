@@ -1,17 +1,15 @@
 package com.example.systemstrength;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,11 +20,8 @@ import com.example.systemstrength.Classes.Agenda.DaoAgenda;
 import com.example.systemstrength.Classes.Agenda.DtoAgenda;
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
-import com.google.android.material.snackbar.Snackbar;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *  Copyright (c) 2020 System Strength
@@ -42,8 +37,9 @@ public class PrincipalActivity extends AppCompatActivity {
     LottieAnimationView animacaoservicoespricipal, animacaoagenda, animacaohaagenda, animacaosemagenda, imganimationinfo, animaionbtnvoltarinfo;
     ArrayList<DtoAgenda> arrayListagenda;
     CardView  btnlogout, cardviewbtnirparacontato, loadingparaclientes, loadingparaagenda, loadingparaservicos, cardviewbtnverclientes, cardviewbtnveragenda,cardviewbtnlermaisjava, cardviewbtnlermaiscsharp, cardviewbtnlermaisjavascript, cardviewbtnlermaishtml, cardviewbtnlermaiscss;
+    Dialog popup;
     String cpfrecebido;
-    String horarecebida;
+    // String horarecebida;
     int novotempodeanimacao = 10;
 
     //  cardviewbtnlermaisjava
@@ -92,6 +88,11 @@ public class PrincipalActivity extends AppCompatActivity {
         animaionbtnvoltarinfo = findViewById(R.id.animaionbtnvoltarinfo);
         cardviewbtnirparacontato = findViewById(R.id.cardviewbtnirparacontato);
         cardviewbtnlermaisjava = findViewById(R.id.cardviewbtnlermaisjava);
+        cardviewbtnlermaiscsharp = findViewById(R.id.cardviewbtnlermaiscsharp);
+        cardviewbtnlermaisjavascript = findViewById(R.id.cardviewbtnlermaisjavascript);
+        cardviewbtnlermaishtml = findViewById(R.id.cardviewbtnlermaishtml);
+        cardviewbtnlermaiscss = findViewById(R.id.cardviewbtnlermaiscss);
+        popup = new Dialog(this);
 
         //  Defining somethings with GONE
 
@@ -114,12 +115,6 @@ public class PrincipalActivity extends AppCompatActivity {
         }else {
             txtproximareuniao.setText(dtoLogins.getUltamareufunc());
         }
-
-        cardviewbtnlermaisjava.setOnClickListener(v-> {
-            Snackbar.make(v,"Testtt", Snackbar.LENGTH_SHORT)
-                    .setAnimationMode(Snackbar.ANIMATION_MODE_FADE)
-                    .setAction("Action", null).show();
-        });
 
         DaoAgenda daoAgenda = new DaoAgenda(PrincipalActivity.this);
         arrayListagenda = daoAgenda.consultarTodaagenda();
@@ -243,6 +238,166 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
             },1500);
         });
+
+        //  When click here will open menu java
+        cardviewbtnlermaisjava.setOnClickListener(v-> abririnfojava());
+
+        //  When click here will open menu Csharp
+        cardviewbtnlermaiscsharp.setOnClickListener(v -> abririnfojcsharp());
+
+        //  When click here will open menu JS
+        cardviewbtnlermaisjavascript.setOnClickListener(v -> abririnfojjs());
+
+        //  When click here will open menu HTML
+        cardviewbtnlermaishtml.setOnClickListener(v -> abririnfohtml());
+
+        //  When click here will open menu CSS
+        cardviewbtnlermaiscss.setOnClickListener(v -> abririnfocss());
+
+    }
+
+    private void abririnfojava(){
+        LottieAnimationView btnvoltarjava;
+        CardView cadviewfunc1, cadviewfunc2;
+        popup.setContentView(R.layout.popupinfojava);
+        btnvoltarjava = popup.findViewById(R.id.btnvoltarjava);
+        cadviewfunc1 = popup.findViewById(R.id.cadviewfunc1);
+        cadviewfunc2 = popup.findViewById(R.id.cadviewfunc2);
+
+        cadviewfunc1.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc2.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+
+        btnvoltarjava.setOnClickListener(v -> popup.dismiss());
+
+        popup.show();
+    }
+
+    private void abririnfojcsharp(){
+        LottieAnimationView btnvoltarcsharp;
+        CardView cadviewfunc1, cadviewfunc2, cadviewfunc3, cadviewfunc4;
+        popup.setContentView(R.layout.popupinfocsharp);
+        btnvoltarcsharp = popup.findViewById(R.id.btnvoltarcsharp);
+        cadviewfunc1 = popup.findViewById(R.id.cadviewfunc1);
+        cadviewfunc2 = popup.findViewById(R.id.cadviewfunc2);
+        cadviewfunc3 = popup.findViewById(R.id.cadviewfunc3);
+        cadviewfunc4 = popup.findViewById(R.id.cadviewfunc4);
+
+        cadviewfunc1.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc2.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc3.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc4.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+
+        btnvoltarcsharp.setOnClickListener(v -> popup.dismiss());
+
+        popup.show();
+    }
+
+    private void abririnfojjs(){
+        LottieAnimationView btnvoltarjavascript;
+        CardView cadviewfunc1, cadviewfunc2;
+        popup.setContentView(R.layout.popupinfojavascript);
+        btnvoltarjavascript = popup.findViewById(R.id.btnvoltarjavascript);
+        cadviewfunc1 = popup.findViewById(R.id.cadviewfunc1);
+        cadviewfunc2 = popup.findViewById(R.id.cadviewfunc2);
+
+        cadviewfunc1.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc2.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+
+        btnvoltarjavascript.setOnClickListener(v -> popup.dismiss());
+
+        popup.show();
+    }
+
+    private void abririnfohtml(){
+        LottieAnimationView btnvoltarhtml;
+        CardView cadviewfunc1, cadviewfunc2;
+        popup.setContentView(R.layout.popupinfohtml);
+        btnvoltarhtml = popup.findViewById(R.id.btnvoltarhtml);
+        cadviewfunc1 = popup.findViewById(R.id.cadviewfunc1);
+        cadviewfunc2 = popup.findViewById(R.id.cadviewfunc2);
+
+        cadviewfunc1.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc2.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+
+        btnvoltarhtml.setOnClickListener(v -> popup.dismiss());
+
+        popup.show();
+    }
+
+    private void abririnfocss(){
+        LottieAnimationView btnvoltarcss;
+        CardView cadviewfunc1, cadviewfunc2;
+        popup.setContentView(R.layout.popupinfocss);
+        btnvoltarcss = popup.findViewById(R.id.btnvoltarcss);
+        cadviewfunc1 = popup.findViewById(R.id.cadviewfunc1);
+        cadviewfunc2 = popup.findViewById(R.id.cadviewfunc2);
+
+        cadviewfunc1.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+        cadviewfunc2.setOnClickListener(v -> {
+            Intent irparanossaequipe = new Intent(PrincipalActivity.this,NossaEquipeActivity.class);
+            irparanossaequipe.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparanossaequipe);
+        });
+
+
+        btnvoltarcss.setOnClickListener(v -> popup.dismiss());
+
+        popup.show();
     }
 
     @Override

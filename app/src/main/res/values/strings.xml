@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">System Strength</string>
     <string name="voltar">Voltar</string>
     <string name="icomore">+</string>
@@ -77,7 +77,8 @@
     <string name="naohacompromissos">Não há compromissos\n cadastrados</string>
     <string name="logout">Log Out</string>
     <string name="maisinfo"><u>Mais Informações</u></string>
-    <string name="contatocomo">• Telefone\n• Email\n• Endereço\n• Etc...</string>
+    <string name="contatocomo" tools:ignore="TypographyEllipsis">• Telefone\n• Email\n• Endereço\n• Etc...</string>
+    <string name="funccapacitado">Funcionários Capacitados</string>
 
     <!--Tela Nossa Equipe-->
 
@@ -107,7 +108,7 @@
     <string name="emailperfil">Email do func aqui</string>
     <string name="cargoperfil">Cargo do func aqui</string>
     <string name="proximareuperfil">Proxima reunião aqui</string>
-    <string name="perfilcpfbase">000.000.000-00</string>
+    <string name="perfilcpfbase" tools:ignore="TypographyDashes">000.000.000-00</string>
     <string name="editarperfil">Editar Perfil</string>
     <string name="hintsenhaedit">Senha do usuario aqui</string>
     <string name="adm">Gerenciar Usuarios</string>
@@ -115,7 +116,7 @@
     <string name="emailedit">email</string>
     <string name="cargoedit">cargo</string>
     <string name="hintproximareuniao">Quando será a proxima reunião?</string>
-    <string name="proximareuniaoedit">proxima reunião (Mm:hR dd/mm/aa)</string>
+    <string name="proximareuniaoedit">proxima reunião (HR:MN dd/mm/aa)</string>
     <string name="salvar">Salvar</string>
     <string name="voltaraocracha">Voltar ao Crachá</string>
 
@@ -123,7 +124,7 @@
     <string name="gerenciamentodeusu">Gerenciamento de Usuario</string>
     <string name="hintgerenciarbuscarcpf">INSIRA O CPF DO USUARIO</string>
     <string name="voceestalogadocom">Você está logado com:</string>
-    <string name="aguardandocpf">Aguardando CPF...</string>
+    <string name="aguardandocpf" tools:ignore="TypographyEllipsis">Aguardando CPF...</string>
     <string name="hinteditcargogerenciar"> Insira o cargo do usuário</string>
     <string name="hintedittellgerenciar"> Insira o celular do usuário</string>
     <string name="hinteditendgerenciar"> Insira o endereço do usuário</string>
@@ -208,5 +209,13 @@
     <string name="contrato"><i><u>Contrato</u></i></string>
     <string name="contratode">Contrato: </string>
     <string name="contratoapresentado">Contraaaa</string>
+
+    <!--Infos-->
+    <string name="txtjava"><u><b>Oque é Java?</b></u>\nJava é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems. Em 2008 o Java foi adquirido pela empresa Oracle Corporation.\nDiferente das linguagens de programação modernas, que são compiladas para código nativo, a linguagem Java é compilada para um bytecode que é interpretado por uma máquina virtual (Java Virtual Machine, mais conhecida pela sua abreviação JVM).\nA linguagem de programação Java é a linguagem convencional da Plataforma Java, mas não é a sua única linguagem. J2ME Para programas e jogos de computador, celular, calculadoras, ou até mesmo o rádio do carro.</string>
+    <string name="txtjcsharp"><u><b>Oque é C#?</b></u>\nC# é uma linguagem de programação, multiparadigma, de tipagem forte, desenvolvida pela Microsoft como parte da plataforma .NET.\nA sua sintaxe orientada a objetos foi baseada no C++ mas inclui muitas influências de outras linguagens de programação, como Object Pascal e, principalmente, Java.\nO código fonte é compilado para Common Intermediate Language (CIL) que é interpretado pela máquina virtual Common Language Runtime (CLR). C# é uma das linguagens projetadas para funcionar na Common Language Infrastructure da plataforma .NET Framework.</string>
+    <string name="txtjs" tools:ignore="Typos"><u><b>Oque é JavaScript?</b></u>\nJavaScript (frequentemente abreviado como JS) é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma (protótipos, orientado a objeto, imperativo e, funcional).\nJuntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web. JavaScript permite páginas da Web interativas e, portanto, é uma parte essencial dos aplicativos da web.\nA grande maioria dos sites usa, e todos os principais navegadores têm um mecanismo JavaScript dedicado para executá-lo.</string>
+    <string name="txthtml"><u><b>Oque é Html?</b></u>\nHTML (abreviação para a expressão inglesa HyperText Markup Language, que significa Linguagem de Marcação de Hipertexto) é uma linguagem de marcação utilizada na construção de páginas na Web.\nDocumentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</string>
+    <string name="txtcss"><u><b>Oque é CSS</b></u>\nCascading Style Sheets (CSS) é um mecanismo para adicionar estilo (cores, fontes, espaçamento, etc.) a um documento web.\nO código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags style Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.\nAssim, quando se quiser alterar a aparência dos documentos vinculados a este arquivo CSS, basta modifica-lo.</string>
+
 
 </resources>
