@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SystemStrength">
-        <activity android:name=".ContratosActivity"/>
+        <activity android:name=".ContratosActivity"
+            android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -32,24 +33,42 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".ContatoActivity" />
-        <activity android:name=".ServicosActivity" />
-        <activity android:name=".EdicaoAgendaActivity" />
-        <activity android:name=".ListadeClientesActivity" />
-        <activity android:name=".NovoAgendamentoActivity" />
-        <activity android:name=".DetalhesActivity" />
-        <activity android:name=".AgendaActivity" />
-        <activity android:name=".CadastrodeClientesActivity" />
-        <activity android:name=".ClientesActivity" />
-        <activity android:name=".GerenciarUserActivity" />
-        <activity android:name=".PerfilUsuarioActivity" />
-        <activity android:name=".NossaEquipeActivity" />
-        <activity android:name=".PrincipalActivity" />
-        <activity android:name=".AvisoErroActivity" />
-        <activity android:name=".MenuEsqueciASenhaActivity" />
-        <activity android:name=".LoadingActivity" />
-        <activity android:name=".CriarContaActivity" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ContatoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ServicosActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EdicaoAgendaActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ListadeClientesActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".NovoAgendamentoActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DetalhesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AgendaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CadastrodeClientesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ClientesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GerenciarUserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PerfilUsuarioActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NossaEquipeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PrincipalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AvisoErroActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MenuEsqueciASenhaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoadingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CriarContaActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

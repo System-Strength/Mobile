@@ -25,7 +25,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardviewnossaequipeservicos"
                 android:layout_width="350dp"
-                android:layout_height="190dp"
+                android:layout_height="195dp"
                 android:layout_marginTop="24dp"
                 app:cardBackgroundColor="#fff"
                 app:cardCornerRadius="20dp"
@@ -52,29 +52,31 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <!--Text Aqui Você pode...-->
+
+                    <!--CardView More-->
                     <TextView
                         android:id="@+id/txtsobreequipe"
                         android:layout_width="150dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="100dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="14dp"
                         android:text="@string/txtfuncsystem"
                         android:textAlignment="center"
                         android:textColor="#000"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-                    <!--CardView More-->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardviewbtnmoreequipe"
                         android:layout_width="151dp"
                         android:layout_height="32dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         app:cardBackgroundColor="#FF3300"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="20dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtsobreequipe">
 
