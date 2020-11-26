@@ -191,11 +191,13 @@ public class ClientesActivity extends AppCompatActivity {
             irparaagenda.putExtra("cpfusu",cpfrecebidodaprincipal);
             irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
             startActivity(irparaagenda);
+            finish();
         }else if(item.getItemId() == 1){
             Intent irparaagenda = new Intent(ClientesActivity.this, NovoAgendamentoActivity.class);
             irparaagenda.putExtra("cpfusu",cpfrecebidodaprincipal);
             irparaagenda.putExtra("cnjdaempresa",clientes.getCnpjcliente());
             startActivity(irparaagenda);
+            finish();
         }else if(item.getItemId() == 2){
             excluir();
         }else if (item.getItemId() == 3){
