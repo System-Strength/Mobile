@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -28,6 +29,7 @@ public class AgendaActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeagenda, linearbtncontatoagenda, linearbtnservicosagendaagenda, linearbtnclientesagenda;
     CardView cardviewloadingpricipalagenda, cardviewnovoagendamento, cardviewanimacaonovoagendamento, cardviewanimationdeleteagenda, loadingparaservicosagenda, loadingparaclientesagenda;
     ListView listviewagenda;
+    ConstraintLayout basenaoaagendacadastrado;
     LottieAnimationView animationdeleteagenda, animacaoservicosagenda;
     ArrayList<DtoAgenda> arraylistagenda;
     DtoAgenda agenda;
@@ -53,6 +55,7 @@ public class AgendaActivity extends AppCompatActivity {
         animacaoservicosagenda = findViewById(R.id.animacaoservicosagenda);
         linearbtnclientesagenda = findViewById(R.id.linearbtnclientesagenda);
         loadingparaclientesagenda = findViewById(R.id.loadingparaclientesagenda);
+        basenaoaagendacadastrado = findViewById(R.id.basenaoaagendacadastrado);
         myDialog = new Dialog(this);
 
         //  Get some information
@@ -85,6 +88,7 @@ public class AgendaActivity extends AppCompatActivity {
         //  When click in this linear you will go to Client Activity
         linearbtnclientesagenda.setOnClickListener(v -> {
             loadingparaclientesagenda.setVisibility(View.VISIBLE);
+            basenaoaagendacadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 Intent irparaclientes = new Intent(AgendaActivity.this,ClientesActivity.class);
                 irparaclientes.putExtra("cpfusu",cpfrecebidobase);
@@ -97,6 +101,7 @@ public class AgendaActivity extends AppCompatActivity {
         linearbtnservicosagendaagenda.setOnClickListener(v -> {
             loadingparaservicosagenda.setVisibility(View.VISIBLE);
             animacaoservicosagenda.setSpeed(2);
+            basenaoaagendacadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 loadingparaservicosagenda.setVisibility(View.GONE);
                 Intent irparaservicos = new Intent(AgendaActivity.this,ServicosActivity.class);
@@ -107,13 +112,12 @@ public class AgendaActivity extends AppCompatActivity {
         });
 
         //  When click in this linear you will see one msg
-        linearbtncontatoagenda.setOnClickListener(v -> {
-            Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show();
-        });
+        linearbtncontatoagenda.setOnClickListener(v -> Toast.makeText(this, "Você já esta aqui :)", Toast.LENGTH_SHORT).show());
 
         //  When click in this linear you will go to Principal Activity
         linearbtnhomeagenda.setOnClickListener(v ->{
             cardviewloadingpricipalagenda.setVisibility(View.VISIBLE);
+            basenaoaagendacadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(AgendaActivity.this,PrincipalActivity.class);
                 voltarparaprincipal.putExtra("cpfusu",cpfrecebidobase);
@@ -125,8 +129,15 @@ public class AgendaActivity extends AppCompatActivity {
 
     //  Create method for update  ListView
     private void atualizarlistview() {
-        ArrayAdapter adapter = new ArrayAdapter(AgendaActivity.this, android.R.layout.simple_list_item_1, arraylistagenda);
-        listviewagenda.setAdapter(adapter);
+        if (arraylistagenda.size() > 0){
+            ArrayAdapter adapter = new ArrayAdapter(AgendaActivity.this, android.R.layout.simple_list_item_1, arraylistagenda);
+            listviewagenda.setAdapter(adapter);
+            basenaoaagendacadastrado.setVisibility(View.GONE);
+            listviewagenda.setVisibility(View.VISIBLE);
+        }else {
+            basenaoaagendacadastrado.setVisibility(View.VISIBLE);
+            listviewagenda.setVisibility(View.GONE);
+        }
     }
 
     //  Create method for delete some client of  ListView

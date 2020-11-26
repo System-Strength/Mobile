@@ -144,6 +144,8 @@
     <string name="emailcliente">EMAIL</string>
     <string name="emaildocliente">Insira o email do cliente</string>
     <string name="editarcliente"><u>Editar Cliente</u></string>
+    <string name="naoaclientecadastrado">Não a nenhum cliente cadastrado</string>
+    <string name="naoaagendacadastrado">Não a nenhum compromisso agendado</string>
 
 
     <!--Schedule-->

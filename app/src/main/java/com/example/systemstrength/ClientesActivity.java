@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -27,6 +28,7 @@ public class ClientesActivity extends AppCompatActivity {
     LinearLayout linearbtnhomeclientes, linearbtnclientes, linearbtnservicoscliente, linearbtncontatoclientes;
     CardView cardviewloadingprincipal, cardviewalertyouarehere, cardviewanimacaocadastronovocliente, cardviewcadastrarnovocliente, cardviewanimationdelete, loadingparaservicoscliente, loadingparaagendaclientes;
     LottieAnimationView smileanimationalert, animationdelete;
+    ConstraintLayout basenaoaclientescadastrado;
     ListView listviewclientes;
     ArrayList<DtoClientes> arrayListclientes;
     DaoClientes daoClientes = new DaoClientes(ClientesActivity.this);
@@ -51,6 +53,7 @@ public class ClientesActivity extends AppCompatActivity {
         cardviewanimacaocadastronovocliente = findViewById(R.id.cardviewanimacaocadastronovocliente);
         loadingparaservicoscliente = findViewById(R.id.loadingparaservicoscliente);
         loadingparaagendaclientes = findViewById(R.id.loadingparaagendaclientes);
+        basenaoaclientescadastrado = findViewById(R.id.basenaoaclientescadastrado);
 
         //  Get Some information
         Intent intent = getIntent();
@@ -87,6 +90,7 @@ public class ClientesActivity extends AppCompatActivity {
         //  When you click in this linear go do one animation and go to ServicosActivity
         linearbtnservicoscliente.setOnClickListener(v -> {
             loadingparaservicoscliente.setVisibility(View.VISIBLE);
+            basenaoaclientescadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 Intent irparaservicos = new Intent(ClientesActivity.this,ServicosActivity.class);
                 irparaservicos.putExtra("cpfusu", cpfrecebidodaprincipal);
@@ -98,6 +102,7 @@ public class ClientesActivity extends AppCompatActivity {
         //  When you click in this linear go do one animation and go to AgendaActivity
         linearbtncontatoclientes.setOnClickListener(v -> {
             loadingparaagendaclientes.setVisibility(View.VISIBLE);
+            basenaoaclientescadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 Intent irparaagenda = new Intent(ClientesActivity.this,AgendaActivity.class);
                 irparaagenda.putExtra("cpfusu", cpfrecebidodaprincipal);
@@ -121,6 +126,7 @@ public class ClientesActivity extends AppCompatActivity {
         //  When you click in this linear go do one animation and go to PrincipalActivity
         linearbtnhomeclientes.setOnClickListener(v ->{
             cardviewloadingprincipal.setVisibility(View.VISIBLE);
+            basenaoaclientescadastrado.setVisibility(View.GONE);
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(ClientesActivity.this,PrincipalActivity.class);
                 voltarparaprincipal.putExtra("cpfusu",cpfrecebidodaprincipal);
@@ -144,8 +150,15 @@ public class ClientesActivity extends AppCompatActivity {
 
     //  Create method for update  ListView
     private void atualizarlistview() {
-        ArrayAdapter adapter = new ArrayAdapter(ClientesActivity.this, android.R.layout.simple_list_item_1, arrayListclientes);
-        listviewclientes.setAdapter(adapter);
+        if (arrayListclientes.size() > 0){
+            basenaoaclientescadastrado.setVisibility(View.GONE);
+            listviewclientes.setVisibility(View.VISIBLE);
+            ArrayAdapter adapter = new ArrayAdapter(ClientesActivity.this, android.R.layout.simple_list_item_1, arrayListclientes);
+            listviewclientes.setAdapter(adapter);
+        }else {
+            basenaoaclientescadastrado.setVisibility(View.VISIBLE);
+            listviewclientes.setVisibility(View.GONE);
+        }
     }
 
     //  Create method for delete some client of  ListView
