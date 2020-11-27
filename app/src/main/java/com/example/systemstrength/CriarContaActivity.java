@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.systemstrength.Classes.Login.DaoLogins;
 import com.example.systemstrength.Classes.Login.DtoLogins;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  *  Copyright (c) 2020 System Strength
@@ -240,7 +242,7 @@ public class CriarContaActivity extends AppCompatActivity {
 
                     //  If linhasinseridas return > 0 will saying "Cadastrado com sucesso" and go to main activity
                     if (linhasinseridas > 0){
-                        Toast.makeText(CriarContaActivity.this, "Cadastrado com sucesso!\nSeja Bem-Vindo", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(v,"Conta criada com sucesso!!\nSejá Bem-Vindo!!", BaseTransientBottomBar.LENGTH_LONG).show();
                         receberloginaposcadastro();
                     }
                     //  If linhasinseridas return < 0 will show msg saying falha
