@@ -13,12 +13,12 @@ import android.os.Handler;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.systemstrength.Adapters.AdapterClientes;
 import com.example.systemstrength.Classes.Clientes.DaoClientes;
 import com.example.systemstrength.Classes.Clientes.DtoClientes;
 
@@ -31,6 +31,7 @@ public class ClientesActivity extends AppCompatActivity {
     ConstraintLayout basenaoaclientescadastrado;
     ListView listviewclientes;
     ArrayList<DtoClientes> arrayListclientes;
+    AdapterClientes myadapter;
     DaoClientes daoClientes = new DaoClientes(ClientesActivity.this);
     DtoClientes clientes;
     String cpfrecebidodaprincipal;
@@ -70,7 +71,7 @@ public class ClientesActivity extends AppCompatActivity {
             AlertDialog.Builder msg = new AlertDialog.Builder(ClientesActivity.this);
             msg.setIcon(R.drawable.logosystemstrengthsemfundo);
             msg.setTitle("Ligar para: "+ clientes.getNomecliente());
-            msg.setMessage("Deseja ligar para essa organização:");
+            msg.setMessage("Deseja ligar para essa organização?");
             msg.setPositiveButton("Sim", (dialog, which) -> {
                 Intent callfor = new Intent(Intent.ACTION_DIAL);
                 callfor.setData(Uri.parse("tel:"+ clientes.getTelefonecliente()));
@@ -153,8 +154,8 @@ public class ClientesActivity extends AppCompatActivity {
         if (arrayListclientes.size() > 0){
             basenaoaclientescadastrado.setVisibility(View.GONE);
             listviewclientes.setVisibility(View.VISIBLE);
-            ArrayAdapter adapter = new ArrayAdapter(ClientesActivity.this, android.R.layout.simple_list_item_1, arrayListclientes);
-            listviewclientes.setAdapter(adapter);
+            myadapter = new AdapterClientes(ClientesActivity.this, R.layout.adapterclientes, arrayListclientes);
+            listviewclientes.setAdapter(myadapter);
         }else {
             basenaoaclientescadastrado.setVisibility(View.VISIBLE);
             listviewclientes.setVisibility(View.GONE);
