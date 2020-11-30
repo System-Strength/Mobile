@@ -13,13 +13,13 @@ import android.os.Handler;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.systemstrength.Adapters.AdapterAgenda;
 import com.example.systemstrength.Classes.Agenda.DaoAgenda;
 import com.example.systemstrength.Classes.Agenda.DtoAgenda;
 
@@ -32,6 +32,7 @@ public class AgendaActivity extends AppCompatActivity {
     ConstraintLayout basenaoaagendacadastrado;
     LottieAnimationView animationdeleteagenda, animacaoservicosagenda;
     ArrayList<DtoAgenda> arraylistagenda;
+    AdapterAgenda myadapter;
     DtoAgenda agenda;
     DaoAgenda daoAgenda = new DaoAgenda(AgendaActivity.this);
     Dialog myDialog;
@@ -130,8 +131,8 @@ public class AgendaActivity extends AppCompatActivity {
     //  Create method for update  ListView
     private void atualizarlistview() {
         if (arraylistagenda.size() > 0){
-            ArrayAdapter adapter = new ArrayAdapter(AgendaActivity.this, android.R.layout.simple_list_item_1, arraylistagenda);
-            listviewagenda.setAdapter(adapter);
+            myadapter = new AdapterAgenda(AgendaActivity.this, R.layout.adapteragenda, arraylistagenda);
+            listviewagenda.setAdapter(myadapter);
             basenaoaagendacadastrado.setVisibility(View.GONE);
             listviewagenda.setVisibility(View.VISIBLE);
         }else {
