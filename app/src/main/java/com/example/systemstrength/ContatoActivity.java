@@ -1,10 +1,15 @@
 package com.example.systemstrength;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -62,6 +67,8 @@ public class ContatoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidodaprincipal = bundle.getString("cpfusu");
+        
+        verificarnet();
 
         //  When click here will show some msg em try to go website
         linearsite.setOnClickListener(v -> Toast.makeText(this, "Site em manutenção!!", Toast.LENGTH_SHORT).show());
@@ -157,12 +164,7 @@ public class ContatoActivity extends AppCompatActivity {
         });
 
         //  When click here will go to intent map
-        txtvernomapa.setOnClickListener(v -> {
-            Intent irparamapa = new Intent(ContatoActivity.this,MapsActivity.class);
-            startActivity(irparamapa);
-            headercontato.setVisibility(View.VISIBLE);
-            miniinfomaps.setVisibility(View.GONE);
-        });
+        txtvernomapa.setOnClickListener(v -> verificarnetinclick());
 
         //  When click here will close info menu address
         fecharinfomaps.setOnClickListener(v -> {
@@ -222,6 +224,43 @@ public class ContatoActivity extends AppCompatActivity {
             startActivity(voltaraoprincipal);
             finish();
         });
+    }
+
+    private void verificarnet() {
+        ConnectivityManager cn = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cn.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()){
+            txtvernomapa.setTextColor(Color.BLACK);
+        }
+        else{
+            txtvernomapa.setTextColor(Color.RED);
+            Toast.makeText(this, "Infelizmente você está sem conexão\nNão será possivel visualizar o GPS", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void verificarnetinclick(){
+        ConnectivityManager cn = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cn.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()){
+            txtvernomapa.setTextColor(Color.BLACK);
+        }
+        else{
+            txtvernomapa.setTextColor(Color.BLUE);
+            AlertDialog.Builder msgaviso = new AlertDialog.Builder(ContatoActivity.this);
+            msgaviso.setIcon(R.drawable.logosystemstrengthsemfundo);
+            msgaviso.setTitle("Sem conexão");
+            msgaviso.setMessage("Você será enviado ao GPS, mas não será possivel carregar novas informaçoes!!");
+            msgaviso.setNegativeButton("Voltar", null);
+            msgaviso.setPositiveButton("OK", (dialog, which) -> {
+                Intent irparamapa = new Intent(ContatoActivity.this,MapsActivity.class);
+                startActivity(irparamapa);
+                headercontato.setVisibility(View.VISIBLE);
+                miniinfomaps.setVisibility(View.GONE);
+            });
+            msgaviso.show();
+        }
     }
 
     @Override

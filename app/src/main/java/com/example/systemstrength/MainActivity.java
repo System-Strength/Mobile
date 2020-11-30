@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         edittextcpffunc.addTextChangedListener(MaskEditUtil.mask(edittextcpffunc, MaskEditUtil.FORMAT_CPF));
 
-        //  edittextcpffunc.setText("43333349850");
-        //  edittextsenha.setText("kaua2004");
+        edittextcpffunc.setText("43333349850");
+        edittextsenha.setText("kaua2004");
 
         //  Verification in Intent for to see if is null
         Intent intent = getIntent();
@@ -235,16 +235,16 @@ public class MainActivity extends AppCompatActivity {
             btnlogaragora.setEnabled(true);
         }
         else{
-            btncriarconta.setEnabled(false);
-            btnesqueciasenha.setEnabled(false);
-            btnlogaragora.setEnabled(false);
+            btncriarconta.setEnabled(true);
+            btnesqueciasenha.setEnabled(true);
+            btnlogaragora.setEnabled(true);
             btnlogaragora.setTextColor(Color.RED);
             btnesqueciasenha.setTextColor(Color.RED);
             btncriarconta.setTextColor(Color.RED);
             AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
             aviso.setTitle("Opss.. :(");
             aviso.setIcon(R.mipmap.ic_launcher_system);
-            aviso.setMessage("Você está sem conexão a internet\nNão será possivel acesar sua conta ou mesmo criar um!");
+            aviso.setMessage("Você está sem conexão a internet\nNão será possivel realizar algumas ações!");
             aviso.setNeutralButton("Verificar novamente", (dialog, which) -> {
                 Intent irparaloading = new Intent(MainActivity.this,LoadingActivity.class);
                 startActivity(irparaloading);
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 tempodeloading.postDelayed(() -> {
                     Intent voltarmain = new Intent(MainActivity.this,MainActivity.class);
                     startActivity(voltarmain);
-                },300);
+                },800);
             });
             aviso.setPositiveButton("OK", null);
             aviso.show();
