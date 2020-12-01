@@ -255,6 +255,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //  When click here will open menu CSS
         cardviewbtnlermaiscss.setOnClickListener(v -> abririnfocss());
 
+        //  When click hero go to LicenseActivity
         linearlicenseprincipal.setOnClickListener(v -> {
             Intent irparalicensa = new Intent(PrincipalActivity.this,LicenseActivity.class);
             irparalicensa.putExtra("cpfusu",cpfrecebido);
