@@ -30,7 +30,7 @@ import java.util.ArrayList;
  **/
 
 public class PrincipalActivity extends AppCompatActivity {
-    LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal, header, btnvoltarfecharmenuinfo;
+    LinearLayout linearbtnhomeprincipal, linearbtnagendaprincipal, linearbtnservicosprincipal, linearbtnclienteprincipal, header, btnvoltarfecharmenuinfo, linearlicenseprincipal;
     TextView txtnomeusu, txthoraatual, txtcargoatual, txtproximareuniao, txtplusclientes, txtquantiadeagenda, txtvcpossui, txtsemagenda, txtnomeusermoreinfo, cardviewbtnmaisinfo,txtemailuserinfo;
     //ImageView imgavatarusu;
     ConstraintLayout constraintlayoutperfilusu, cardviewlogoutinfo;
@@ -58,6 +58,7 @@ public class PrincipalActivity extends AppCompatActivity {
         linearbtnagendaprincipal = findViewById(R.id.linearbtnagendaprincipal);
         linearbtnservicosprincipal = findViewById(R.id.linearbtnservicosprincipal);
         linearbtnclienteprincipal = findViewById(R.id.linearbtnclienteprincipal);
+        linearlicenseprincipal = findViewById(R.id.linearlicenseprincipal);
         constraintlayoutperfilusu = findViewById(R.id.constraintlayoutperfilusu);
         cardviewbtnverclientes = findViewById(R.id.cardviewbtnverclientes);
         loadingparaclientes = findViewById(R.id.loadingparaclientes);
@@ -253,6 +254,13 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //  When click here will open menu CSS
         cardviewbtnlermaiscss.setOnClickListener(v -> abririnfocss());
+
+        linearlicenseprincipal.setOnClickListener(v -> {
+            Intent irparalicensa = new Intent(PrincipalActivity.this,LicenseActivity.class);
+            irparalicensa.putExtra("cpfusu",cpfrecebido);
+            startActivity(irparalicensa);
+            finish();
+        });
 
     }
 

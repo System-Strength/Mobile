@@ -79,6 +79,7 @@
     <string name="maisinfo"><u>Mais Informações</u></string>
     <string name="contatocomo" tools:ignore="TypographyEllipsis">• Telefone\n• Email\n• Endereço\n• Etc...</string>
     <string name="funccapacitado">Funcionários Capacitados</string>
+    <string name="license"><u>Licença</u></string>
 
     <!--Tela Nossa Equipe-->
 
