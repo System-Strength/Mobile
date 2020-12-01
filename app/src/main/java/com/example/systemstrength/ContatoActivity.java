@@ -245,6 +245,10 @@ public class ContatoActivity extends AppCompatActivity {
 
         if (netInfo != null && netInfo.isConnectedOrConnecting()){
             txtvernomapa.setTextColor(Color.BLACK);
+            Intent irparamapa = new Intent(ContatoActivity.this,MapsActivity.class);
+            startActivity(irparamapa);
+            headercontato.setVisibility(View.VISIBLE);
+            miniinfomaps.setVisibility(View.GONE);
         }
         else{
             txtvernomapa.setTextColor(Color.BLUE);
