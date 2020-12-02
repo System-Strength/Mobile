@@ -8,17 +8,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 public class LicenseActivity extends AppCompatActivity {
     LinearLayout linearlicensevoltaraoprincipal;
     Button btnlicensa;
-    LottieAnimationView licenseanimacaovoltaraoprincipal, animationinfo;
+    RelativeLayout  relativoinfo;
+    LottieAnimationView licenseanimacaovoltaraoprincipal, animationinfo,  btncloselicense;
     ConstraintLayout contenderanimationinfo, contenderallinformation;
     Dialog  popuplicense;
+    Animation animationparafrente;
     String cpfrecebidoprincipal;
 
     @Override
@@ -30,13 +35,19 @@ public class LicenseActivity extends AppCompatActivity {
         contenderanimationinfo = findViewById(R.id.contenderanimationinfo);
         contenderallinformation = findViewById(R.id.contenderallinformation);
         animationinfo = findViewById(R.id.animationinfo);
+        relativoinfo = findViewById(R.id.relativoinfo);
         btnlicensa = findViewById(R.id.btnlicensa);
+        btncloselicense = findViewById(R.id.btncloselicense);
+        animationparafrente = AnimationUtils.loadAnimation(this,R.anim.animationparafrente);
         popuplicense = new Dialog(this);
 
         //  Get some information
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidoprincipal = bundle.getString("cpfusu");
+
+        //  hidden relative
+        relativoinfo.setAlpha(0);
 
         //  Set time to show information
         contenderanimationinfo.setVisibility(View.VISIBLE);
@@ -57,19 +68,19 @@ public class LicenseActivity extends AppCompatActivity {
             },600);
         });
 
+        //  When click here will close de Info
+        btncloselicense.setOnClickListener(v -> {
+            relativoinfo.startAnimation(animationparafrente);
+            relativoinfo.setAlpha(0);
+            btnlicensa.setVisibility(View.VISIBLE);
+        });
+
         //  When click here will open the popup License
-        btnlicensa.setOnClickListener(v -> exibirpopup());
-    }
-
-    //  Create method for how popup License
-    private void exibirpopup(){
-        LottieAnimationView btncloselicense;
-        popuplicense.setContentView(R.layout.popuplicense);
-        btncloselicense = popuplicense.findViewById(R.id.btncloselicense);
-
-        btncloselicense.setOnClickListener(v -> popuplicense.dismiss());
-
-        popuplicense.show();
+        btnlicensa.setOnClickListener(v -> {
+            relativoinfo.setAlpha(1);
+            btnlicensa.setVisibility(View.GONE);
+            relativoinfo.startAnimation(animationparafrente);
+        });
     }
 
     @Override
