@@ -152,11 +152,12 @@
             <!--Btn License-->
             <Button
                 android:id="@+id/btnlicensa"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#31FFFFFF"
                 android:text="@string/licenseinfo"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -178,6 +179,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnlicensa" />
 
+            <!--Info license-->
             <RelativeLayout
                 android:id="@+id/relativoinfo"
                 android:layout_width="300dp"

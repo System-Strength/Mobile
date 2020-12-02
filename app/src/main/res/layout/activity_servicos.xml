@@ -287,6 +287,8 @@
                 android:layout_height="230dp"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintlayoutbackend">
 
@@ -348,10 +350,10 @@
                             android:id="@+id/txtbtnanalise"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/maisinfo"
                             android:layout_marginStart="16dp"
-                            android:textSize="15sp"
+                            android:text="@string/maisinfo"
                             android:textColor="#EB000000"
+                            android:textSize="15sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/txtanalise" />
@@ -368,6 +370,8 @@
                 android:layout_width="180dp"
                 android:layout_height="230dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/constraintlayoutanalise"
                 app:layout_constraintTop_toBottomOf="@+id/constraintfrontend">
@@ -423,16 +427,16 @@
                             android:textColor="#000"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/txtbtninfra"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/maisinfo"
                             android:layout_marginStart="16dp"
-                            android:textSize="15sp"
+                            android:text="@string/maisinfo"
                             android:textColor="#EB000000"
+                            android:textSize="15sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/txtinfra" />

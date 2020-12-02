@@ -192,15 +192,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txttitulodesc">
 
-                <!--Text DESC-->
-                <TextView
-                    android:id="@+id/txtdescdetalhes"
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/descagenda"
-                    android:textAlignment="center"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
+                    tools:ignore="UselessParent">
+
+                    <!--Text DESC-->
+                    <TextView
+                        android:id="@+id/txtdescdetalhes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/descagenda"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+                </ScrollView>
 
             </LinearLayout>
 
