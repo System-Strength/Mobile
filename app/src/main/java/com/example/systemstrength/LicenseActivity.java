@@ -3,6 +3,7 @@ package com.example.systemstrength;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ public class LicenseActivity extends AppCompatActivity {
     Button btnlicensa;
     LottieAnimationView licenseanimacaovoltaraoprincipal, animationinfo;
     ConstraintLayout contenderanimationinfo, contenderallinformation;
+    Dialog  popuplicense;
     String cpfrecebidoprincipal;
 
     @Override
@@ -29,7 +31,9 @@ public class LicenseActivity extends AppCompatActivity {
         contenderallinformation = findViewById(R.id.contenderallinformation);
         animationinfo = findViewById(R.id.animationinfo);
         btnlicensa = findViewById(R.id.btnlicensa);
+        popuplicense = new Dialog(this);
 
+        //  Get some information
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         cpfrecebidoprincipal = bundle.getString("cpfusu");
@@ -52,6 +56,20 @@ public class LicenseActivity extends AppCompatActivity {
                 startActivity(voltaraoprincipal);
             },600);
         });
+
+        //  When click here will open the popup License
+        btnlicensa.setOnClickListener(v -> exibirpopup());
+    }
+
+    //  Create method for how popup License
+    private void exibirpopup(){
+        LottieAnimationView btncloselicense;
+        popuplicense.setContentView(R.layout.popuplicense);
+        btncloselicense = popuplicense.findViewById(R.id.btncloselicense);
+
+        btncloselicense.setOnClickListener(v -> popuplicense.dismiss());
+
+        popuplicense.show();
     }
 
     @Override

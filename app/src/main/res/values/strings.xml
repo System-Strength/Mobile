@@ -218,10 +218,11 @@
     <string name="txthtml"><u><b>Oque é Html?</b></u>\nHTML (abreviação para a expressão inglesa HyperText Markup Language, que significa Linguagem de Marcação de Hipertexto) é uma linguagem de marcação utilizada na construção de páginas na Web.\nDocumentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</string>
     <string name="txtcss"><u><b>Oque é CSS</b></u>\nCascading Style Sheets (CSS) é um mecanismo para adicionar estilo (cores, fontes, espaçamento, etc.) a um documento web.\nO código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags style Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.\nAssim, quando se quiser alterar a aparência dos documentos vinculados a este arquivo CSS, basta modifica-lo.</string>
     <string name="devresponsa">Desenvolvedor responsavel: Kauã Vitório</string>
-    <string name="versao">Versão: 2.1</string>
+    <string name="versao">Versão: 2.1.2</string>
     <string name="txtatualizacao">A última versão já está instalada.</string>
     <string name="copyrightsystem">© 2020 System Strength</string>
     <string name="licenseinfo">License</string>
+    <string name="licensetext"> <u><b>MIT License</b></u>\n<u>Copyright (c) 2020 System Strength</u>\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
 
     <!--Adapters-->
     <string name="precioneparaaisinfo">Pressione e segure para abrir o menu</string>

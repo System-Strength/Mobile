@@ -96,7 +96,7 @@
                 android:id="@+id/txtversao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/versao"
                 android:textColor="#AEFFFFFF"
                 android:textSize="20sp"
