@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -49,6 +51,7 @@ public class PrincipalActivity extends AppCompatActivity {
     //  cardviewbtnlermaiscss
 
 
+    @SuppressWarnings("deprecation")
     @SuppressLint({"SimpleDateFormat", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,16 +145,21 @@ public class PrincipalActivity extends AppCompatActivity {
         cardviewbtnirparacontato.setOnClickListener(v -> {
             Intent irparacontato = new Intent(PrincipalActivity.this,ContatoActivity.class);
             irparacontato.putExtra("cpfusu", cpfrecebido);
-            startActivity(irparacontato);
-            finish();
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(),R.anim.mover_para_cima, R.anim.mover_para_baixo);
+            ActivityCompat.startActivity(PrincipalActivity.this,irparacontato, activityOptionsCompat.toBundle());
+            //  startActivity(irparacontato);
+            //  finish();
         });
 
         //  When you click in this liner will go to AgendaActivity
         cardviewbtnveragenda.setOnClickListener(v -> {
             Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
             irparaagenda.putExtra("cpfusu",cpfrecebido);
-            startActivity(irparaagenda);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(),R.anim.mover_esquerda, R.anim.mover_direita);
+            ActivityCompat.startActivity(PrincipalActivity.this,irparaagenda, activityOptionsCompat.toBundle());
             finish();
+            // startActivity(irparaagenda);
+            // finish();
         });
 
         //  When click in this constraint will open menu off info
@@ -211,8 +219,10 @@ public class PrincipalActivity extends AppCompatActivity {
                 animacaoagenda.pauseAnimation();
                 Intent irparaagenda = new Intent(PrincipalActivity.this,AgendaActivity.class);
                 irparaagenda.putExtra("cpfusu",cpfrecebido);
-                startActivity(irparaagenda);
-                finish();
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(),R.anim.mover_esquerda, R.anim.mover_direita);
+                ActivityCompat.startActivity(PrincipalActivity.this,irparaagenda, activityOptionsCompat.toBundle());
+                //  startActivity(irparaagenda);
+                //  finish();
             },1300);
         });
 

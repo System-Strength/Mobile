@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+@SuppressWarnings("deprecation")
 public class ContatoActivity extends AppCompatActivity {
     LinearLayout headercontato, linearvoltaraoprincipal, lineartelefone, linearemail, linearaddress, linearsite;
     ConstraintLayout cardinfotelefones, cardinfoemail, miniinfomaps, menuinosocialmedias;
@@ -221,8 +224,11 @@ public class ContatoActivity extends AppCompatActivity {
         linearvoltaraoprincipal.setOnClickListener(v -> {
             Intent voltaraoprincipal = new Intent(ContatoActivity.this,PrincipalActivity.class);
             voltaraoprincipal.putExtra("cpfusu", cpfrecebidodaprincipal);
-            startActivity(voltaraoprincipal);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(),R.anim.mover_para_cima, R.anim.mover_para_baixo);
+            ActivityCompat.startActivity(ContatoActivity.this,voltaraoprincipal, activityOptionsCompat.toBundle());
             finish();
+            //  startActivity(voltaraoprincipal);
+            //  finish();
         });
     }
 
@@ -278,8 +284,11 @@ public class ContatoActivity extends AppCompatActivity {
         }else {
             Intent voltaraoprincipal = new Intent(ContatoActivity.this,PrincipalActivity.class);
             voltaraoprincipal.putExtra("cpfusu", cpfrecebidodaprincipal);
-            startActivity(voltaraoprincipal);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(),R.anim.mover_para_cima, R.anim.mover_para_baixo);
+            ActivityCompat.startActivity(ContatoActivity.this,voltaraoprincipal, activityOptionsCompat.toBundle());
             finish();
+            //  startActivity(voltaraoprincipal);
+            //  finish();
         }
     }
 }
