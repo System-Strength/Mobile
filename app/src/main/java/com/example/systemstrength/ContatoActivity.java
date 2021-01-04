@@ -74,7 +74,12 @@ public class ContatoActivity extends AppCompatActivity {
         verificarnet();
 
         //  When click here will show some msg em try to go website
-        linearsite.setOnClickListener(v -> Toast.makeText(this, "Site em manutenção!!", Toast.LENGTH_SHORT).show());
+        linearsite.setOnClickListener(v -> {
+            Intent irpara_site = new Intent(ContatoActivity.this,Site_InternoActivity.class);
+            irpara_site.putExtra("cpfusu", cpfrecebidodaprincipal);
+            startActivity(irpara_site);
+            finish();
+        });
 
         //  When click here will open info menu phones
         lineartelefone.setOnClickListener(v -> {
