@@ -227,5 +227,8 @@
     <!--Adapters-->
     <string name="precioneparaaisinfo">Pressione e segure para abrir o menu</string>
 
+    <!--Site-->
+    <string name="carregando">Carregando...</string>
+
 
 </resources>
