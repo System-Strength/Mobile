@@ -11,4 +11,4 @@ Official app of System Strength<br/>
 • Danilo Oliveira → [Github](https://github.com/daniloosi)<br/>
 • Result(Under development) → [See](https://kauavitorio.com/projetos/system)<br/>
 <br/>
-<img src="https://cdn.discordapp.com/attachments/746113062771359897/766103522700689478/1.png">
+<img src="https://cdn.discordapp.com/attachments/756546249901211749/817804507941044254/systemstrength.png">
