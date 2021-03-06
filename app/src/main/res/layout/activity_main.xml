@@ -23,10 +23,10 @@
             android:id="@+id/imgView"
             android:layout_width="550dp"
             android:adjustViewBounds="true"
-            android:layout_height="150dp"
+            android:layout_height="300dp"
             android:scaleType="fitCenter"
             android:contentDescription="@string/descnamesystem"
-            android:background="@drawable/logosystemstrengthsemfundo" />
+            android:background="@drawable/systemstrengthlogosemfundo" />
 
 
         <!--Cantos para realizar o Login-->

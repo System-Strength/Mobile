@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                         progressloadinglogin.setVisibility(View.GONE);
                         AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
                         aviso.setTitle("Eita.. :(");
-                        aviso.setIcon(R.mipmap.ic_launcher_system);
+                        aviso.setIcon(R.mipmap.ic_launcher_newlogo);
                         aviso.setMessage("CPF OU SENHA informados não estão corretos ou não estão cadastrados\n\nVerifique o CPF e a SENHA!");
                         aviso.setPositiveButton("OK", null);
                         aviso.show();
@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
             btncriarconta.setTextColor(Color.RED);
             AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
             aviso.setTitle("Opss.. :(");
-            aviso.setIcon(R.mipmap.ic_launcher_system);
+            aviso.setIcon(R.mipmap.ic_launcher_newlogo);
             aviso.setMessage("Você está sem conexão a internet\nNão será possivel realizar algumas ações!");
             aviso.setNeutralButton("Verificar novamente", (dialog, which) -> {
                 Intent irparaloading = new Intent(MainActivity.this,LoadingActivity.class);
