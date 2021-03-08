@@ -166,6 +166,7 @@ public class PrincipalActivity extends AppCompatActivity {
         constraintlayoutperfilusu.setOnClickListener(v -> {
             header.setVisibility(View.GONE);
             cardviewlogoutinfo.setVisibility(View.VISIBLE);
+            DisableBtns();
             imganimationinfo.playAnimation();
             animaionbtnvoltarinfo.playAnimation();
         });
@@ -182,6 +183,7 @@ public class PrincipalActivity extends AppCompatActivity {
         btnvoltarfecharmenuinfo.setOnClickListener( v -> {
             header.setVisibility(View.VISIBLE);
             cardviewlogoutinfo.setVisibility(View.GONE);
+            EnableBtns();
         });
 
         //  When click will show msg to confirm if really want to logout
@@ -213,6 +215,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //  When you click in this liner will go to AgendaActivity
         linearbtnagendaprincipal.setOnClickListener(v -> {
             loadingparaagenda.setVisibility(View.VISIBLE);
+            DisableBtns();
             animacaoagenda.playAnimation();
             new Handler().postDelayed(() -> {
                 loadingparaagenda.setVisibility(View.GONE);
@@ -229,6 +232,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //  When you click in this liner will go to ServicosActivity
         linearbtnservicosprincipal.setOnClickListener(v ->{
             loadingparaservicos.setVisibility(View.VISIBLE);
+            DisableBtns();
             animacaoservicoespricipal.setSpeed(2);
             new Handler().postDelayed(() -> {
                 Intent irparaservicos = new Intent(PrincipalActivity.this,ServicosActivity.class);
@@ -242,6 +246,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //  When you click in this liner will go to ClientesActivity
         linearbtnclienteprincipal.setOnClickListener(v -> {
             loadingparaclientes.setVisibility(View.VISIBLE);
+            DisableBtns();
             new Handler().postDelayed(() -> {
                 Intent irparaclientes = new Intent(PrincipalActivity.this,ClientesActivity.class);
                 irparaclientes.putExtra("cpfusu",cpfrecebido);
@@ -419,11 +424,28 @@ public class PrincipalActivity extends AppCompatActivity {
         popup.show();
     }
 
+    private void DisableBtns(){
+        linearbtnhomeprincipal.setEnabled(false);
+        linearbtnagendaprincipal.setEnabled(false);
+        linearbtnservicosprincipal.setEnabled(false);
+        linearbtnclienteprincipal.setEnabled(false);
+        linearlicenseprincipal.setEnabled(false);
+    }
+
+    private void EnableBtns(){
+        linearbtnhomeprincipal.setEnabled(true);
+        linearbtnagendaprincipal.setEnabled(true);
+        linearbtnservicosprincipal.setEnabled(true);
+        linearbtnclienteprincipal.setEnabled(true);
+        linearlicenseprincipal.setEnabled(true);
+    }
+
     @Override
     public void onBackPressed() {
         if (cardviewlogoutinfo.getVisibility() == View.VISIBLE){
             header.setVisibility(View.VISIBLE);
             cardviewlogoutinfo.setVisibility(View.GONE);
+            EnableBtns();
         }else {
             finish();
         }
