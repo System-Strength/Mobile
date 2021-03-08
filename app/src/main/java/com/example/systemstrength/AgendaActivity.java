@@ -90,6 +90,7 @@ public class AgendaActivity extends AppCompatActivity {
         linearbtnclientesagenda.setOnClickListener(v -> {
             loadingparaclientesagenda.setVisibility(View.VISIBLE);
             basenaoaagendacadastrado.setVisibility(View.GONE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent irparaclientes = new Intent(AgendaActivity.this,ClientesActivity.class);
                 irparaclientes.putExtra("cpfusu",cpfrecebidobase);
@@ -103,6 +104,7 @@ public class AgendaActivity extends AppCompatActivity {
             loadingparaservicosagenda.setVisibility(View.VISIBLE);
             animacaoservicosagenda.setSpeed(2);
             basenaoaagendacadastrado.setVisibility(View.GONE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 loadingparaservicosagenda.setVisibility(View.GONE);
                 Intent irparaservicos = new Intent(AgendaActivity.this,ServicosActivity.class);
@@ -119,6 +121,7 @@ public class AgendaActivity extends AppCompatActivity {
         linearbtnhomeagenda.setOnClickListener(v ->{
             cardviewloadingpricipalagenda.setVisibility(View.VISIBLE);
             basenaoaagendacadastrado.setVisibility(View.GONE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(AgendaActivity.this,PrincipalActivity.class);
                 voltarparaprincipal.putExtra("cpfusu",cpfrecebidobase);
@@ -218,5 +221,12 @@ public class AgendaActivity extends AppCompatActivity {
         btnclosedetalhes.setOnClickListener(v1 -> myDialog.dismiss());
 
         myDialog.show();
+    }
+
+    public void DesableBtns(){
+        linearbtnhomeagenda.setEnabled(false);
+        linearbtncontatoagenda.setEnabled(false);
+        linearbtnservicosagendaagenda.setEnabled(false);
+        linearbtnclientesagenda.setEnabled(false);
     }
 }
