@@ -218,7 +218,7 @@
     <string name="txthtml"><u><b>Oque é Html?</b></u>\nHTML (abreviação para a expressão inglesa HyperText Markup Language, que significa Linguagem de Marcação de Hipertexto) é uma linguagem de marcação utilizada na construção de páginas na Web.\nDocumentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</string>
     <string name="txtcss"><u><b>Oque é CSS</b></u>\nCascading Style Sheets (CSS) é um mecanismo para adicionar estilo (cores, fontes, espaçamento, etc.) a um documento web.\nO código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags style Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.\nAssim, quando se quiser alterar a aparência dos documentos vinculados a este arquivo CSS, basta modifica-lo.</string>
     <string name="devresponsa">Desenvolvedor responsavel: Kauã Vitório</string>
-    <string name="versao">Versão: 1.0.0</string>
+    <string name="versao">Versão: 1.2.1</string>
     <string name="txtatualizacao">A última versão já está instalada.</string>
     <string name="copyrightsystem">© 2020 System Strength</string>
     <string name="licenseinfo">License</string>

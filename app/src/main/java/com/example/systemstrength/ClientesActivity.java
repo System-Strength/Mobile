@@ -88,30 +88,6 @@ public class ClientesActivity extends AppCompatActivity {
             return false;
         });
 
-        //  When you click in this linear go do one animation and go to ServicosActivity
-        linearbtnservicoscliente.setOnClickListener(v -> {
-            loadingparaservicoscliente.setVisibility(View.VISIBLE);
-            basenaoaclientescadastrado.setVisibility(View.GONE);
-            new Handler().postDelayed(() -> {
-                Intent irparaservicos = new Intent(ClientesActivity.this,ServicosActivity.class);
-                irparaservicos.putExtra("cpfusu", cpfrecebidodaprincipal);
-                startActivity(irparaservicos);
-                finish();
-            },1400);
-        });
-
-        //  When you click in this linear go do one animation and go to AgendaActivity
-        linearbtncontatoclientes.setOnClickListener(v -> {
-            loadingparaagendaclientes.setVisibility(View.VISIBLE);
-            basenaoaclientescadastrado.setVisibility(View.GONE);
-            new Handler().postDelayed(() -> {
-                Intent irparaagenda = new Intent(ClientesActivity.this,AgendaActivity.class);
-                irparaagenda.putExtra("cpfusu", cpfrecebidodaprincipal);
-                startActivity(irparaagenda);
-                finish();
-            },1300);
-        });
-
         //  When you click in this cardview go to CadastrarCliente
         cardviewcadastrarnovocliente.setOnClickListener(v ->{
             cardviewanimacaocadastronovocliente.setVisibility(View.VISIBLE);
@@ -124,10 +100,38 @@ public class ClientesActivity extends AppCompatActivity {
             },1000);
         });
 
+        //  When you click in this linear go do one animation and go to ServicosActivity
+        linearbtnservicoscliente.setOnClickListener(v -> {
+            loadingparaservicoscliente.setVisibility(View.VISIBLE);
+            basenaoaclientescadastrado.setVisibility(View.GONE);
+            DesableBtns();
+            new Handler().postDelayed(() -> {
+                Intent irparaservicos = new Intent(ClientesActivity.this,ServicosActivity.class);
+                irparaservicos.putExtra("cpfusu", cpfrecebidodaprincipal);
+                startActivity(irparaservicos);
+                finish();
+            },1400);
+        });
+
+        //  When you click in this linear go do one animation and go to AgendaActivity
+        linearbtncontatoclientes.setOnClickListener(v -> {
+            loadingparaagendaclientes.setVisibility(View.VISIBLE);
+            basenaoaclientescadastrado.setVisibility(View.GONE);
+            DesableBtns();
+            new Handler().postDelayed(() -> {
+                Intent irparaagenda = new Intent(ClientesActivity.this,AgendaActivity.class);
+                irparaagenda.putExtra("cpfusu", cpfrecebidodaprincipal);
+                startActivity(irparaagenda);
+                finish();
+            },1300);
+        });
+
+
         //  When you click in this linear go do one animation and go to PrincipalActivity
         linearbtnhomeclientes.setOnClickListener(v ->{
             cardviewloadingprincipal.setVisibility(View.VISIBLE);
             basenaoaclientescadastrado.setVisibility(View.GONE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(ClientesActivity.this,PrincipalActivity.class);
                 voltarparaprincipal.putExtra("cpfusu",cpfrecebidodaprincipal);
@@ -224,5 +228,12 @@ public class ClientesActivity extends AppCompatActivity {
             startActivity(irparacontratos);
         }
         return super.onContextItemSelected(item);
+    }
+
+    public void DesableBtns(){
+        linearbtnclientes.setEnabled(false);
+        linearbtnhomeclientes.setEnabled(false);
+        linearbtncontatoclientes.setEnabled(false);
+        linearbtnservicoscliente.setEnabled(false);
     }
 }

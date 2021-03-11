@@ -70,6 +70,7 @@ public class ServicosActivity extends AppCompatActivity {
         //  When click in this linear you will be back to AgendaActivity
         linearbtncontatoservicos.setOnClickListener(v -> {
             loadingparaagendaservicos.setVisibility(View.VISIBLE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent irparaagenda = new Intent(ServicosActivity.this,AgendaActivity.class);
                 irparaagenda.putExtra("cpfusu",cpfrecebidoprincipal);
@@ -81,6 +82,7 @@ public class ServicosActivity extends AppCompatActivity {
         //  When click in this linear you will be back to ClienteActivity
         linearbtnclientesservicos.setOnClickListener(v -> {
             loadingparaclientesservicos.setVisibility(View.VISIBLE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent irparaclientes = new Intent(ServicosActivity.this,ClientesActivity.class);
                 irparaclientes.putExtra("cpfusu",cpfrecebidoprincipal);
@@ -92,6 +94,7 @@ public class ServicosActivity extends AppCompatActivity {
         //  When click in this linear you will be back to principal activity
         linearbtnhomeservicos.setOnClickListener(v -> {
             cardviewloadingprincipalservicos.setVisibility(View.VISIBLE);
+            DesableBtns();
             new Handler().postDelayed(() -> {
                 Intent voltarparaprincipal = new Intent(ServicosActivity.this,PrincipalActivity.class);
                 voltarparaprincipal.putExtra("cpfusu",cpfrecebidoprincipal);
@@ -140,5 +143,12 @@ public class ServicosActivity extends AppCompatActivity {
         btnvoltarinfra.setOnClickListener(v -> popupinfo.dismiss());
 
         popupinfo.show();
+    }
+
+    public void DesableBtns(){
+        linearbtnhomeservicos.setEnabled(false);
+        linearbtnclientesservicos.setEnabled(false);
+        linearbtncontatoservicos.setEnabled(false);
+        linearbtnservicosservicos.setEnabled(false);
     }
 }

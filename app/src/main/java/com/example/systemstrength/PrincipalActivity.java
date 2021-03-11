@@ -429,7 +429,6 @@ public class PrincipalActivity extends AppCompatActivity {
         linearbtnagendaprincipal.setEnabled(false);
         linearbtnservicosprincipal.setEnabled(false);
         linearbtnclienteprincipal.setEnabled(false);
-        linearlicenseprincipal.setEnabled(false);
     }
 
     private void EnableBtns(){
@@ -437,7 +436,6 @@ public class PrincipalActivity extends AppCompatActivity {
         linearbtnagendaprincipal.setEnabled(true);
         linearbtnservicosprincipal.setEnabled(true);
         linearbtnclienteprincipal.setEnabled(true);
-        linearlicenseprincipal.setEnabled(true);
     }
 
     @Override
