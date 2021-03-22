@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         edittextcpffunc.addTextChangedListener(MaskEditUtil.mask(edittextcpffunc, MaskEditUtil.FORMAT_CPF));
 
-          edittextcpffunc.setText("43333349850");
-          edittextsenha.setText("kaua2004");
+          //edittextcpffunc.setText("43333349850");
+          //edittextsenha.setText("kaua2004");
 
         //  Verification in Intent for to see if is null
         Intent intent = getIntent();
